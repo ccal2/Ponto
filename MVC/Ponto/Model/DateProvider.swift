@@ -1,0 +1,20 @@
+//
+//  DateProvider.swift
+//  Ponto-MVC
+//
+//  Created by Carolina Cruz Agra Lopes on 02/13/22.
+//
+
+import Foundation
+
+protocol CurrentDateProvider {
+    func currentDate() -> Date
+}
+
+struct DateProvider: CurrentDateProvider {
+
+    func currentDate() -> Date {
+        Date()
+    }
+
+}
