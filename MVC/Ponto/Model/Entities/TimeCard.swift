@@ -33,7 +33,7 @@ class TimeCard {
 
     // MARK: - Initializer
 
-    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider()) {
+    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
         self.startDate = start
         self.currentDateProvider = currentDateProvider
         self.state = .ongoing

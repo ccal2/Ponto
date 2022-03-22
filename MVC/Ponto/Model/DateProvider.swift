@@ -11,7 +11,11 @@ protocol CurrentDateProvider {
     func currentDate() -> Date
 }
 
-struct DateProvider: CurrentDateProvider {
+class DateProvider: CurrentDateProvider {
+
+    static let sharedInstance = DateProvider()
+
+    private init() { }
 
     func currentDate() -> Date {
         Date()

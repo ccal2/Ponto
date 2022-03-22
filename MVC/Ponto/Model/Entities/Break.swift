@@ -24,7 +24,7 @@ class Break {
 
     // MARK: - Initializer
 
-    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider()) {
+    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
         self.uuid = UUID()
         self.startDate = start
         self.currentDateProvider = currentDateProvider
