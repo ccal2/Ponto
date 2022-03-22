@@ -13,17 +13,19 @@ class Break {
 
     private(set) var startDate: Date
     private(set) var endDate: Date? = nil
-    
-    private var currentDateProvider: CurrentDateProvider
+    let uuid: UUID
 
     var duration: TimeInterval {
         let referenceDate = endDate ?? currentDateProvider.currentDate()
         return referenceDate.timeIntervalSince(startDate)
     }
 
+    private var currentDateProvider: CurrentDateProvider
+
     // MARK: - Initializer
 
     init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider()) {
+        self.uuid = UUID()
         self.startDate = start
         self.currentDateProvider = currentDateProvider
     }
@@ -36,6 +38,16 @@ class Break {
         }
 
         endDate = currentDateProvider.currentDate()
+    }
+
+}
+
+// MARK: - Equatable
+
+extension Break: Equatable {
+
+    static func == (lhs: Break, rhs: Break) -> Bool {
+        lhs.uuid == rhs.uuid
     }
 
 }
