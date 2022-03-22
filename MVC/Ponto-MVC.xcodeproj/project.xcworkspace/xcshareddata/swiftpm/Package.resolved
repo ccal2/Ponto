@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SnapshotTestingHEIC",
+        "repositoryURL": "https://github.com/alexey1312/SnapshotTestingHEIC.git",
+        "state": {
+          "branch": null,
+          "revision": "54c8d54d99a2c3961fda2da1196ce572911a8448",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "SnapshotTesting",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing.git",
+        "state": {
+          "branch": null,
+          "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
+          "version": "1.9.0"
+        }
+      },
+      {
+        "package": "SnapshotTestingStitch",
+        "repositoryURL": "https://github.com/Sherlouk/swift-snapshot-testing-stitch",
+        "state": {
+          "branch": null,
+          "revision": "8e5e510f85127550f75b94523e727185b54d8749",
+          "version": "1.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -3,12 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		771D696427E8067000825849 /* TimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696327E8067000825849 /* TimeCard.swift */; };
 		771D696727E8452000825849 /* TimeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696627E8451F00825849 /* TimeCardTests.swift */; };
+		771D696B27E95AE600825849 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696A27E95AE600825849 /* TestView.swift */; };
+		771D697627E9675000825849 /* PontoViewControllersSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */; };
+		771D697F27E9677C00825849 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 771D697E27E9677C00825849 /* SnapshotTesting */; };
+		771D698227E9679200825849 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 771D698127E9679200825849 /* SnapKit */; };
+		771D698527E9682500825849 /* SnapshotTestingStitch in Frameworks */ = {isa = PBXBuildFile; productRef = 771D698427E9682500825849 /* SnapshotTestingStitch */; };
+		771D698727E9742700825849 /* CodableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698627E9742700825849 /* CodableView.swift */; };
+		771D698A27E9745F00825849 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698927E9745F00825849 /* UIViewExtension.swift */; };
+		771D698C27E9751200825849 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698B27E9751200825849 /* Helpers.swift */; };
 		7791224927B9BA09008463AD /* Break.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224827B9BA09008463AD /* Break.swift */; };
 		7791224B27B9BBA5008463AD /* BreakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224A27B9BBA5008463AD /* BreakTests.swift */; };
 		7791225127B9C257008463AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791225027B9C257008463AD /* Constants.swift */; };
@@ -23,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		771D697827E9675000825849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7791786527B8D5E3008D13A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7791786C27B8D5E3008D13A0;
+			remoteInfo = "Ponto-MVC";
+		};
 		7791788427B8D5E7008D13A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7791786527B8D5E3008D13A0 /* Project object */;
@@ -35,6 +50,13 @@
 /* Begin PBXFileReference section */
 		771D696327E8067000825849 /* TimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCard.swift; sourceTree = "<group>"; };
 		771D696627E8451F00825849 /* TimeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardTests.swift; sourceTree = "<group>"; };
+		771D696A27E95AE600825849 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		771D697327E9675000825849 /* Ponto-MVCSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVCSnapshotTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoViewControllersSnapshotTests.swift; sourceTree = "<group>"; };
+		771D697727E9675000825849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		771D698627E9742700825849 /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
+		771D698927E9745F00825849 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		771D698B27E9751200825849 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7791224827B9BA09008463AD /* Break.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Break.swift; sourceTree = "<group>"; };
 		7791224A27B9BBA5008463AD /* BreakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTests.swift; sourceTree = "<group>"; };
 		7791224D27B9C0CC008463AD /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
@@ -53,10 +75,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		771D697027E9675000825849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771D698527E9682500825849 /* SnapshotTestingStitch in Frameworks */,
+				771D697F27E9677C00825849 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7791786A27B8D5E3008D13A0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771D698227E9679200825849 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +109,24 @@
 				771D696327E8067000825849 /* TimeCard.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		771D697427E9675000825849 /* Ponto-MVCSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				771D697727E9675000825849 /* Info.plist */,
+				771D698B27E9751200825849 /* Helpers.swift */,
+				771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */,
+			);
+			path = "Ponto-MVCSnapshotTests";
+			sourceTree = "<group>";
+		};
+		771D698827E9744000825849 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				771D698927E9745F00825849 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7791224127B9B775008463AD /* App */ = {
@@ -103,6 +153,7 @@
 				7791225027B9C257008463AD /* Constants.swift */,
 				7791225327B9C56E008463AD /* DateProvider.swift */,
 				771D696527E8069A00825849 /* Entities */,
+				771D698827E9744000825849 /* Extensions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +161,8 @@
 		7791224427B9B79E008463AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				771D698627E9742700825849 /* CodableView.swift */,
+				771D696A27E95AE600825849 /* TestView.swift */,
 				7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */,
 				7791787627B8D5E3008D13A0 /* Main.storyboard */,
 			);
@@ -146,6 +199,7 @@
 			children = (
 				7791786F27B8D5E3008D13A0 /* Ponto */,
 				7791788627B8D5E7008D13A0 /* PontoTests */,
+				771D697427E9675000825849 /* Ponto-MVCSnapshotTests */,
 				7791786E27B8D5E3008D13A0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,6 +209,7 @@
 			children = (
 				7791786D27B8D5E3008D13A0 /* Ponto-MVC.app */,
 				7791788327B8D5E7008D13A0 /* Ponto-MVCTests.xctest */,
+				771D697327E9675000825849 /* Ponto-MVCSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +239,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		771D697227E9675000825849 /* Ponto-MVCSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 771D697A27E9675000825849 /* Build configuration list for PBXNativeTarget "Ponto-MVCSnapshotTests" */;
+			buildPhases = (
+				771D696F27E9675000825849 /* Sources */,
+				771D697027E9675000825849 /* Frameworks */,
+				771D697127E9675000825849 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				771D697927E9675000825849 /* PBXTargetDependency */,
+			);
+			name = "Ponto-MVCSnapshotTests";
+			packageProductDependencies = (
+				771D697E27E9677C00825849 /* SnapshotTesting */,
+				771D698427E9682500825849 /* SnapshotTestingStitch */,
+			);
+			productName = "Ponto-MVCSnapshotTests";
+			productReference = 771D697327E9675000825849 /* Ponto-MVCSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7791786C27B8D5E3008D13A0 /* Ponto-MVC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7791789727B8D5E7008D13A0 /* Build configuration list for PBXNativeTarget "Ponto-MVC" */;
@@ -197,6 +274,9 @@
 			dependencies = (
 			);
 			name = "Ponto-MVC";
+			packageProductDependencies = (
+				771D698127E9679200825849 /* SnapKit */,
+			);
 			productName = Ponto;
 			productReference = 7791786D27B8D5E3008D13A0 /* Ponto-MVC.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +308,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					771D697227E9675000825849 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 7791786C27B8D5E3008D13A0;
+					};
 					7791786C27B8D5E3008D13A0 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -246,17 +330,30 @@
 				Base,
 			);
 			mainGroup = 7791786427B8D5E3008D13A0;
+			packageReferences = (
+				771D697D27E9677C00825849 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				771D698027E9679200825849 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				771D698327E9682500825849 /* XCRemoteSwiftPackageReference "swift-snapshot-testing-stitch" */,
+			);
 			productRefGroup = 7791786E27B8D5E3008D13A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				7791786C27B8D5E3008D13A0 /* Ponto-MVC */,
 				7791788227B8D5E7008D13A0 /* Ponto-MVCTests */,
+				771D697227E9675000825849 /* Ponto-MVCSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		771D697127E9675000825849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7791786B27B8D5E3008D13A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,14 +374,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		771D696F27E9675000825849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771D697627E9675000825849 /* PontoViewControllersSnapshotTests.swift in Sources */,
+				771D698C27E9751200825849 /* Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7791786927B8D5E3008D13A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771D698A27E9745F00825849 /* UIViewExtension.swift in Sources */,
 				771D696427E8067000825849 /* TimeCard.swift in Sources */,
 				7791787527B8D5E3008D13A0 /* ViewController.swift in Sources */,
+				771D698727E9742700825849 /* CodableView.swift in Sources */,
 				7791224927B9BA09008463AD /* Break.swift in Sources */,
 				7791787127B8D5E3008D13A0 /* AppDelegate.swift in Sources */,
+				771D696B27E95AE600825849 /* TestView.swift in Sources */,
 				7791225127B9C257008463AD /* Constants.swift in Sources */,
 				7791225427B9C56E008463AD /* DateProvider.swift in Sources */,
 				7791787327B8D5E3008D13A0 /* SceneDelegate.swift in Sources */,
@@ -304,6 +413,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		771D697927E9675000825849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7791786C27B8D5E3008D13A0 /* Ponto-MVC */;
+			targetProxy = 771D697827E9675000825849 /* PBXContainerItemProxy */;
+		};
 		7791788527B8D5E7008D13A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7791786C27B8D5E3008D13A0 /* Ponto-MVC */;
@@ -331,6 +445,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		771D697B27E9675000825849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				INFOPLIST_FILE = "Ponto-MVCSnapshotTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaLopes.Ponto-MVCSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ponto-MVC.app/Ponto-MVC";
+			};
+			name = Debug;
+		};
+		771D697C27E9675000825849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				INFOPLIST_FILE = "Ponto-MVCSnapshotTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaLopes.Ponto-MVCSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ponto-MVC.app/Ponto-MVC";
+			};
+			name = Release;
+		};
 		7791789527B8D5E7008D13A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -534,6 +688,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		771D697A27E9675000825849 /* Build configuration list for PBXNativeTarget "Ponto-MVCSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771D697B27E9675000825849 /* Debug */,
+				771D697C27E9675000825849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7791786827B8D5E3008D13A0 /* Build configuration list for PBXProject "Ponto-MVC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -562,6 +725,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		771D697D27E9677C00825849 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
+		771D698027E9679200825849 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		771D698327E9682500825849 /* XCRemoteSwiftPackageReference "swift-snapshot-testing-stitch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Sherlouk/swift-snapshot-testing-stitch";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		771D697E27E9677C00825849 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 771D697D27E9677C00825849 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		771D698127E9679200825849 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 771D698027E9679200825849 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		771D698427E9682500825849 /* SnapshotTestingStitch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 771D698327E9682500825849 /* XCRemoteSwiftPackageReference "swift-snapshot-testing-stitch" */;
+			productName = SnapshotTestingStitch;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7791786527B8D5E3008D13A0 /* Project object */;
 }
