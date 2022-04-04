@@ -13,10 +13,10 @@ import SnapshotTestingStitch
 
 class PontoViewControllersSnapshotTests: XCTestCase {
 
-    func test_ViewController() throws {
+    func test_CurrentTimeCardViewController() throws {
         let recordMode = false
 
-        let viewController = ViewController()
+        let viewController = CurrentTimeCardViewController()
         assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
         assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)

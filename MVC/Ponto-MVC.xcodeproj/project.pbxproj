@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		771D696427E8067000825849 /* TimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696327E8067000825849 /* TimeCard.swift */; };
 		771D696727E8452000825849 /* TimeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696627E8451F00825849 /* TimeCardTests.swift */; };
-		771D696B27E95AE600825849 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696A27E95AE600825849 /* TestView.swift */; };
 		771D697627E9675000825849 /* PontoViewControllersSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */; };
 		771D697F27E9677C00825849 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 771D697E27E9677C00825849 /* SnapshotTesting */; };
 		771D698227E9679200825849 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 771D698127E9679200825849 /* SnapKit */; };
@@ -17,6 +16,8 @@
 		771D698727E9742700825849 /* CodableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698627E9742700825849 /* CodableView.swift */; };
 		771D698A27E9745F00825849 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698927E9745F00825849 /* UIViewExtension.swift */; };
 		771D698C27E9751200825849 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698B27E9751200825849 /* Helpers.swift */; };
+		7741368D27FA75E600545462 /* CurrentTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741368C27FA75E600545462 /* CurrentTimeCardView.swift */; };
+		7741368F27FA858300545462 /* CurrentTimeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */; };
 		7791224927B9BA09008463AD /* Break.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224827B9BA09008463AD /* Break.swift */; };
 		7791224B27B9BBA5008463AD /* BreakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224A27B9BBA5008463AD /* BreakTests.swift */; };
 		7791225127B9C257008463AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791225027B9C257008463AD /* Constants.swift */; };
@@ -24,7 +25,6 @@
 		7791226A27B9C943008463AD /* MockDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224D27B9C0CC008463AD /* MockDateProvider.swift */; };
 		7791787127B8D5E3008D13A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791787027B8D5E3008D13A0 /* AppDelegate.swift */; };
 		7791787327B8D5E3008D13A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791787227B8D5E3008D13A0 /* SceneDelegate.swift */; };
-		7791787527B8D5E3008D13A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791787427B8D5E3008D13A0 /* ViewController.swift */; };
 		7791787827B8D5E3008D13A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7791787627B8D5E3008D13A0 /* Main.storyboard */; };
 		7791787A27B8D5E6008D13A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7791787927B8D5E6008D13A0 /* Assets.xcassets */; };
 		7791787D27B8D5E6008D13A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */; };
@@ -50,13 +50,14 @@
 /* Begin PBXFileReference section */
 		771D696327E8067000825849 /* TimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCard.swift; sourceTree = "<group>"; };
 		771D696627E8451F00825849 /* TimeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardTests.swift; sourceTree = "<group>"; };
-		771D696A27E95AE600825849 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		771D697327E9675000825849 /* Ponto-MVCSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVCSnapshotTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoViewControllersSnapshotTests.swift; sourceTree = "<group>"; };
 		771D697727E9675000825849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		771D698627E9742700825849 /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
 		771D698927E9745F00825849 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		771D698B27E9751200825849 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		7741368C27FA75E600545462 /* CurrentTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardView.swift; sourceTree = "<group>"; };
+		7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewController.swift; sourceTree = "<group>"; };
 		7791224827B9BA09008463AD /* Break.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Break.swift; sourceTree = "<group>"; };
 		7791224A27B9BBA5008463AD /* BreakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTests.swift; sourceTree = "<group>"; };
 		7791224D27B9C0CC008463AD /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		7791786D27B8D5E3008D13A0 /* Ponto-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ponto-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7791787027B8D5E3008D13A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7791787227B8D5E3008D13A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7791787427B8D5E3008D13A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7791787727B8D5E3008D13A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7791787927B8D5E6008D13A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7791787C27B8D5E6008D13A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				771D698627E9742700825849 /* CodableView.swift */,
-				771D696A27E95AE600825849 /* TestView.swift */,
+				7741368C27FA75E600545462 /* CurrentTimeCardView.swift */,
 				7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */,
 				7791787627B8D5E3008D13A0 /* Main.storyboard */,
 			);
@@ -172,7 +172,7 @@
 		7791224527B9B7A2008463AD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7791787427B8D5E3008D13A0 /* ViewController.swift */,
+				7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -387,13 +387,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7741368D27FA75E600545462 /* CurrentTimeCardView.swift in Sources */,
+				7741368F27FA858300545462 /* CurrentTimeCardViewController.swift in Sources */,
 				771D698A27E9745F00825849 /* UIViewExtension.swift in Sources */,
 				771D696427E8067000825849 /* TimeCard.swift in Sources */,
-				7791787527B8D5E3008D13A0 /* ViewController.swift in Sources */,
 				771D698727E9742700825849 /* CodableView.swift in Sources */,
 				7791224927B9BA09008463AD /* Break.swift in Sources */,
 				7791787127B8D5E3008D13A0 /* AppDelegate.swift in Sources */,
-				771D696B27E95AE600825849 /* TestView.swift in Sources */,
 				7791225127B9C257008463AD /* Constants.swift in Sources */,
 				7791225427B9C56E008463AD /* DateProvider.swift in Sources */,
 				7791787327B8D5E3008D13A0 /* SceneDelegate.swift in Sources */,

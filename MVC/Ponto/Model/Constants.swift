@@ -14,4 +14,12 @@ enum Constants {
     static let hoursToMinutes: TimeInterval = 60
     static let daysToHours: TimeInterval = 24
 
+    enum ViewSpacing {
+        static let small: Double = 8.0
+        static let medium: Double = 16.0
+        static let large: Double = 32.0
+        static let extraLarge: Double = 64.0
+        static let extraExtraLarge: Double = 80.0
+    }
+
 }
