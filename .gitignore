@@ -48,4 +48,4 @@ playground.xcworkspace
 .build/
 
 # SnapshotTesting
-__Snapshots__/
+# __Snapshots__/
