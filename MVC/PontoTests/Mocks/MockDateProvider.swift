@@ -44,7 +44,7 @@ enum MockDateProviderError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case let .failedConversion(for: stringValue):
-            return NSLocalizedString("Failed to convert \"\(stringValue)\" to Date", comment: "Error description")
+            return String(format: NSLocalizedString("Failed to convert \"%@\" to Date", comment: "Error description"), stringValue)
         }
     }
 
