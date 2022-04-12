@@ -7,9 +7,17 @@
 
 import Foundation
 
+protocol TimeCardDelegate: AnyObject {
+    func timeCard(_: TimeCard, didUpdateState: TimeCard.State)
+}
+
 class TimeCard {
 
     // MARK: - Properties
+
+    weak var delegate: TimeCardDelegate?
+
+    private let id: UUID
 
     private(set) var startDate: Date
     private(set) var endDate: Date? = nil {
@@ -20,7 +28,11 @@ class TimeCard {
     }
     private(set) var breaks: [Break] = []
 
-    private(set) var state: State
+    private(set) var state: State {
+        didSet {
+            delegate?.timeCard(self, didUpdateState: state)
+        }
+    }
 
     private var currentDateProvider: CurrentDateProvider
 
@@ -34,6 +46,7 @@ class TimeCard {
     // MARK: - Initializer
 
     init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+        self.id = UUID()
         self.startDate = start
         self.currentDateProvider = currentDateProvider
         self.state = .ongoing
@@ -86,6 +99,16 @@ class TimeCard {
             assert(endDate != nil)
             throw TimeCardError.alreadyFinished
         }
+    }
+
+}
+
+// MARK: - Equatable
+
+extension TimeCard: Equatable {
+
+    static func == (lhs: TimeCard, rhs: TimeCard) -> Bool {
+        lhs.id == rhs.id
     }
 
 }

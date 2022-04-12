@@ -8,6 +8,11 @@
 import SnapKit
 import UIKit
 
+protocol CurrentTimeCardViewDelegate: AnyObject {
+    func currentTimeCardView(_ view: CurrentTimeCardView, didTapStartStopButton button: UIButton)
+    func currentTimeCardView(_ view: CurrentTimeCardView, didTapPauseContinueButton button: UIButton)
+}
+
 class CurrentTimeCardView: UIView {
 
     // MARK: - Subviews
@@ -56,6 +61,10 @@ class CurrentTimeCardView: UIView {
         return view
     }()
 
+    // MARK: - Delegate
+
+    weak var delegate: CurrentTimeCardViewDelegate?
+
     // MARK: - Initializers
 
     override init(frame: CGRect = .zero) {
@@ -65,6 +74,16 @@ class CurrentTimeCardView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Actions
+
+    @objc func tappedStartStopButton(sender: UIButton) {
+        delegate?.currentTimeCardView(self, didTapStartStopButton: sender)
+    }
+
+    @objc func tappedPauseContinueButton(sender: UIButton) {
+        delegate?.currentTimeCardView(self, didTapPauseContinueButton: sender)
     }
 
 }
@@ -125,6 +144,9 @@ extension CurrentTimeCardView: CodableView {
 
     func setupAdditionalConfiguration() {
         backgroundColor = .systemGroupedBackground
+
+        pauseContinueButton.addTarget(self, action: #selector(tappedPauseContinueButton), for: .touchUpInside)
+        startStopButton.addTarget(self, action: #selector(tappedStartStopButton), for: .touchUpInside)
     }
 
 }
