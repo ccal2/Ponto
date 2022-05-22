@@ -57,7 +57,6 @@ func assertViewControllerSnapshot(
         finalName = namePostfix
     }
 
-    // Portrait (|)
     assertSnapshot(matching: viewController,
                    as: .stitch(strategies: strategies, style: style),
                    named: finalName,
