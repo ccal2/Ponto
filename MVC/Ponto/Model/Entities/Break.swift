@@ -12,7 +12,7 @@ class Break {
     // MARK: - Properties
 
     private(set) var startDate: Date
-    private(set) var endDate: Date? = nil
+    private(set) var endDate: Date?
     let uuid: UUID
 
     var duration: TimeInterval {
@@ -24,9 +24,10 @@ class Break {
 
     // MARK: - Initializer
 
-    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+    init(start: Date, end: Date? = nil, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
         self.uuid = UUID()
         self.startDate = start
+        self.endDate = end
         self.currentDateProvider = currentDateProvider
     }
 

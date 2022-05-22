@@ -12,7 +12,9 @@ enum Constants {
     enum TimeConversion {
         static let minutesToSeconds: TimeInterval = 60
         static let hoursToMinutes: TimeInterval = 60
+        static let hoursToSeconds: TimeInterval = hoursToMinutes * minutesToSeconds
         static let daysToHours: TimeInterval = 24
+        static let daysToSeconds: TimeInterval = daysToHours * hoursToMinutes * minutesToSeconds
     }
 
     enum ViewSpacing {

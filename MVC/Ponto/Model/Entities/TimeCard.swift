@@ -17,16 +17,16 @@ class TimeCard {
 
     weak var delegate: TimeCardDelegate?
 
-    private let id: UUID
+    let id: UUID
 
     private(set) var startDate: Date
-    private(set) var endDate: Date? = nil {
+    private(set) var endDate: Date? {
         didSet {
             // It's not possible to modify the endDate while on a break
             state = (endDate == nil) ? .ongoing : .finished
         }
     }
-    private(set) var breaks: [Break] = []
+    private(set) var breaks: [Break]
 
     private(set) var state: State {
         didSet {
@@ -45,11 +45,17 @@ class TimeCard {
 
     // MARK: - Initializer
 
-    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
-        self.id = UUID()
+    init(id: UUID = UUID(), start: Date, end: Date? = nil, breaks: [Break] = [], currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+        self.id = id
         self.startDate = start
+        self.endDate = end
+        self.breaks = breaks
         self.currentDateProvider = currentDateProvider
-        self.state = .ongoing
+        if end == nil {
+            self.state = (breaks.first(where: { `break` in `break`.endDate == nil }) != nil) ? .onABreak : .ongoing
+        } else {
+            self.state = .finished
+        }
     }
 
     // MARK: - Internal Methods

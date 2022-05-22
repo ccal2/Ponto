@@ -29,7 +29,7 @@ class BreakTests: XCTestCase {
 
     // MARK: duration
 
-    func test_duration_beforeFinishing() throws {
+    func test_duration_withoutEndDate() throws {
         // Arrange
         let workBreak = Break(start: mockDateProvider.currentDate(),
                               currentDateProvider: mockDateProvider)
@@ -41,12 +41,11 @@ class BreakTests: XCTestCase {
         XCTAssertEqual(workBreak.duration, 15 * Constants.TimeConversion.minutesToSeconds)
     }
 
-    func test_duration_afterFinishing() throws {
+    func test_duration_withEndDate() throws {
         // Arrange
         let workBreak = Break(start: mockDateProvider.currentDate(),
+                              end: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
                               currentDateProvider: mockDateProvider)
-        try mockDateProvider.updateDate(to: "02/01/97 15:15")
-        try workBreak.finish()
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
@@ -57,7 +56,7 @@ class BreakTests: XCTestCase {
 
     // MARK: finish
 
-    func test_finish_updatesEndDate() throws {
+    func test_finish_withoutEndDate_updatesEndDate() throws {
         // Arrange
         let workBreak = Break(start: mockDateProvider.currentDate(),
                               currentDateProvider: mockDateProvider)
@@ -71,12 +70,11 @@ class BreakTests: XCTestCase {
         XCTAssertEqual(workBreak.endDate, mockDateProvider.dateFormatter.date(from: "02/01/97 15:15"))
     }
 
-    func test_finish_afterAlreadyFinishing_throwsError() throws {
+    func test_finish_withEndDate_throwsError() throws {
         // Arrange
         let workBreak = Break(start: mockDateProvider.currentDate(),
+                              end: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
                               currentDateProvider: mockDateProvider)
-        try mockDateProvider.updateDate(to: "02/01/97 15:15")
-        try workBreak.finish()
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
