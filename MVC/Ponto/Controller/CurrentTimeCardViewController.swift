@@ -20,13 +20,6 @@ class CurrentTimeCardViewController: UIViewController {
     private var timeCardDurationTimer: Timer?
     private var breakDurationTimer: Timer?
 
-    private let dateComponentsFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        formatter.allowedUnits = [.hour, .minute, .second]
-        return formatter
-    }()
     private let defaultDurationText: String = "00:00:00"
 
     // MARK: - Life cycle
@@ -83,7 +76,7 @@ class CurrentTimeCardViewController: UIViewController {
             if !(breakDurationTimer?.isValid ?? false) {
                 setupBreakDurationTimer()
             }
-            if let timeCard = timeCard, let durationText = dateComponentsFormatter.string(from: timeCard.duration) {
+            if let timeCard = timeCard, let durationText = CommonFormatters.shared.dateComponentsFormatter.string(from: timeCard.duration) {
                 currentTimeCardView.durationLabel.text = durationText
             }
             currentTimeCardView.breakLabel.isHidden = false
@@ -97,7 +90,7 @@ class CurrentTimeCardViewController: UIViewController {
             timeCardDurationTimer = nil
             breakDurationTimer?.invalidate()
             breakDurationTimer = nil
-            if let timeCard = timeCard, let durationText = dateComponentsFormatter.string(from: timeCard.duration) {
+            if let timeCard = timeCard, let durationText = CommonFormatters.shared.dateComponentsFormatter.string(from: timeCard.duration) {
                 currentTimeCardView.durationLabel.text = durationText
             }
             currentTimeCardView.breakLabel.isHidden = true
@@ -110,7 +103,7 @@ class CurrentTimeCardViewController: UIViewController {
         timeCardDurationTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self] _ in
             guard let self = self, let timeCard = self.timeCard else { return }
 
-            let durationText = self.dateComponentsFormatter.string(from: timeCard.duration) ?? Constants.TimeCardDetails.durationPlaceholder
+            let durationText = CommonFormatters.shared.dateComponentsFormatter.string(from: timeCard.duration) ?? Constants.TimeCardDetails.durationPlaceholder
 
             DispatchQueue.main.async { [weak self, durationText] in
                 guard let self = self else { return }
@@ -127,7 +120,7 @@ class CurrentTimeCardViewController: UIViewController {
         breakDurationTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self, currentBreak] _ in
             guard let self = self else { return }
 
-            let durationText = self.dateComponentsFormatter.string(from: currentBreak.duration) ?? Constants.TimeCardDetails.durationPlaceholder
+            let durationText = CommonFormatters.shared.dateComponentsFormatter.string(from: currentBreak.duration) ?? Constants.TimeCardDetails.durationPlaceholder
 
             DispatchQueue.main.async { [weak self, durationText] in
                 guard let self = self else { return }
