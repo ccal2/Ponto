@@ -119,7 +119,7 @@ extension CurrentTimeCardView: CodableView {
 
         buttonsStack.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.small)
-            make.top.equalTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.large).priority(.medium)
+            make.top.equalTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.medium).priority(.medium)
             make.top.lessThanOrEqualTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.large)
             make.centerX.equalTo(self)
         }

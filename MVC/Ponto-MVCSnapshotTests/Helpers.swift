@@ -10,21 +10,21 @@ import SnapshotTesting
 import SnapshotTestingStitch
 
 let viewControllerPortraitSnapshotStrategies: [(name: String, strategy: Snapshotting<UIViewController, UIImage>)] = [
-    ("iPhone SE (|)", .image(on: .iPhoneSe(.portrait))),
-    ("iPhone 8 (|)", .image(on: .iPhone8(.portrait))),
-    ("iPhone 8 Plus (|)", .image(on: .iPhone8Plus(.portrait))),
     ("iPhone X (|)", .image(on: .iPhoneX(.portrait))),
-    ("iPhone XR (|)", .image(on: .iPhoneXr(.portrait))),
-    ("iPhone XS Max (|)", .image(on: .iPhoneXsMax(.portrait)))
+    ("iPhone 11 (|)", .image(on: .iPhone11(.portrait))),
+    // iPhone XR, iPhone XS Max and iPhone 11 have the same dimensions, so they're not repeared here
+    ("iPhone 11 Pro (|)", .image(on: .iPhone11Pro(.portrait))),
+    ("iPhone 12 (|)", .image(on: .iPhone12(.portrait)))
+    // iPhone 12, iPhone 12 Pro, iPhone 13 and iPhone 13 Pro have the same dimensions, so they're not repeared here
 ]
 
 let viewControllerLandscapeSnapshotStrategies: [(name: String, strategy: Snapshotting<UIViewController, UIImage>)] = [
-    ("iPhone SE (-)", .image(on: .iPhoneSe(.landscape))),
-    ("iPhone 8 (-)", .image(on: .iPhone8(.landscape))),
-    ("iPhone 8 Plus (-)", .image(on: .iPhone8Plus(.landscape))),
     ("iPhone X (-)", .image(on: .iPhoneX(.landscape))),
-    ("iPhone XR (-)", .image(on: .iPhoneXr(.landscape))),
-    ("iPhone XS Max (-)", .image(on: .iPhoneXsMax(.landscape)))
+    ("iPhone 11 (-)", .image(on: .iPhone11(.landscape))),
+    // iPhone XR, iPhone XS Max and iPhone 11 have the same dimensions, so they're not repeared here
+    ("iPhone 11 Pro (-)", .image(on: .iPhone11Pro(.landscape))),
+    ("iPhone 12 (-)", .image(on: .iPhone12(.landscape)))
+    // iPhone 12, iPhone 12 Pro, iPhone 13 and iPhone 13 Pro have the same dimensions, so they're not repeared here
 ]
 
 let viewControllerSnapshotLightStyle = StitchStyle(borderColor: .clear)

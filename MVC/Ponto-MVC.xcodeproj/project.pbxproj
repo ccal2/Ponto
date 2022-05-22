@@ -28,6 +28,7 @@
 		7791787827B8D5E3008D13A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7791787627B8D5E3008D13A0 /* Main.storyboard */; };
 		7791787A27B8D5E6008D13A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7791787927B8D5E6008D13A0 /* Assets.xcassets */; };
 		7791787D27B8D5E6008D13A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */; };
+		77F0642E2839E87C00ACA76D /* ViewImageConfigExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0642D2839E87C00ACA76D /* ViewImageConfigExtenstion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		7791787E27B8D5E6008D13A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7791788327B8D5E7008D13A0 /* Ponto-MVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7791788927B8D5E7008D13A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F0642D2839E87C00ACA76D /* ViewImageConfigExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageConfigExtenstion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				771D697727E9675000825849 /* Info.plist */,
 				771D698B27E9751200825849 /* Helpers.swift */,
 				771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */,
+				77F0642D2839E87C00ACA76D /* ViewImageConfigExtenstion.swift */,
 			);
 			path = "Ponto-MVCSnapshotTests";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			files = (
 				771D697627E9675000825849 /* PontoViewControllersSnapshotTests.swift in Sources */,
 				771D698C27E9751200825849 /* Helpers.swift in Sources */,
+				77F0642E2839E87C00ACA76D /* ViewImageConfigExtenstion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
