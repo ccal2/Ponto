@@ -12,7 +12,7 @@ class MockDateProvider: CurrentDateProvider {
 
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        formatter.dateFormat = "dd/MM/yy HH:mm"
         return formatter
     }()
 
