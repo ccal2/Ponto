@@ -126,14 +126,6 @@
 			path = "Ponto-MVCSnapshotTests";
 			sourceTree = "<group>";
 		};
-		771D698827E9744000825849 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				771D698927E9745F00825849 /* UIViewExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		7791224127B9B775008463AD /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +151,6 @@
 				7791225027B9C257008463AD /* Constants.swift */,
 				7791225327B9C56E008463AD /* DateProvider.swift */,
 				771D696527E8069A00825849 /* Entities */,
-				771D698827E9744000825849 /* Extensions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +160,7 @@
 			children = (
 				771D698627E9742700825849 /* CodableView.swift */,
 				7741368C27FA75E600545462 /* CurrentTimeCardView.swift */,
+				771D698927E9745F00825849 /* UIViewExtension.swift */,
 				7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */,
 				7791787627B8D5E3008D13A0 /* Main.storyboard */,
 			);
