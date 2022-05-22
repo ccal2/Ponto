@@ -9,7 +9,7 @@ import Foundation
 
 class CommonFormatters {
 
-    let dateComponentsFormatter: DateComponentsFormatter = {
+    let durationDateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
         formatter.zeroFormattingBehavior = .pad
