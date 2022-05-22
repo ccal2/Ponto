@@ -53,7 +53,7 @@ class TimeCardTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
 
         // Assert
-        XCTAssertEqual(timeCard.duration, 15 * Constants.minutesToSeconds)
+        XCTAssertEqual(timeCard.duration, 15 * Constants.TimeConversion.minutesToSeconds)
     }
 
     func test_duration_whenStateIsOngoing_withBreaks() throws {
@@ -76,7 +76,7 @@ class TimeCardTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 16:00")
 
         // Assert
-        XCTAssertEqual(timeCard.duration, 45 * Constants.minutesToSeconds)
+        XCTAssertEqual(timeCard.duration, 45 * Constants.TimeConversion.minutesToSeconds)
     }
 
     func test_duration_whenStateIsFinished_withoutBreaks() throws {
@@ -90,7 +90,7 @@ class TimeCardTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
 
         // Assert
-        XCTAssertEqual(timeCard.duration, 15 * Constants.minutesToSeconds)
+        XCTAssertEqual(timeCard.duration, 15 * Constants.TimeConversion.minutesToSeconds)
     }
 
     func test_duration_whenStateIsFinished_withBreaks() throws {
@@ -115,7 +115,7 @@ class TimeCardTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 16:20")
 
         // Assert
-        XCTAssertEqual(timeCard.duration, 45 * Constants.minutesToSeconds)
+        XCTAssertEqual(timeCard.duration, 45 * Constants.TimeConversion.minutesToSeconds)
     }
 
     func test_duration_whenStateIsOnABreak() throws {
@@ -136,7 +136,7 @@ class TimeCardTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:40")
 
         // Assert
-        XCTAssertEqual(timeCard.duration, 30 * Constants.minutesToSeconds)
+        XCTAssertEqual(timeCard.duration, 30 * Constants.TimeConversion.minutesToSeconds)
     }
 
     // MARK: startBreak

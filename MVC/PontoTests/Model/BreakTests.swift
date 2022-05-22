@@ -38,7 +38,7 @@ class BreakTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
 
         // Assert
-        XCTAssertEqual(workBreak.duration, 15 * Constants.minutesToSeconds)
+        XCTAssertEqual(workBreak.duration, 15 * Constants.TimeConversion.minutesToSeconds)
     }
 
     func test_duration_afterFinishing() throws {
@@ -52,7 +52,7 @@ class BreakTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
 
         // Assert
-        XCTAssertEqual(workBreak.duration, 15 * Constants.minutesToSeconds)
+        XCTAssertEqual(workBreak.duration, 15 * Constants.TimeConversion.minutesToSeconds)
     }
 
     // MARK: finish

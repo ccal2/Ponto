@@ -13,7 +13,7 @@ import SnapshotTestingStitch
 
 class PontoViewControllersSnapshotTests: XCTestCase {
 
-    func test_CurrentTimeCardViewController() throws {
+    func test_CurrentTimeCardViewController_noTimeCard() throws {
         let recordMode = false
 
         let viewController = CurrentTimeCardViewController()

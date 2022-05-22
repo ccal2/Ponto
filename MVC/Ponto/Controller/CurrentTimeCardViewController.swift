@@ -58,7 +58,7 @@ class CurrentTimeCardViewController: UIViewController {
         case nil:
             timeCardDurationTimer = nil
             breakDurationTimer = nil
-            currentTimeCardView.durationLabel.text = defaultDurationText
+            currentTimeCardView.durationLabel.text = Constants.TimeCardDetails.durationPlaceholder
             currentTimeCardView.breakLabel.isHidden = true
             currentTimeCardView.pauseContinueButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
             currentTimeCardView.pauseContinueButton.isEnabled = false
@@ -110,7 +110,7 @@ class CurrentTimeCardViewController: UIViewController {
         timeCardDurationTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self] _ in
             guard let self = self, let timeCard = self.timeCard else { return }
 
-            let durationText = self.dateComponentsFormatter.string(from: timeCard.duration) ?? self.defaultDurationText
+            let durationText = self.dateComponentsFormatter.string(from: timeCard.duration) ?? Constants.TimeCardDetails.durationPlaceholder
 
             DispatchQueue.main.async { [weak self, durationText] in
                 guard let self = self else { return }
@@ -127,7 +127,7 @@ class CurrentTimeCardViewController: UIViewController {
         breakDurationTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self, currentBreak] _ in
             guard let self = self else { return }
 
-            let durationText = self.dateComponentsFormatter.string(from: currentBreak.duration) ?? self.defaultDurationText
+            let durationText = self.dateComponentsFormatter.string(from: currentBreak.duration) ?? Constants.TimeCardDetails.durationPlaceholder
 
             DispatchQueue.main.async { [weak self, durationText] in
                 guard let self = self else { return }
@@ -183,7 +183,7 @@ extension CurrentTimeCardViewController: CurrentTimeCardViewDelegate {
 
 extension CurrentTimeCardViewController: TimeCardDelegate {
 
-    func timeCard(_: TimeCard, didUpdateState: TimeCard.State) {
+    func timeCard(_ timeCard: TimeCard, didUpdateState state: TimeCard.State) {
         guard timeCard == self.timeCard else {
             assertionFailure()
             return

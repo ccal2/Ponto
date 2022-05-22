@@ -9,10 +9,11 @@ import Foundation
 
 enum Constants {
 
-    // Time convertion
-    static let minutesToSeconds: TimeInterval = 60
-    static let hoursToMinutes: TimeInterval = 60
-    static let daysToHours: TimeInterval = 24
+    enum TimeConversion {
+        static let minutesToSeconds: TimeInterval = 60
+        static let hoursToMinutes: TimeInterval = 60
+        static let daysToHours: TimeInterval = 24
+    }
 
     enum ViewSpacing {
         static let small: Double = 8.0
@@ -27,6 +28,10 @@ enum Constants {
         static let stopButton: String = "stop.circle.fill"
         static let pauseButton: String = "pause.circle.fill"
         static let continueButton: String = "play.circle.fill"
+    }
+
+    enum TimeCardDetails {
+        static let durationPlaceholder: String = "00:00:00"
     }
 
 }
