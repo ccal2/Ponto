@@ -20,7 +20,7 @@ class CurrentTimeCardView: UIView {
     lazy var durationLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.monospacedDigitSystemFont(ofSize: 72.0, weight: .light)
-        view.text = "00:00:00"
+        view.text = Constants.TimeCardDetails.durationPlaceholder
         return view
     }()
 
