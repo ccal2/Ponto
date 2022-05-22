@@ -183,8 +183,7 @@
 		7791224F27B9C111008463AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7791224A27B9BBA5008463AD /* BreakTests.swift */,
-				771D696627E8451F00825849 /* TimeCardTests.swift */,
+				77F0643A283AC77700ACA76D /* Entities */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +228,15 @@
 				7791224F27B9C111008463AD /* Model */,
 			);
 			path = PontoTests;
+			sourceTree = "<group>";
+		};
+		77F0643A283AC77700ACA76D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7791224A27B9BBA5008463AD /* BreakTests.swift */,
+				771D696627E8451F00825849 /* TimeCardTests.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
