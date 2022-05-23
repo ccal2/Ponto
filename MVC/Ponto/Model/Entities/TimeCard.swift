@@ -119,6 +119,16 @@ extension TimeCard: Equatable {
 
 }
 
+// MARK: - Hashable
+
+extension TimeCard: Hashable {
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+}
+
 // MARK: - State
 
 extension TimeCard {

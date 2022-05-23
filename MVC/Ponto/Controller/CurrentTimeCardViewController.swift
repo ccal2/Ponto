@@ -11,14 +11,35 @@ class CurrentTimeCardViewController: UIViewController {
 
     // MARK: - Properties
 
-    private(set) var timeCard: TimeCard?
+    private(set) var timeCard: TimeCard? {
+        didSet {
+            timeCard?.delegate = self
+            updateUI()
+        }
+    }
 
     /// View
     private lazy var currentTimeCardView = CurrentTimeCardView()
 
+    /// Injected dependencies
+    private let timeCardRepository: TimeCardRepository
+    private var currentDateProvider: CurrentDateProvider
+
     /// Timers
     private var timeCardDurationTimer: Timer?
     private var breakDurationTimer: Timer?
+
+    // MARK: - Initializers
+
+    init(timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+        self.timeCardRepository = timeCardRepository
+        self.currentDateProvider = currentDateProvider
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life cycle
 
@@ -30,7 +51,16 @@ class CurrentTimeCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: load current time card
+        timeCardRepository.get(for: currentDateProvider.currentDate()) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case let .success(timeCard):
+                self.timeCard = timeCard
+            case let .failure(error):
+                print("Error when trying to load the current time card: \(error.localizedDescription)")
+            }
+        }
 
         updateUI()
     }
@@ -141,10 +171,7 @@ extension CurrentTimeCardViewController: CurrentTimeCardViewDelegate {
                 print("Error when trying to finish the current time card: \(error.localizedDescription)")
             }
         } else {
-            // TODO: use DateProvider
-            timeCard = TimeCard(start: Date())
-            timeCard?.delegate = self
-            updateUI()
+            timeCard = TimeCard(start: currentDateProvider.currentDate())
         }
     }
 
