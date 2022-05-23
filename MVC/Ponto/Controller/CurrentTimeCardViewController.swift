@@ -77,7 +77,9 @@ class CurrentTimeCardViewController: UIViewController {
 
         switch timeCard?.state {
         case nil:
+            timeCardDurationTimer?.invalidate()
             timeCardDurationTimer = nil
+            breakDurationTimer?.invalidate()
             breakDurationTimer = nil
             currentTimeCardView.durationLabel.text = Constants.TimeCardDetails.durationPlaceholder
             currentTimeCardView.breakLabel.isHidden = true
@@ -122,7 +124,9 @@ class CurrentTimeCardViewController: UIViewController {
                 currentTimeCardView.durationLabel.text = durationText
             }
             currentTimeCardView.breakLabel.isHidden = true
+            currentTimeCardView.pauseContinueButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
             currentTimeCardView.pauseContinueButton.isEnabled = false
+            currentTimeCardView.startStopButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.stopButton), for: .normal)
             currentTimeCardView.startStopButton.isEnabled = false
         }
     }
