@@ -51,6 +51,8 @@ class CurrentTimeCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        currentTimeCardView.tableView.dataSource = self
+
         timeCardRepository.get(for: currentDateProvider.currentDate()) { [weak self] result in
             guard let self = self else { return }
 
@@ -129,6 +131,8 @@ class CurrentTimeCardViewController: UIViewController {
             currentTimeCardView.startStopButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.stopButton), for: .normal)
             currentTimeCardView.startStopButton.isEnabled = false
         }
+
+        currentTimeCardView.tableView.reloadData()
     }
 
     func setupTimeCardDurationTimer() {
@@ -197,6 +201,94 @@ extension CurrentTimeCardViewController: CurrentTimeCardViewDelegate {
                 print("Error when trying to finish the current break on the current time card: \(error.localizedDescription)")
             }
         }
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+
+extension CurrentTimeCardViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // If there are no breaks, there's only one section (for the start and end dates)
+        // If there are any breaks, there's one additional section for each one
+        (timeCard?.breaks.count ?? 0) + 1
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // The first section doesn't have a title and the other ones are named "Break <break number>"
+        // The section numbers start at 0, so the first section is number 0
+        section == 0 ? "" : String(format: Constants.TimeCardDetails.numberedBreakSectionHeaderTitle, section)
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        section == 0 ? Constants.TimeCardDetails.timeCardSectionRowCount : Constants.TimeCardDetails.breakSectionRowCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimeCardDetailTableViewCell.reuseIdentifier, for: indexPath) as? TimeCardDetailTableViewCell else {
+            return UITableViewCell()
+        }
+
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = Constants.TimeCardDetails.clockInTimeCellTitle
+                if let startDate = timeCard?.startDate {
+                    cell.detailTextLabel?.text = CommonFormatters.shared.timeDateFormatter.string(from: startDate)
+                } else {
+                    cell.detailTextLabel?.text = Constants.TimeCardDetails.timePlaceholder
+                }
+            case 1:
+                cell.textLabel?.text = Constants.TimeCardDetails.clockOutTimeCellTitle
+                if let endDate = timeCard?.endDate {
+                    cell.detailTextLabel?.text = CommonFormatters.shared.timeDateFormatter.string(from: endDate)
+                } else {
+                    cell.detailTextLabel?.text = Constants.TimeCardDetails.timePlaceholder
+                }
+            default:
+                assertionFailure("There are more than two rows at the first section")
+                break
+            }
+        } else {
+            guard let timeCard = timeCard else {
+                assertionFailure("A break section exists without an active time card")
+                return cell
+            }
+
+            let breaks = timeCard.breaks
+            let breakIndex = indexPath.section-1
+
+            guard breakIndex < breaks.count else {
+                assertionFailure("There are more break sections then the number of breaks")
+                return cell
+            }
+
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = Constants.TimeCardDetails.breakStartTimeCellTitle
+                cell.detailTextLabel?.text = CommonFormatters.shared.timeDateFormatter.string(from: breaks[breakIndex].startDate)
+            case 1:
+                cell.textLabel?.text = Constants.TimeCardDetails.breakEndTimeCellTitle
+                if let endDate = breaks[breakIndex].endDate {
+                    cell.detailTextLabel?.text = CommonFormatters.shared.timeDateFormatter.string(from: endDate)
+                } else {
+                    cell.detailTextLabel?.text = Constants.TimeCardDetails.timePlaceholder
+                }
+            case 2:
+                cell.textLabel?.text = Constants.TimeCardDetails.breakDurationCellTitle
+                if breaks[breakIndex].endDate != nil {
+                    cell.detailTextLabel?.text = CommonFormatters.shared.durationDateComponentsFormatter.string(from: breaks[breakIndex].duration)
+                } else {
+                    cell.detailTextLabel?.text = Constants.TimeCardDetails.ongoingBreakIndicator
+                }
+            default:
+                assertionFailure("There are more than three rows at a break section")
+                break
+            }
+        }
+
+        return cell
     }
 
 }

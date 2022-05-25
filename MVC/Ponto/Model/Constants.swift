@@ -33,7 +33,17 @@ enum Constants {
     }
 
     enum TimeCardDetails {
+        static let timeCardSectionRowCount: Int = 2
+        static let breakSectionRowCount: Int = 3
         static let durationPlaceholder: String = "00:00:00"
+        static let timePlaceholder: String = "--:--"
+        static let clockInTimeCellTitle: String = NSLocalizedString("Clock in", comment: "Title of a table view cell to indicate the clock in time")
+        static let clockOutTimeCellTitle: String = NSLocalizedString("Clock out", comment: "Title of a table view cell to indicate the clock out time")
+        static let numberedBreakSectionHeaderTitle: String = NSLocalizedString("Break %d", comment: "Title of a table view header of a section that represents a break from a time card")
+        static let breakStartTimeCellTitle: String = NSLocalizedString("Start", comment: "Title of a table view cell to indicate the start time of a time card's break")
+        static let breakEndTimeCellTitle: String = NSLocalizedString("Finish", comment: "Title of a table view cell to indicate the end time of a time card's break")
+        static let breakDurationCellTitle: String = NSLocalizedString("Duration", comment: "Title of a table view cell to indicate the duration of a time card's break")
+        static let ongoingBreakIndicator: String = NSLocalizedString("ongoing", comment: "Detail of a table view cell to indicate that the time card's break is ongoing")
     }
 
 }

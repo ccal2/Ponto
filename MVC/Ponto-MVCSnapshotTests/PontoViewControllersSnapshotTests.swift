@@ -34,10 +34,11 @@ class PontoViewControllersSnapshotTests: XCTestCase {
     func test_CurrentTimeCardViewController_noTimeCard() throws {
         // Arrange
         let recordMode = false
-        let viewController = CurrentTimeCardViewController()
-        let _ = viewController.view
+        let repository = LocalTimeCardRepository(timeCards: [])
+        let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
 
         // Act
+        let _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
@@ -54,11 +55,119 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let recordMode = false
         let timeCard = TimeCard(start: mockDateProvider.currentDate(), currentDateProvider: mockDateProvider)
         let repository = LocalTimeCardRepository(timeCards: [timeCard])
+        try mockDateProvider.updateDate(to: "02/01/97 15:15")
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
-        let _ = viewController.view
 
         // Act
-        try mockDateProvider.updateDate(to: "02/01/97 15:15")
+        let _ = viewController.view
+
+        RunLoop.main.run(until: Date()+runLoopAdditionalTime)
+
+        // Assert
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+    }
+
+    func test_CurrentTimeCardViewController_onABreakTimeCard() throws {
+        // Arrange
+        let recordMode = false
+        let `break` = Break(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                            currentDateProvider: mockDateProvider)
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(), breaks: [`break`], currentDateProvider: mockDateProvider)
+        let repository = LocalTimeCardRepository(timeCards: [timeCard])
+        try mockDateProvider.updateDate(to: "02/01/97 15:20")
+        let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+
+        // Act
+        let _ = viewController.view
+
+        // Make main thread proccess all operations without having to wait for it
+        RunLoop.main.run(until: Date()+runLoopAdditionalTime)
+
+        // Assert
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+    }
+
+    func test_CurrentTimeCardViewController_ongoingTimeCardWithBreaks() throws {
+        // Arrange
+        let recordMode = false
+        // first break: 15:15 - 15:20
+        let break1 = Break(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds),
+                           currentDateProvider: mockDateProvider)
+        // second break: 15:35 - 15:45
+        let break2 = Break(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds),
+                           end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds),
+                           currentDateProvider: mockDateProvider)
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let repository = LocalTimeCardRepository(timeCards: [timeCard])
+        try mockDateProvider.updateDate(to: "02/01/97 16:00")
+        let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+
+        // Act
+        let _ = viewController.view
+
+        // Make main thread proccess all operations without having to wait for it
+        RunLoop.main.run(until: Date()+runLoopAdditionalTime)
+
+        // Assert
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+    }
+
+    func test_CurrentTimeCardViewController_finishedTimeCardWithoutBreaks() throws {
+        // Arrange
+        let recordMode = false
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                                currentDateProvider: mockDateProvider)
+        let repository = LocalTimeCardRepository(timeCards: [timeCard])
+        try mockDateProvider.updateDate(to: "02/01/97 15:20")
+        let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+
+        // Act
+        let _ = viewController.view
+
+        // Make main thread proccess all operations without having to wait for it
+        RunLoop.main.run(until: Date()+runLoopAdditionalTime)
+
+        // Assert
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+    }
+
+    func test_CurrentTimeCardViewController_finishedTimeCardWithBreaks() throws {
+        // Arrange
+        let recordMode = false
+        // first break: 15:15 - 15:20
+        let break1 = Break(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds),
+                           currentDateProvider: mockDateProvider)
+        // second break: 15:35 - 15:45
+        let break2 = Break(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds),
+                           end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds),
+                           currentDateProvider: mockDateProvider)
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds),
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let repository = LocalTimeCardRepository(timeCards: [timeCard])
+        try mockDateProvider.updateDate(to: "02/01/97 16:20")
+        let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+
+        // Act
+        let _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)

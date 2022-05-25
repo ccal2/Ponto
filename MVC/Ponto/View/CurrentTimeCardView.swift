@@ -147,6 +147,8 @@ extension CurrentTimeCardView: CodableView {
 
         pauseContinueButton.addTarget(self, action: #selector(tappedPauseContinueButton), for: .touchUpInside)
         startStopButton.addTarget(self, action: #selector(tappedStartStopButton), for: .touchUpInside)
+
+        tableView.register(TimeCardDetailTableViewCell.self, forCellReuseIdentifier: TimeCardDetailTableViewCell.reuseIdentifier)
     }
 
 }

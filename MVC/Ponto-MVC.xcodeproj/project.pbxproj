@@ -28,6 +28,7 @@
 		7791787A27B8D5E6008D13A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7791787927B8D5E6008D13A0 /* Assets.xcassets */; };
 		7791787D27B8D5E6008D13A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */; };
 		77F0642A2839DFAC00ACA76D /* MockDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224D27B9C0CC008463AD /* MockDateProvider.swift */; };
+		77F0642C2839E29200ACA76D /* TimeCardDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0642B2839E29200ACA76D /* TimeCardDetailTableViewCell.swift */; };
 		77F0642E2839E87C00ACA76D /* ViewImageConfigExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0642D2839E87C00ACA76D /* ViewImageConfigExtenstion.swift */; };
 		77F06430283A018600ACA76D /* CommonFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0642F283A018600ACA76D /* CommonFormatters.swift */; };
 		77F06432283A079100ACA76D /* TimeCardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F06431283A079100ACA76D /* TimeCardRepository.swift */; };
@@ -77,6 +78,7 @@
 		7791787E27B8D5E6008D13A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7791788327B8D5E7008D13A0 /* Ponto-MVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7791788927B8D5E7008D13A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F0642B2839E29200ACA76D /* TimeCardDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailTableViewCell.swift; sourceTree = "<group>"; };
 		77F0642D2839E87C00ACA76D /* ViewImageConfigExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageConfigExtenstion.swift; sourceTree = "<group>"; };
 		77F0642F283A018600ACA76D /* CommonFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFormatters.swift; sourceTree = "<group>"; };
 		77F06431283A079100ACA76D /* TimeCardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardRepository.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				771D698627E9742700825849 /* CodableView.swift */,
 				7741368C27FA75E600545462 /* CurrentTimeCardView.swift */,
+				77F0642B2839E29200ACA76D /* TimeCardDetailTableViewCell.swift */,
 				771D698927E9745F00825849 /* UIViewExtension.swift */,
 				7791787B27B8D5E6008D13A0 /* LaunchScreen.storyboard */,
 			);
@@ -434,6 +437,7 @@
 				77F06432283A079100ACA76D /* TimeCardRepository.swift in Sources */,
 				7791225427B9C56E008463AD /* DateProvider.swift in Sources */,
 				7791787327B8D5E3008D13A0 /* SceneDelegate.swift in Sources */,
+				77F0642C2839E29200ACA76D /* TimeCardDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
