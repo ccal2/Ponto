@@ -79,6 +79,7 @@ class CurrentTimeCardViewController: UIViewController {
 
         switch timeCard?.state {
         case nil:
+            navigationItem.title = CommonFormatters.shared.shortDayDateFormatter.string(from: currentDateProvider.currentDate())
             timeCardDurationTimer?.invalidate()
             timeCardDurationTimer = nil
             breakDurationTimer?.invalidate()
@@ -91,6 +92,7 @@ class CurrentTimeCardViewController: UIViewController {
             currentTimeCardView.startStopButton.isEnabled = true
 
         case .ongoing:
+            navigationItem.title = CommonFormatters.shared.shortDayDateFormatter.string(from: timeCard!.startDate)
             breakDurationTimer?.invalidate()
             breakDurationTimer = nil
             if !(timeCardDurationTimer?.isValid ?? false) {
@@ -103,6 +105,7 @@ class CurrentTimeCardViewController: UIViewController {
             currentTimeCardView.startStopButton.isEnabled = true
 
         case .onABreak:
+            navigationItem.title = CommonFormatters.shared.shortDayDateFormatter.string(from: timeCard!.startDate)
             timeCardDurationTimer?.invalidate()
             timeCardDurationTimer = nil
             if !(breakDurationTimer?.isValid ?? false) {
@@ -118,6 +121,7 @@ class CurrentTimeCardViewController: UIViewController {
             currentTimeCardView.startStopButton.isEnabled = false
 
         case .finished:
+            navigationItem.title = CommonFormatters.shared.shortDayDateFormatter.string(from: timeCard!.startDate)
             timeCardDurationTimer?.invalidate()
             timeCardDurationTimer = nil
             breakDurationTimer?.invalidate()

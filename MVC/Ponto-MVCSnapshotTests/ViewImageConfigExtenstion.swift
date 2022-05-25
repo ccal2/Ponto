@@ -21,10 +21,10 @@ extension ViewImageConfig {
         let size: CGSize
         switch orientation {
         case .landscape:
-            safeArea = .init(top: 0, left: 44, bottom: 24, right: 44)
+            safeArea = .init(top: 0, left: 44, bottom: 0, right: 44)
             size = .init(width: 896, height: 414)
         case .portrait:
-            safeArea = .init(top: 44, left: 0, bottom: 34, right: 0)
+            safeArea = .init(top: 0, left: 0, bottom: 34, right: 0)
             size = .init(width: 414, height: 896)
         }
         return .init(safeArea: safeArea, size: size, traits: .iPhoneX(orientation))
@@ -40,7 +40,7 @@ extension ViewImageConfig {
             safeArea = .init(top: 0, left: 44, bottom: 24, right: 44)
             size = .init(width: 812, height: 375)
         case .portrait:
-            safeArea = .init(top: 44, left: 0, bottom: 34, right: 0)
+            safeArea = .init(top: 0, left: 0, bottom: 34, right: 0)
             size = .init(width: 375, height: 812)
         }
         return .init(safeArea: safeArea, size: size, traits: .iPhoneX(orientation))
@@ -53,10 +53,10 @@ extension ViewImageConfig {
         let size: CGSize
         switch orientation {
         case .landscape:
-            safeArea = .init(top: 0, left: 44, bottom: 24, right: 44)
+            safeArea = .init(top: 0, left: 44, bottom: 0, right: 44)
             size = .init(width: 844, height: 390)
         case .portrait:
-            safeArea = .init(top: 44, left: 0, bottom: 34, right: 0)
+            safeArea = .init(top: 0, left: 0, bottom: 34, right: 0)
             size = .init(width: 390, height: 844)
         }
         return .init(safeArea: safeArea, size: size, traits: .iPhoneX(orientation))
@@ -69,10 +69,10 @@ extension ViewImageConfig {
         let size: CGSize
         switch orientation {
         case .landscape:
-            safeArea = .init(top: 0, left: 44, bottom: 24, right: 44)
+            safeArea = .init(top: 0, left: 44, bottom: 0, right: 44)
             size = .init(width: 844, height: 390)
         case .portrait:
-            safeArea = .init(top: 44, left: 0, bottom: 34, right: 0)
+            safeArea = .init(top: 0, left: 0, bottom: 34, right: 0)
             size = .init(width: 390, height: 844)
         }
         return .init(safeArea: safeArea, size: size, traits: .iPhoneX(orientation))
@@ -85,10 +85,10 @@ extension ViewImageConfig {
         let size: CGSize
         switch orientation {
         case .landscape:
-            safeArea = .init(top: 0, left: 44, bottom: 24, right: 44)
+            safeArea = .init(top: 0, left: 44, bottom: 0, right: 44)
             size = .init(width: 844, height: 390)
         case .portrait:
-            safeArea = .init(top: 44, left: 0, bottom: 34, right: 0)
+            safeArea = .init(top: 0, left: 0, bottom: 34, right: 0)
             size = .init(width: 390, height: 844)
         }
         return .init(safeArea: safeArea, size: size, traits: .iPhoneX(orientation))
@@ -101,10 +101,10 @@ extension ViewImageConfig {
         let size: CGSize
         switch orientation {
         case .landscape:
-            safeArea = .init(top: 0, left: 44, bottom: 24, right: 44)
+            safeArea = .init(top: 0, left: 44, bottom: 0, right: 44)
             size = .init(width: 844, height: 390)
         case .portrait:
-            safeArea = .init(top: 44, left: 0, bottom: 34, right: 0)
+            safeArea = .init(top: 0, left: 0, bottom: 34, right: 0)
             size = .init(width: 390, height: 844)
         }
         return .init(safeArea: safeArea, size: size, traits: .iPhoneX(orientation))

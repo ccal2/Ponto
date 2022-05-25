@@ -36,6 +36,7 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let recordMode = false
         let repository = LocalTimeCardRepository(timeCards: [])
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
         let _ = viewController.view
@@ -44,10 +45,10 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_ongoingTimeCardWithoutBreaks() throws {
@@ -57,6 +58,7 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let repository = LocalTimeCardRepository(timeCards: [timeCard])
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
         let _ = viewController.view
@@ -64,10 +66,10 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_onABreakTimeCard() throws {
@@ -79,6 +81,7 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let repository = LocalTimeCardRepository(timeCards: [timeCard])
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
         let _ = viewController.view
@@ -87,10 +90,10 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_ongoingTimeCardWithBreaks() throws {
@@ -110,6 +113,7 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let repository = LocalTimeCardRepository(timeCards: [timeCard])
         try mockDateProvider.updateDate(to: "02/01/97 16:00")
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
         let _ = viewController.view
@@ -118,10 +122,10 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_finishedTimeCardWithoutBreaks() throws {
@@ -133,6 +137,7 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let repository = LocalTimeCardRepository(timeCards: [timeCard])
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
         let _ = viewController.view
@@ -141,10 +146,10 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_finishedTimeCardWithBreaks() throws {
@@ -165,6 +170,7 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         let repository = LocalTimeCardRepository(timeCards: [timeCard])
         try mockDateProvider.updateDate(to: "02/01/97 16:20")
         let viewController = CurrentTimeCardViewController(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
         let _ = viewController.view
@@ -173,10 +179,10 @@ class PontoViewControllersSnapshotTests: XCTestCase {
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: viewController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
 }

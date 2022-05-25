@@ -24,6 +24,14 @@ class CommonFormatters {
         return formatter
     }()
 
+    let shortDayDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "d MMMM", options: 0, locale: Locale.current) {
+            formatter.dateFormat = dateFormat
+        }
+        return formatter
+    }()
+
     static let shared: CommonFormatters = CommonFormatters()
 
     private init() { }
