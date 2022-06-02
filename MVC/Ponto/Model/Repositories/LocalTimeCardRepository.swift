@@ -58,7 +58,7 @@ class LocalTimeCardRepository: TimeCardRepository {
     }
 
     func list(completionHandler: TimeCardRepositoryListCompletionHandler) {
-        completionHandler(.success(Array(timeCards)))
+        completionHandler(.success(timeCards))
     }
 
     func save(_ timeCard: TimeCard, completionHandler: TimeCardRepositorySaveCompletionHandler) {
