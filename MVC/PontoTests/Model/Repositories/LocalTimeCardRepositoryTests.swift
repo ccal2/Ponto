@@ -125,7 +125,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
             saveExpectation1.fulfill()
         }
         try timeCard2.finish()
-        let saveExpectation2 = expectation(description: "Repository save completion 1")
+        let saveExpectation2 = expectation(description: "Repository save completion 2")
         repository.save(timeCard2) { result in
             if case let .failure(error) = result {
                 XCTFail("Failed to save timeCard: \(error.localizedDescription)")
