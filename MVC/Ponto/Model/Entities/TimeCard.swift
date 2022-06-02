@@ -7,20 +7,32 @@
 
 import Foundation
 
+protocol TimeCardDelegate: AnyObject {
+    func timeCard(_: TimeCard, didUpdateState: TimeCard.State)
+}
+
 class TimeCard {
 
     // MARK: - Properties
 
+    weak var delegate: TimeCardDelegate?
+
+    let id: UUID
+
     private(set) var startDate: Date
-    private(set) var endDate: Date? = nil {
+    private(set) var endDate: Date? {
         didSet {
             // It's not possible to modify the endDate while on a break
             state = (endDate == nil) ? .ongoing : .finished
         }
     }
-    private(set) var breaks: [Break] = []
+    private(set) var breaks: [Break]
 
-    private(set) var state: State
+    private(set) var state: State {
+        didSet {
+            delegate?.timeCard(self, didUpdateState: state)
+        }
+    }
 
     private var currentDateProvider: CurrentDateProvider
 
@@ -33,10 +45,17 @@ class TimeCard {
 
     // MARK: - Initializer
 
-    init(start: Date, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+    init(id: UUID = UUID(), start: Date, end: Date? = nil, breaks: [Break] = [], currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+        self.id = id
         self.startDate = start
+        self.endDate = end
+        self.breaks = breaks
         self.currentDateProvider = currentDateProvider
-        self.state = .ongoing
+        if end == nil {
+            self.state = (breaks.first(where: { `break` in `break`.endDate == nil }) != nil) ? .onABreak : .ongoing
+        } else {
+            self.state = .finished
+        }
     }
 
     // MARK: - Internal Methods
@@ -86,6 +105,26 @@ class TimeCard {
             assert(endDate != nil)
             throw TimeCardError.alreadyFinished
         }
+    }
+
+}
+
+// MARK: - Equatable
+
+extension TimeCard: Equatable {
+
+    static func == (lhs: TimeCard, rhs: TimeCard) -> Bool {
+        lhs.id == rhs.id
+    }
+
+}
+
+// MARK: - Hashable
+
+extension TimeCard: Hashable {
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 
 }
