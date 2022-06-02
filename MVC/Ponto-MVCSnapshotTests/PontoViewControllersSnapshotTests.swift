@@ -11,7 +11,7 @@ import SnapshotTestingStitch
 
 @testable import Ponto_MVC
 
-class PontoViewControllersSnapshotTests: XCTestCase {
+class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
     // MARK: - Properties
 
