@@ -162,10 +162,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
             case let .success(timeCards):
                 XCTFail("Trying to get a time card when there are none should fail with `TimeCardRepositoryError.notFound`, but it succeeded with timeCards: \(timeCards)")
             case let .failure(error):
-                if error != .notFound {
-                    XCTFail("Expected `TimeCardRepositoryError.notFound` error, but got: \(error) (\(error.localizedDescription))")
-                }
-                // OK - expected error
+                XCTAssertEqual(error, .notFound, "Expected `TimeCardRepositoryError.notFound` error, but got: \(error) (\(error.localizedDescription))")
             }
             getExpectation.fulfill()
         }
@@ -195,12 +192,9 @@ class LocalTimeCardRepositoryTests: XCTestCase {
             case let .success(timeCard):
                 XCTFail("Trying to get a time card when there are none should fail with `TimeCardRepositoryError.notFound`, but it succeeded with timeCard: \(timeCard)")
             case let .failure(error):
-                if error != .notFound {
-                    XCTFail("Expected `TimeCardRepositoryError.notFound` error, but got: \(error) (\(error.localizedDescription))")
-                }
-                // OK - expected error
-                getExpectation.fulfill()
+                XCTAssertEqual(error, .notFound, "Expected `TimeCardRepositoryError.notFound` error, but got: \(error) (\(error.localizedDescription))")
             }
+            getExpectation.fulfill()
         }
 
         waitForExpectations(timeout: expectationWaitingTimeout)
