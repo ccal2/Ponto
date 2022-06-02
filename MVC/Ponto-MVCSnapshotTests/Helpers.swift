@@ -8,6 +8,7 @@
 import UIKit
 import SnapshotTesting
 import SnapshotTestingStitch
+import XCTest
 
 let viewControllerPortraitSnapshotStrategies: [(name: String, strategy: Snapshotting<UIViewController, UIImage>)] = [
     ("iPhone X (|)", .image(on: .iPhoneX(.portrait))),
@@ -43,7 +44,11 @@ func assertViewControllerSnapshot(
     interfaceStyle: UIUserInterfaceStyle = .light,
     orientation: ViewImageConfig.Orientation = .portrait
 ) {
-    let viewController = try! value()
+    guard let viewController = try? value() else {
+        XCTFail()
+        return
+    }
+
     viewController.overrideUserInterfaceStyle = interfaceStyle
 
     let style = interfaceStyle == .light ? viewControllerSnapshotLightStyle : viewControllerSnapshotDarkStyle
@@ -68,7 +73,7 @@ func assertViewControllerSnapshot(
 
 }
 
-fileprivate func snapshotNamePostfix(interfaceStyle: UIUserInterfaceStyle, orientation: ViewImageConfig.Orientation) -> String {
+private func snapshotNamePostfix(interfaceStyle: UIUserInterfaceStyle, orientation: ViewImageConfig.Orientation) -> String {
     let nameOrientationPostfix = orientation == .portrait ? "Portrait" : "Landscape"
     let nameInterfacePostfix = interfaceStyle == .light ? "Light" : "Dark"
 

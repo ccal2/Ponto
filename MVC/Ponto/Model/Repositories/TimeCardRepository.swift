@@ -28,4 +28,3 @@ enum TimeCardRepositoryError: LocalizedError {
     }
 
 }
-

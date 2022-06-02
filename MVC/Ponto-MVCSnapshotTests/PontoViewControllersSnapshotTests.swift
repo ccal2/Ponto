@@ -39,7 +39,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
-        let _ = viewController.view
+        _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
@@ -61,7 +61,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
-        let _ = viewController.view
+        _ = viewController.view
 
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
@@ -84,7 +84,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
-        let _ = viewController.view
+        _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
@@ -116,7 +116,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
-        let _ = viewController.view
+        _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
@@ -140,7 +140,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
-        let _ = viewController.view
+        _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
@@ -173,7 +173,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: viewController)
 
         // Act
-        let _ = viewController.view
+        _ = viewController.view
 
         // Make main thread proccess all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)

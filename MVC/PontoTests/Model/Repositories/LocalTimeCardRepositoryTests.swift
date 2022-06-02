@@ -36,7 +36,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
 
         // Act
         let listExpectation = expectation(description: "Repository list completion")
-        repository.list() { result in
+        repository.list { result in
             // Assert
             switch result {
             case let .success(timeCards):
@@ -65,7 +65,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
 
         // Act
         let listExpectation = expectation(description: "Repository list completion")
-        repository.list() { result in
+        repository.list { result in
             // Assert
             switch result {
             case let .success(timeCards):
@@ -96,7 +96,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
         }
 
         let listExpectation = expectation(description: "Repository list completion")
-        repository.list() { result in
+        repository.list { result in
             // Assert
             switch result {
             case let .success(timeCards):
@@ -134,7 +134,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
         }
 
         let listExpectation = expectation(description: "Repository list completion")
-        repository.list() { result in
+        repository.list { result in
             // Assert
             switch result {
             case let .success(timeCards):
