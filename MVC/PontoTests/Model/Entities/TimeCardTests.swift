@@ -437,5 +437,5 @@ class TimeCardTests: XCTestCase {
                      end: endDate,
                      currentDateProvider: mockDateProvider)
     }
-    
+
 }
