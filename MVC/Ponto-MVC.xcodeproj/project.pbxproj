@@ -18,6 +18,7 @@
 		771D698C27E9751200825849 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698B27E9751200825849 /* Helpers.swift */; };
 		7741368D27FA75E600545462 /* CurrentTimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741368C27FA75E600545462 /* CurrentTimeCardView.swift */; };
 		7741368F27FA858300545462 /* CurrentTimeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */; };
+		777229BB285EB40E00878656 /* TimeCardHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */; };
 		7791224927B9BA09008463AD /* Break.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224827B9BA09008463AD /* Break.swift */; };
 		7791224B27B9BBA5008463AD /* BreakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224A27B9BBA5008463AD /* BreakTests.swift */; };
 		7791225127B9C257008463AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791225027B9C257008463AD /* Constants.swift */; };
@@ -65,6 +66,7 @@
 		771D698B27E9751200825849 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7741368C27FA75E600545462 /* CurrentTimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardView.swift; sourceTree = "<group>"; };
 		7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewController.swift; sourceTree = "<group>"; };
+		777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewController.swift; sourceTree = "<group>"; };
 		7791224827B9BA09008463AD /* Break.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Break.swift; sourceTree = "<group>"; };
 		7791224A27B9BBA5008463AD /* BreakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTests.swift; sourceTree = "<group>"; };
 		7791224D27B9C0CC008463AD /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */,
+				777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				771D698A27E9745F00825849 /* UIViewExtension.swift in Sources */,
 				771D696427E8067000825849 /* TimeCard.swift in Sources */,
 				771D698727E9742700825849 /* CodableView.swift in Sources */,
+				777229BB285EB40E00878656 /* TimeCardHistoryViewController.swift in Sources */,
 				7791224927B9BA09008463AD /* Break.swift in Sources */,
 				7791787127B8D5E3008D13A0 /* AppDelegate.swift in Sources */,
 				7791225127B9C257008463AD /* Constants.swift in Sources */,

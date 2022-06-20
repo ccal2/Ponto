@@ -32,6 +32,13 @@ class CommonFormatters {
         return formatter
     }()
 
+    let shortDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter
+    }()
+
     static let shared: CommonFormatters = CommonFormatters()
 
     private init() { }
