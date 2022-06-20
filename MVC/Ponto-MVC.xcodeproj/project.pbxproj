@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		771D696427E8067000825849 /* TimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696327E8067000825849 /* TimeCard.swift */; };
 		771D696727E8452000825849 /* TimeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696627E8451F00825849 /* TimeCardTests.swift */; };
-		771D697627E9675000825849 /* PontoViewControllersSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */; };
+		771D697627E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D697527E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift */; };
 		771D697F27E9677C00825849 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 771D697E27E9677C00825849 /* SnapshotTesting */; };
 		771D698227E9679200825849 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 771D698127E9679200825849 /* SnapKit */; };
 		771D698527E9682500825849 /* SnapshotTestingStitch in Frameworks */ = {isa = PBXBuildFile; productRef = 771D698427E9682500825849 /* SnapshotTestingStitch */; };
@@ -59,7 +59,7 @@
 		771D696327E8067000825849 /* TimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCard.swift; sourceTree = "<group>"; };
 		771D696627E8451F00825849 /* TimeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardTests.swift; sourceTree = "<group>"; };
 		771D697327E9675000825849 /* Ponto-MVCSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVCSnapshotTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoViewControllersSnapshotTests.swift; sourceTree = "<group>"; };
+		771D697527E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		771D697727E9675000825849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		771D698627E9742700825849 /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
 		771D698927E9745F00825849 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				771D697727E9675000825849 /* Info.plist */,
+				771D697527E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift */,
 				771D698B27E9751200825849 /* Helpers.swift */,
-				771D697527E9675000825849 /* PontoViewControllersSnapshotTests.swift */,
 				77F0642D2839E87C00ACA76D /* ViewImageConfigExtenstion.swift */,
 			);
 			path = "Ponto-MVCSnapshotTests";
@@ -438,7 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F0642A2839DFAC00ACA76D /* MockDateProvider.swift in Sources */,
-				771D697627E9675000825849 /* PontoViewControllersSnapshotTests.swift in Sources */,
+				771D697627E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift in Sources */,
 				771D698C27E9751200825849 /* Helpers.swift in Sources */,
 				77F0642E2839E87C00ACA76D /* ViewImageConfigExtenstion.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  PontoViewControllersSnapshotTests.swift
+//  CurrentTimeCardViewControllerSnapshotTests.swift
 //  Ponto-MVCSnapshotTests
 //
 //  Created by Carolina Cruz Agra Lopes on 03/21/22.
