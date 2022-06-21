@@ -16,7 +16,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
     // MARK: - Properties
 
     var mockDateProvider: MockDateProvider!
-    let runLoopAdditionalTime: TimeInterval = 0.002
+    let runLoopAdditionalTime: TimeInterval = 0.003
 
     // MARK: - Set up & Tear down
 
