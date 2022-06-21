@@ -84,7 +84,7 @@ extension TimeCardHistoryViewController {
             return cell
         }
 
-        cell.textLabel?.text = CommonFormatters.shared.shortDateFormatter.string(from: timeCards[indexPath.row].startDate)
+        cell.textLabel?.text = CommonFormatters.shared.mediumDayDateFormatter.string(from: timeCards[indexPath.row].startDate)
         cell.detailTextLabel?.text = CommonFormatters.shared.durationDateComponentsFormatter.string(from: timeCards[indexPath.row].duration)
 
         return cell
