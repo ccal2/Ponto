@@ -9,6 +9,15 @@ import Foundation
 
 class CommonFormatters {
 
+    var locale: Locale = Locale.current {
+        didSet {
+            durationDateComponentsFormatter.calendar?.locale = locale
+            timeDateFormatter.locale = locale
+            shortDayDateFormatter.locale = locale
+            shortDateFormatter.locale = locale
+        }
+    }
+
     let durationDateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
@@ -24,9 +33,9 @@ class CommonFormatters {
         return formatter
     }()
 
-    let shortDayDateFormatter: DateFormatter = {
+    lazy var shortDayDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "d MMMM", options: 0, locale: Locale.current) {
+        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "d MMMM", options: 0, locale: locale) {
             formatter.dateFormat = dateFormat
         }
         return formatter

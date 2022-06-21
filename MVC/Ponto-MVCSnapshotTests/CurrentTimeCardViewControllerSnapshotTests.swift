@@ -21,6 +21,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
     // MARK: - Set up & Tear down
 
     override func setUpWithError() throws {
+        CommonFormatters.shared.locale = Locale(identifier: "en_US")
         mockDateProvider = MockDateProvider()
         try mockDateProvider.updateDate(to: "02/01/97 15:00")
     }
