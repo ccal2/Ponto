@@ -46,6 +46,8 @@ class TimeCardHistoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = Constants.TimeCardHistory.screenTitle
+
         timeCardRepository.list { [weak self] result in
             guard let self = self else { return }
 
@@ -71,7 +73,23 @@ extension TimeCardHistoryViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        timeCards.count
+        let rows = timeCards.count
+
+        if rows == 0 {
+            let rect = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.size.width, height: tableView.bounds.size.height)
+            let messageLabel = UILabel(frame: rect)
+            messageLabel.text = Constants.TimeCardHistory.emptyHistoryMessage
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = .center
+            messageLabel.sizeToFit()
+
+            tableView.backgroundView = messageLabel
+            tableView.separatorStyle = .none
+        } else {
+            tableView.backgroundView = nil
+        }
+
+        return rows
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
