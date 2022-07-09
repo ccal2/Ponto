@@ -35,7 +35,7 @@
 		77F06430283A018600ACA76D /* CommonFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0642F283A018600ACA76D /* CommonFormatters.swift */; };
 		77F06432283A079100ACA76D /* TimeCardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F06431283A079100ACA76D /* TimeCardRepository.swift */; };
 		77F06434283A089E00ACA76D /* LocalTimeCardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F06433283A089E00ACA76D /* LocalTimeCardRepository.swift */; };
-		77F06438283A134F00ACA76D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F06437283A134F00ACA76D /* DateExtension.swift */; };
+		77F06438283A134F00ACA76D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F06437283A134F00ACA76D /* Date+Extension.swift */; };
 		77F0643D283AC82800ACA76D /* LocalTimeCardRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F0643C283AC82800ACA76D /* LocalTimeCardRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +87,7 @@
 		77F0642F283A018600ACA76D /* CommonFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFormatters.swift; sourceTree = "<group>"; };
 		77F06431283A079100ACA76D /* TimeCardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardRepository.swift; sourceTree = "<group>"; };
 		77F06433283A089E00ACA76D /* LocalTimeCardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTimeCardRepository.swift; sourceTree = "<group>"; };
-		77F06437283A134F00ACA76D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		77F06437283A134F00ACA76D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		77F0643C283AC82800ACA76D /* LocalTimeCardRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTimeCardRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,7 +163,7 @@
 			children = (
 				77F0642F283A018600ACA76D /* CommonFormatters.swift */,
 				7791225027B9C257008463AD /* Constants.swift */,
-				77F06437283A134F00ACA76D /* DateExtension.swift */,
+				77F06437283A134F00ACA76D /* Date+Extension.swift */,
 				7791225327B9C56E008463AD /* DateProvider.swift */,
 				771D696527E8069A00825849 /* Entities */,
 				77F06436283A098F00ACA76D /* Repositories */,
@@ -453,7 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F06434283A089E00ACA76D /* LocalTimeCardRepository.swift in Sources */,
-				77F06438283A134F00ACA76D /* DateExtension.swift in Sources */,
+				77F06438283A134F00ACA76D /* Date+Extension.swift in Sources */,
 				7741368D27FA75E600545462 /* CurrentTimeCardView.swift in Sources */,
 				77F06430283A018600ACA76D /* CommonFormatters.swift in Sources */,
 				7741368F27FA858300545462 /* CurrentTimeCardViewController.swift in Sources */,
