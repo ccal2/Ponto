@@ -47,9 +47,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_ongoingTimeCardWithoutBreaks() throws {
@@ -68,9 +66,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_onABreakTimeCard() throws {
@@ -92,9 +88,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_ongoingTimeCardWithBreaks() throws {
@@ -124,9 +118,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_finishedTimeCardWithoutBreaks() throws {
@@ -148,9 +140,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_CurrentTimeCardViewController_finishedTimeCardWithBreaks() throws {
@@ -181,9 +171,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
 }

@@ -47,9 +47,7 @@ class TimeCardHistoryViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     func test_TimeCardHistoryViewController_someTimeCards() throws {
@@ -89,9 +87,7 @@ class TimeCardHistoryViewControllerSnapshotTests: XCTestCase {
 
         // Assert
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .light, orientation: .landscape)
         assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
-        assertViewControllerSnapshot(matching: navigationController, record: recordMode, interfaceStyle: .dark, orientation: .landscape)
     }
 
     // MARK: - Helpers
