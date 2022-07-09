@@ -10,7 +10,11 @@ import Foundation
 extension Date {
 
     var dayComponents: DateComponents {
-        Calendar.current.dateComponents([.day, .month, .year], from: self)
+        Calendar.current.dateComponents([.calendar, .day, .month, .year], from: self)
+    }
+
+    var monthComponents: DateComponents {
+        Calendar.current.dateComponents([.calendar, .month, .year], from: self)
     }
 
 }

@@ -13,6 +13,7 @@ class CommonFormatters {
         didSet {
             durationDateComponentsFormatter.calendar?.locale = locale
             timeDateFormatter.locale = locale
+            monthDateFormatter.locale = locale
             shortDayDateFormatter.locale = locale
             mediumDayDateFormatter.locale = locale
         }
@@ -33,9 +34,17 @@ class CommonFormatters {
         return formatter
     }()
 
+    lazy var monthDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "MMMM yyyy", options: 0, locale: locale) {
+            formatter.dateFormat = dateFormat
+        }
+        return formatter
+    }()
+
     lazy var shortDayDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
         formatter.timeStyle = .none
         if let dateFormat = DateFormatter.dateFormat(fromTemplate: "d MMMM", options: 0, locale: locale) {
             formatter.dateFormat = dateFormat
@@ -45,9 +54,8 @@ class CommonFormatters {
 
     lazy var mediumDayDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "EE d MMM yyy", options: 0, locale: locale) {
+        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEE dd", options: 0, locale: locale) {
             formatter.dateFormat = dateFormat
         }
         return formatter
