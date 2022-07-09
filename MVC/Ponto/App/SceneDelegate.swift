@@ -20,9 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().prefersLargeTitles = true
 
         let currentTimeCardNavigationController = UINavigationController(rootViewController: CurrentTimeCardViewController())
+        currentTimeCardNavigationController.tabBarItem = UITabBarItem(title: Constants.CurrentTimeCard.tabBarTitle, image: UIImage(systemName: Constants.ImageName.calendarIcon), tag: 0)
+
+        let timeCardHistoryNavigationController = UINavigationController(rootViewController: TimeCardHistoryViewController())
+        timeCardHistoryNavigationController.tabBarItem = UITabBarItem(title: Constants.TimeCardHistory.screenTitle, image: UIImage(systemName: Constants.ImageName.clockIcon), tag: 0)
+
+        let tabViewController = UITabBarController(nibName: nil, bundle: nil)
+        tabViewController.viewControllers = [currentTimeCardNavigationController, timeCardHistoryNavigationController]
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = currentTimeCardNavigationController
+        window.rootViewController = tabViewController
         window.makeKeyAndVisible()
         self.window = window
     }

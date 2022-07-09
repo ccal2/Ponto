@@ -10,6 +10,7 @@ import Foundation
 protocol TimeCardRepository {
     func get(for: Date, completionHandler: TimeCardRepositoryGetCompletionHandler)
     func list(completionHandler: TimeCardRepositoryListCompletionHandler)
+    func listFinished(limitedBy: Int?, completionHandler: TimeCardRepositoryListCompletionHandler)
     func save(_: TimeCard, completionHandler: TimeCardRepositorySaveCompletionHandler)
 }
 

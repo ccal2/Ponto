@@ -30,6 +30,12 @@ enum Constants {
         static let stopButton: String = "stop.circle.fill"
         static let pauseButton: String = "pause.circle.fill"
         static let continueButton: String = "play.circle.fill"
+        static let calendarIcon: String = "calendar"
+        static let clockIcon: String = "clock.fill"
+    }
+
+    enum CurrentTimeCard {
+        static let tabBarTitle: String = NSLocalizedString("Today", comment: "Title of a tab bar item that represents the view for the current time card")
     }
 
     enum TimeCardDetails {
@@ -44,6 +50,11 @@ enum Constants {
         static let breakEndTimeCellTitle: String = NSLocalizedString("Finish", comment: "Title of a table view cell to indicate the end time of a time card's break")
         static let breakDurationCellTitle: String = NSLocalizedString("Duration", comment: "Title of a table view cell to indicate the duration of a time card's break")
         static let ongoingBreakIndicator: String = NSLocalizedString("ongoing", comment: "Detail of a table view cell to indicate that the time card's break is ongoing")
+    }
+
+    enum TimeCardHistory {
+        static let screenTitle: String = NSLocalizedString("History", comment: "Title of the screen that shows the list of all time cards previously registered")
+        static let emptyHistoryMessage: String = NSLocalizedString("No time card registered yet", comment: "Label in a table view background to indicate there are no records to show")
     }
 
 }

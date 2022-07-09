@@ -61,6 +61,22 @@ class LocalTimeCardRepository: TimeCardRepository {
         completionHandler(.success(timeCards))
     }
 
+    func listFinished(limitedBy countLimit: Int?, completionHandler: TimeCardRepositoryListCompletionHandler) {
+        let finishedTimeCards = timeCards.filter { timeCard in
+            timeCard.state == .finished
+        }
+
+        var sortedTimeCards = finishedTimeCards.sorted { lhs, rhs in
+            lhs.startDate > rhs.startDate
+        }
+
+        if let limit = countLimit, limit < sortedTimeCards.count {
+            sortedTimeCards = sortedTimeCards.dropLast(sortedTimeCards.count - limit)
+        }
+
+        completionHandler(.success(sortedTimeCards))
+    }
+
     func save(_ timeCard: TimeCard, completionHandler: TimeCardRepositorySaveCompletionHandler) {
         if !timeCards.contains(timeCard) {
             timeCards.append(timeCard)
