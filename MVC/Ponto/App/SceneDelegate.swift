@@ -11,12 +11,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        UINavigationBar.appearance().prefersLargeTitles = true
+
+        let currentTimeCardNavigationController = UINavigationController(rootViewController: CurrentTimeCardViewController())
+        currentTimeCardNavigationController.tabBarItem = UITabBarItem(title: Constants.CurrentTimeCard.tabBarTitle, image: UIImage(systemName: Constants.ImageName.calendarIcon), tag: 0)
+
+        let timeCardHistoryNavigationController = UINavigationController(rootViewController: TimeCardHistoryViewController())
+        timeCardHistoryNavigationController.tabBarItem = UITabBarItem(title: Constants.TimeCardHistory.screenTitle, image: UIImage(systemName: Constants.ImageName.clockIcon), tag: 0)
+
+        let tabViewController = UITabBarController(nibName: nil, bundle: nil)
+        tabViewController.viewControllers = [currentTimeCardNavigationController, timeCardHistoryNavigationController]
+
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = tabViewController
+        window.makeKeyAndVisible()
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +62,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
-

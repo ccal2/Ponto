@@ -1,0 +1,17 @@
+name: run-tests
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  run_tests:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v1
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_13.4.1.app && /usr/bin/xcodebuild -version
+    - name: Run tests for MVC
+      run: xcodebuild test -scheme Ponto-MVC -project MVC/Ponto-MVC.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.5' | xcpretty && exit ${PIPESTATUS[0]}
