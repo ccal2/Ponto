@@ -154,3 +154,31 @@ extension TimeCardHistoryViewController {
     }
 
 }
+
+// MARK: - UITableViewDelegate
+
+extension TimeCardHistoryViewController {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sortedMonths = sortedMonths
+
+        guard indexPath.section < sortedMonths.count else {
+            assertionFailure("There are more sections then the number of months")
+            return
+        }
+
+        guard let timeCardsInSection = timeCardsGroupedByMonth[sortedMonths[indexPath.section]] else {
+            assertionFailure("There are no timeCards for that month")
+            return
+        }
+
+        guard indexPath.row < timeCardsInSection.count else {
+            assertionFailure("There are more cells then the number of time cards in the month related to the section")
+            return
+        }
+
+        let detailViewController = TimeCardDetailViewController(timeCard: timeCardsInSection[indexPath.row])
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+
+}

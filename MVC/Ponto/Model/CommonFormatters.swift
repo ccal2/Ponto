@@ -16,6 +16,7 @@ class CommonFormatters {
             monthDateFormatter.locale = locale
             shortDayDateFormatter.locale = locale
             mediumDayDateFormatter.locale = locale
+            longDayDateFormatter.locale = locale
         }
     }
 
@@ -56,6 +57,15 @@ class CommonFormatters {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         if let dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEE dd", options: 0, locale: locale) {
+            formatter.dateFormat = dateFormat
+        }
+        return formatter
+    }()
+
+    lazy var longDayDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        if let dateFormat = DateFormatter.dateFormat(fromTemplate: "EE dd MMM yyyy", options: 0, locale: locale) {
             formatter.dateFormat = dateFormat
         }
         return formatter

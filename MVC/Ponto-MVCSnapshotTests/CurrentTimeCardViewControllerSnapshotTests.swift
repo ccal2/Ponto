@@ -42,7 +42,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         // Act
         _ = viewController.view
 
-        // Make main thread proccess all operations without having to wait for it
+        // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
@@ -83,7 +83,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         // Act
         _ = viewController.view
 
-        // Make main thread proccess all operations without having to wait for it
+        // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
@@ -113,7 +113,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         // Act
         _ = viewController.view
 
-        // Make main thread proccess all operations without having to wait for it
+        // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
@@ -135,7 +135,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         // Act
         _ = viewController.view
 
-        // Make main thread proccess all operations without having to wait for it
+        // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
@@ -166,7 +166,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         // Act
         _ = viewController.view
 
-        // Make main thread proccess all operations without having to wait for it
+        // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
