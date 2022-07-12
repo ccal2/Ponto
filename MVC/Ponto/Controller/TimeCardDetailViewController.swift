@@ -12,7 +12,7 @@ class TimeCardDetailViewController: UIViewController {
     // MARK: - Properties
 
     /// View
-    private lazy var timeCardDetailView = TimeCardDetailView()
+    private lazy var timeCardDetailView = TimeCardView()
 
     /// Injected dependencies
     private(set) var timeCard: TimeCard
