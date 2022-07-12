@@ -19,7 +19,7 @@ class CurrentTimeCardViewController: UIViewController {
     }
 
     /// View
-    private lazy var currentTimeCardView = CurrentTimeCardView()
+    private lazy var currentTimeCardView = TimeCardView(withControlButtons: true)
 
     /// Injected dependencies
     private let timeCardRepository: TimeCardRepository
@@ -175,9 +175,9 @@ class CurrentTimeCardViewController: UIViewController {
 
 // MARK: - CurrentTimeCardViewDelegate
 
-extension CurrentTimeCardViewController: CurrentTimeCardViewDelegate {
+extension CurrentTimeCardViewController: TimeCardViewDelegate {
 
-    func currentTimeCardView(_ view: CurrentTimeCardView, didTapStartStopButton button: UIButton) {
+    func timeCardView(_ view: TimeCardView, didTapStartStopButton button: UIButton) {
         if let currentTimeCard = timeCard {
             do {
                 try currentTimeCard.finish()
@@ -189,7 +189,7 @@ extension CurrentTimeCardViewController: CurrentTimeCardViewDelegate {
         }
     }
 
-    func currentTimeCardView(_ view: CurrentTimeCardView, didTapPauseContinueButton button: UIButton) {
+    func timeCardView(_ view: TimeCardView, didTapPauseContinueButton button: UIButton) {
         guard let currentTimeCard = timeCard else {
             return
         }
