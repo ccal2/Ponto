@@ -149,6 +149,7 @@ extension TimeCardHistoryViewController {
 
         cell.textLabel?.text = CommonFormatters.shared.mediumDayDateFormatter.string(from: timeCardsInSection[indexPath.row].startDate)
         cell.detailTextLabel?.text = CommonFormatters.shared.durationDateComponentsFormatter.string(from: timeCardsInSection[indexPath.row].duration)
+        cell.accessoryType = .disclosureIndicator
 
         return cell
     }

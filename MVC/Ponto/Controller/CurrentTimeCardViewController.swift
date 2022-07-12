@@ -246,6 +246,8 @@ extension CurrentTimeCardViewController: UITableViewDataSource {
     }
 
     private func configureTimeCardSectionCell(_ cell: TimeCardDetailTableViewCell, forRow row: Int) {
+        cell.selectionStyle = .none
+
         switch row {
         case 0:
             cell.textLabel?.text = Constants.TimeCardDetails.clockInTimeCellTitle
