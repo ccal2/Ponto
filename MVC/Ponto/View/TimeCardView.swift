@@ -1,19 +1,20 @@
 //
-//  CurrentTimeCardView.swift
+//  TimeCardView.swift
 //  Ponto-MVC
 //
-//  Created by Carolina Cruz Agra Lopes on 04/03/22.
+//  Created by Carolina Cruz Agra Lopes on 11/07/22.
 //
+
 
 import SnapKit
 import UIKit
 
-protocol CurrentTimeCardViewDelegate: AnyObject {
-    func currentTimeCardView(_ view: CurrentTimeCardView, didTapStartStopButton button: UIButton)
-    func currentTimeCardView(_ view: CurrentTimeCardView, didTapPauseContinueButton button: UIButton)
+protocol TimeCardViewDelegate: AnyObject {
+    func timeCardView(_ view: TimeCardView, didTapStartStopButton button: UIButton)
+    func timeCardView(_ view: TimeCardView, didTapPauseContinueButton button: UIButton)
 }
 
-class CurrentTimeCardView: UIView {
+class TimeCardView: UIView {
 
     // MARK: - Subviews
 
@@ -63,13 +64,22 @@ class CurrentTimeCardView: UIView {
 
     // MARK: - Delegate
 
-    weak var delegate: CurrentTimeCardViewDelegate?
+    weak var delegate: TimeCardViewDelegate?
+
+    // MARK: - Other properties
+
+    private let hasControlButtons: Bool
 
     // MARK: - Initializers
 
-    override init(frame: CGRect = .zero) {
+    init(frame: CGRect = .zero, withControlButtons hasControlButtons: Bool) {
+        self.hasControlButtons = hasControlButtons
         super.init(frame: frame)
         setupView()
+    }
+
+    override convenience init(frame: CGRect = .zero) {
+        self.init(frame: frame, withControlButtons: false)
     }
 
     required init?(coder: NSCoder) {
@@ -79,26 +89,31 @@ class CurrentTimeCardView: UIView {
     // MARK: - Actions
 
     @objc func tappedStartStopButton(sender: UIButton) {
-        delegate?.currentTimeCardView(self, didTapStartStopButton: sender)
+        delegate?.timeCardView(self, didTapStartStopButton: sender)
     }
 
     @objc func tappedPauseContinueButton(sender: UIButton) {
-        delegate?.currentTimeCardView(self, didTapPauseContinueButton: sender)
+        delegate?.timeCardView(self, didTapPauseContinueButton: sender)
     }
 
 }
 
 // MARK: - CodableView
 
-extension CurrentTimeCardView: CodableView {
+extension TimeCardView: CodableView {
 
     func buildViewHierarchy() {
         addSubviews([
             durationLabel,
-            breakLabel,
-            buttonsStack,
             tableView
         ])
+
+        if hasControlButtons {
+            addSubviews([
+                breakLabel,
+                buttonsStack
+            ])
+        }
     }
 
     func setupContraints() {
@@ -110,32 +125,34 @@ extension CurrentTimeCardView: CodableView {
             make.centerX.equalTo(self)
         }
 
-        breakLabel.setContentHuggingPriority(.required, for: .vertical)
-        breakLabel.snp.makeConstraints { make in
-            make.top.equalTo(durationLabel.snp.bottom)
-            make.leading.greaterThanOrEqualTo(safeAreaLayoutGuide).offset(Constants.ViewSpacing.large)
-            make.centerX.equalTo(self)
-        }
+        if hasControlButtons {
+            breakLabel.setContentHuggingPriority(.required, for: .vertical)
+            breakLabel.snp.makeConstraints { make in
+                make.top.equalTo(durationLabel.snp.bottom)
+                make.leading.greaterThanOrEqualTo(safeAreaLayoutGuide).offset(Constants.ViewSpacing.large)
+                make.centerX.equalTo(self)
+            }
 
-        buttonsStack.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.small)
-            make.top.equalTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.medium).priority(.medium)
-            make.top.lessThanOrEqualTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.large)
-            make.centerX.equalTo(self)
-        }
+            buttonsStack.snp.makeConstraints { make in
+                make.top.greaterThanOrEqualTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.small)
+                make.top.equalTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.medium).priority(.medium)
+                make.top.lessThanOrEqualTo(breakLabel.snp.bottom).offset(Constants.ViewSpacing.large)
+                make.centerX.equalTo(self)
+            }
 
-        pauseContinueButton.snp.makeConstraints { make in
-            make.width.equalTo(pauseContinueButton.snp.height)
-            make.width.equalTo(Constants.ViewSpacing.extraExtraLarge).priority(.high)
-        }
+            pauseContinueButton.snp.makeConstraints { make in
+                make.width.equalTo(pauseContinueButton.snp.height)
+                make.width.equalTo(Constants.ViewSpacing.extraExtraLarge).priority(.high)
+            }
 
-        startStopButton.snp.makeConstraints { make in
-            make.width.equalTo(startStopButton.snp.height)
-            make.width.equalTo(pauseContinueButton)
+            startStopButton.snp.makeConstraints { make in
+                make.width.equalTo(startStopButton.snp.height)
+                make.width.equalTo(pauseContinueButton)
+            }
         }
 
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(buttonsStack.snp.bottom)
+            make.top.equalTo(hasControlButtons ? buttonsStack.snp.bottom : durationLabel.snp.bottom)
             make.leading.equalTo(self)
             make.trailing.equalTo(self)
             make.bottom.equalTo(safeAreaLayoutGuide)
@@ -145,8 +162,10 @@ extension CurrentTimeCardView: CodableView {
     func setupAdditionalConfiguration() {
         backgroundColor = .systemGroupedBackground
 
-        pauseContinueButton.addTarget(self, action: #selector(tappedPauseContinueButton), for: .touchUpInside)
-        startStopButton.addTarget(self, action: #selector(tappedStartStopButton), for: .touchUpInside)
+        if hasControlButtons {
+            pauseContinueButton.addTarget(self, action: #selector(tappedPauseContinueButton), for: .touchUpInside)
+            startStopButton.addTarget(self, action: #selector(tappedStartStopButton), for: .touchUpInside)
+        }
 
         tableView.register(TimeCardDetailTableViewCell.self, forCellReuseIdentifier: TimeCardDetailTableViewCell.reuseIdentifier)
     }
