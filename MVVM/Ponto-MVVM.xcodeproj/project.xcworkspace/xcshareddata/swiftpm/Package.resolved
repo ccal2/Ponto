@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
+        "version" : "5.6.0"
+      }
+    },
+    {
+      "identity" : "snapshottestingheic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alexey1312/SnapshotTestingHEIC.git",
+      "state" : {
+        "revision" : "54c8d54d99a2c3961fda2da1196ce572911a8448",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "swift-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing.git",
+      "state" : {
+        "revision" : "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "swift-snapshot-testing-stitch",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Sherlouk/swift-snapshot-testing-stitch",
+      "state" : {
+        "revision" : "8e5e510f85127550f75b94523e727185b54d8749",
+        "version" : "1.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}

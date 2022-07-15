@@ -1,0 +1,12 @@
+disabled_rules:
+    - line_length
+
+identifier_name:
+  max_length:
+      warning: 45
+  excluded:
+    - id
+
+type_name:
+  max_length:
+      warning: 45
