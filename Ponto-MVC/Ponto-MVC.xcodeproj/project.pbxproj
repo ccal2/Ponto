@@ -218,8 +218,8 @@
 		7791786427B8D5E3008D13A0 = {
 			isa = PBXGroup;
 			children = (
-				7791786F27B8D5E3008D13A0 /* Ponto */,
-				7791788627B8D5E7008D13A0 /* PontoTests */,
+				7791786F27B8D5E3008D13A0 /* Ponto-MVC */,
+				7791788627B8D5E7008D13A0 /* Ponto-MVCTests */,
 				771D697427E9675000825849 /* Ponto-MVCSnapshotTests */,
 				7791786E27B8D5E3008D13A0 /* Products */,
 			);
@@ -235,7 +235,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7791786F27B8D5E3008D13A0 /* Ponto */ = {
+		7791786F27B8D5E3008D13A0 /* Ponto-MVC */ = {
 			isa = PBXGroup;
 			children = (
 				7791224127B9B775008463AD /* App */,
@@ -244,17 +244,17 @@
 				7791224227B9B779008463AD /* Resources */,
 				7791224427B9B79E008463AD /* View */,
 			);
-			path = Ponto;
+			path = "Ponto-MVC";
 			sourceTree = "<group>";
 		};
-		7791788627B8D5E7008D13A0 /* PontoTests */ = {
+		7791788627B8D5E7008D13A0 /* Ponto-MVCTests */ = {
 			isa = PBXGroup;
 			children = (
 				7791788927B8D5E7008D13A0 /* Info.plist */,
 				7791224C27B9C0BF008463AD /* Mocks */,
 				7791224F27B9C111008463AD /* Model */,
 			);
-			path = PontoTests;
+			path = "Ponto-MVCTests";
 			sourceTree = "<group>";
 		};
 		77F06436283A098F00ACA76D /* Repositories */ = {
