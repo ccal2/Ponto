@@ -45,7 +45,7 @@ class TimeCard {
 
     // MARK: - Initializer
 
-    init(id: UUID = UUID(), start: Date, end: Date? = nil, breaks: [Break] = [], currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+    init(id: UUID = UUID(), start: Date, end: Date? = nil, breaks: [Break] = [], currentDateProvider: CurrentDateProvider = DateProvider.shared) {
         self.id = id
         self.startDate = start
         self.endDate = end

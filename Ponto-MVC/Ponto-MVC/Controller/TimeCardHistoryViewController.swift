@@ -40,7 +40,7 @@ class TimeCardHistoryViewController: UITableViewController {
 
     // MARK: - Initializers
 
-    init(timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+    init(timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared, currentDateProvider: CurrentDateProvider = DateProvider.shared) {
         self.timeCardRepository = timeCardRepository
         self.currentDateProvider = currentDateProvider
         super.init(style: .insetGrouped)

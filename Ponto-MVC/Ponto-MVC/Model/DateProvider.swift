@@ -13,7 +13,7 @@ protocol CurrentDateProvider {
 
 class DateProvider: CurrentDateProvider {
 
-    static let sharedInstance = DateProvider()
+    static let shared = DateProvider()
 
     private init() { }
 

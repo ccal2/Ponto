@@ -24,7 +24,7 @@ class Break {
 
     // MARK: - Initializer
 
-    init(start: Date, end: Date? = nil, currentDateProvider: CurrentDateProvider = DateProvider.sharedInstance) {
+    init(start: Date, end: Date? = nil, currentDateProvider: CurrentDateProvider = DateProvider.shared) {
         self.uuid = UUID()
         self.startDate = start
         self.endDate = end
