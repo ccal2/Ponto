@@ -11,7 +11,8 @@ import SwiftUI
 struct Ponto_MVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Text("Hello, world!")
+                .padding()
         }
     }
 }

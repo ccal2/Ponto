@@ -10,7 +10,6 @@
 		776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */; };
 		776621B82888BFDA004F473B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621B72888BFDA004F473B /* Assets.xcassets */; };
 		776621BB2888BFDA004F473B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621BA2888BFDA004F473B /* Preview Assets.xcassets */; };
-		776621E02888C176004F473B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776621DF2888C176004F473B /* ContentView.swift */; };
 		7766220D2888C200004F473B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622032888C200004F473B /* Constants.swift */; };
 		7766220E2888C200004F473B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622042888C200004F473B /* Date+Extension.swift */; };
 		7766220F2888C200004F473B /* DateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622052888C200004F473B /* DateProvider.swift */; };
@@ -51,7 +50,6 @@
 		776621B72888BFDA004F473B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		776621BA2888BFDA004F473B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		776621C02888BFDB004F473B /* Ponto-MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVVMTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		776621DF2888C176004F473B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		776622032888C200004F473B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		776622042888C200004F473B /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		776622052888C200004F473B /* DateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateProvider.swift; sourceTree = "<group>"; };
@@ -95,6 +93,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		773DFCA5288A1264004EB5A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		773DFCA6288A1271004EB5A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		776621A72888BFD6004F473B = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +130,11 @@
 		776621B22888BFD6004F473B /* Ponto-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				776621DF2888C176004F473B /* ContentView.swift */,
 				776621DD2888C11F004F473B /* App */,
 				776622022888C200004F473B /* Model */,
 				776621DE2888C12F004F473B /* Resources */,
+				773DFCA5288A1264004EB5A1 /* View */,
+				773DFCA6288A1271004EB5A1 /* ViewModel */,
 			);
 			path = "Ponto-MVVM";
 			sourceTree = "<group>";
@@ -373,7 +386,6 @@
 			files = (
 				776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */,
 				776622122888C200004F473B /* CommonFormatters.swift in Sources */,
-				776621E02888C176004F473B /* ContentView.swift in Sources */,
 				7766220F2888C200004F473B /* DateProvider.swift in Sources */,
 				776622132888C200004F473B /* Break.swift in Sources */,
 				776622102888C200004F473B /* TimeCardRepository.swift in Sources */,
