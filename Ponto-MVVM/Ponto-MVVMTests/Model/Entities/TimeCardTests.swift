@@ -67,7 +67,7 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - ongoing
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
 
@@ -102,7 +102,7 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - 15:45
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
         // finish time: 16:00
@@ -138,10 +138,10 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - 15:45
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 breaks: [break1, break2],
                                 currentDateProvider: mockDateProvider)
@@ -171,10 +171,10 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - 15:45
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
         // finish time: 16:00
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 end: mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds),
@@ -192,7 +192,7 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - ongoing
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
@@ -293,28 +293,27 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(currentBreak, timeCard.breaks[0])
     }
 
-    // Commented out because this condition is not something we can do
-    // Calling `startBreak` two times in a row like this actually throws an error, so we can't have multiple unfinished breaks
-    //    func test_currentBreak_withMultipleUnfinishedBreaks_throwsError() throws {
-    //        // Arrange
-    //        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
-    //                                currentDateProvider: mockDateProvider)
-    //        try mockDateProvider.updateDate(to: "02/01/97 15:15")
-    //        try timeCard.startBreak()
-    //        try mockDateProvider.updateDate(to: "02/01/97 15:20")
-    //        try timeCard.startBreak()
-    //
-    //        // Act
-    //        do {
-    //            let _ = try timeCard.currentBreak()
-    //            XCTFail("Trying to get the current break when there are multiple unfinished breaks should fail with error `TimeCardError.multipleUnfinishedBreaks`")
-    //        } catch TimeCardError.multipleUnfinishedBreaks {
-    //            // Assert
-    //            // OK - expected error
-    //        } catch {
-    //            XCTFail("Expected `TimeCardError.multipleUnfinishedBreaks` error, but got: \(error) (\(error.localizedDescription))")
-    //        }
-    //    }
+    func test_currentBreak_withMultipleUnfinishedBreaks_throwsError() throws {
+        // Arrange
+        // first break: 15:15 - ongoing
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - ongoing
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+
+        // Act
+        do {
+            _ = try timeCard.currentBreak()
+            XCTFail("Trying to get the current break when there are multiple unfinished breaks should fail with error `TimeCardError.multipleUnfinishedBreaks`")
+        } catch TimeCardError.multipleUnfinishedBreaks {
+            // Assert
+            // OK - expected error
+        } catch {
+            XCTFail("Expected `TimeCardError.multipleUnfinishedBreaks` error, but got: \(error) (\(error.localizedDescription))")
+        }
+    }
 
     // MARK: finishBreak
 
