@@ -10,7 +10,7 @@ import UIKit
 
 protocol TimeCardViewDelegate: AnyObject {
     func timeCardView(_ view: TimeCardView, didTapStartStopButton button: UIButton)
-    func timeCardView(_ view: TimeCardView, didTapPauseContinueButton button: UIButton)
+    func timeCardView(_ view: TimeCardView, didTapPauseResumeButton button: UIButton)
 }
 
 class TimeCardView: UIView {
@@ -33,7 +33,7 @@ class TimeCardView: UIView {
         return view
     }()
 
-    lazy var pauseContinueButton: UIButton = {
+    lazy var pauseResumeButton: UIButton = {
         let view = UIButton(frame: .zero)
         view.setBackgroundImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
         view.tintColor = UIColor.systemGray
@@ -50,7 +50,7 @@ class TimeCardView: UIView {
     }()
 
     lazy var buttonsStack: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [pauseContinueButton, startStopButton])
+        let view = UIStackView(arrangedSubviews: [pauseResumeButton, startStopButton])
         view.axis = .horizontal
         view.spacing = CGFloat(Constants.ViewSpacing.large)
         return view
@@ -91,8 +91,8 @@ class TimeCardView: UIView {
         delegate?.timeCardView(self, didTapStartStopButton: sender)
     }
 
-    @objc func tappedPauseContinueButton(sender: UIButton) {
-        delegate?.timeCardView(self, didTapPauseContinueButton: sender)
+    @objc func tappedPauseResumeButton(sender: UIButton) {
+        delegate?.timeCardView(self, didTapPauseResumeButton: sender)
     }
 
 }
@@ -139,14 +139,14 @@ extension TimeCardView: CodableView {
                 make.centerX.equalTo(self)
             }
 
-            pauseContinueButton.snp.makeConstraints { make in
-                make.width.equalTo(pauseContinueButton.snp.height)
+            pauseResumeButton.snp.makeConstraints { make in
+                make.width.equalTo(pauseResumeButton.snp.height)
                 make.width.equalTo(Constants.ViewSpacing.extraExtraLarge).priority(.high)
             }
 
             startStopButton.snp.makeConstraints { make in
                 make.width.equalTo(startStopButton.snp.height)
-                make.width.equalTo(pauseContinueButton)
+                make.width.equalTo(pauseResumeButton)
             }
         }
 
@@ -162,7 +162,7 @@ extension TimeCardView: CodableView {
         backgroundColor = .systemGroupedBackground
 
         if hasControlButtons {
-            pauseContinueButton.addTarget(self, action: #selector(tappedPauseContinueButton), for: .touchUpInside)
+            pauseResumeButton.addTarget(self, action: #selector(tappedPauseResumeButton), for: .touchUpInside)
             startStopButton.addTarget(self, action: #selector(tappedStartStopButton), for: .touchUpInside)
         }
 

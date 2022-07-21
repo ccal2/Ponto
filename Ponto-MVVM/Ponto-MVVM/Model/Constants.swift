@@ -29,7 +29,7 @@ enum Constants {
         static let startButton: String = "play.circle.fill"
         static let stopButton: String = "stop.circle.fill"
         static let pauseButton: String = "pause.circle.fill"
-        static let continueButton: String = "play.circle.fill"
+        static let resumeButton: String = "play.circle.fill"
         static let calendarIcon: String = "calendar"
         static let clockIcon: String = "clock.fill"
     }

@@ -87,8 +87,8 @@ class CurrentTimeCardViewController: UIViewController {
             breakDurationTimer = nil
             currentTimeCardView.durationLabel.text = Constants.TimeCardDetails.durationPlaceholder
             currentTimeCardView.breakLabel.isHidden = true
-            currentTimeCardView.pauseContinueButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
-            currentTimeCardView.pauseContinueButton.isEnabled = false
+            currentTimeCardView.pauseResumeButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
+            currentTimeCardView.pauseResumeButton.isEnabled = false
             currentTimeCardView.startStopButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.startButton), for: .normal)
             currentTimeCardView.startStopButton.isEnabled = true
 
@@ -100,8 +100,8 @@ class CurrentTimeCardViewController: UIViewController {
                 setupTimeCardDurationTimer()
             }
             currentTimeCardView.breakLabel.isHidden = true
-            currentTimeCardView.pauseContinueButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
-            currentTimeCardView.pauseContinueButton.isEnabled = true
+            currentTimeCardView.pauseResumeButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
+            currentTimeCardView.pauseResumeButton.isEnabled = true
             currentTimeCardView.startStopButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.stopButton), for: .normal)
             currentTimeCardView.startStopButton.isEnabled = true
 
@@ -116,8 +116,8 @@ class CurrentTimeCardViewController: UIViewController {
                 currentTimeCardView.durationLabel.text = durationText
             }
             currentTimeCardView.breakLabel.isHidden = false
-            currentTimeCardView.pauseContinueButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.continueButton), for: .normal)
-            currentTimeCardView.pauseContinueButton.isEnabled = true
+            currentTimeCardView.pauseResumeButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.resumeButton), for: .normal)
+            currentTimeCardView.pauseResumeButton.isEnabled = true
             currentTimeCardView.startStopButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.stopButton), for: .normal)
             currentTimeCardView.startStopButton.isEnabled = false
 
@@ -131,8 +131,8 @@ class CurrentTimeCardViewController: UIViewController {
                 currentTimeCardView.durationLabel.text = durationText
             }
             currentTimeCardView.breakLabel.isHidden = true
-            currentTimeCardView.pauseContinueButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
-            currentTimeCardView.pauseContinueButton.isEnabled = false
+            currentTimeCardView.pauseResumeButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.pauseButton), for: .normal)
+            currentTimeCardView.pauseResumeButton.isEnabled = false
             currentTimeCardView.startStopButton.setBackgroundImage(UIImage(systemName: Constants.ImageName.stopButton), for: .normal)
             currentTimeCardView.startStopButton.isEnabled = false
         }
@@ -189,7 +189,7 @@ extension CurrentTimeCardViewController: TimeCardViewDelegate {
         }
     }
 
-    func timeCardView(_ view: TimeCardView, didTapPauseContinueButton button: UIButton) {
+    func timeCardView(_ view: TimeCardView, didTapPauseResumeButton button: UIButton) {
         guard let currentTimeCard = timeCard else {
             return
         }
