@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Break {
+struct Break {
 
     // MARK: - Properties
 
@@ -33,7 +33,7 @@ class Break {
 
     // MARK: - Methods
 
-    func finish() throws {
+    mutating func finish() throws {
         guard endDate == nil else {
             throw BreakError.alreadyFinished
         }

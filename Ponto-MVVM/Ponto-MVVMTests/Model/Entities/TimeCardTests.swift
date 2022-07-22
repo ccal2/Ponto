@@ -211,7 +211,7 @@ class TimeCardTests: XCTestCase {
 
     func test_startBreak_whenStateIsOngoing_addsNewBreakAndUpdatesState() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
 
         // Act
@@ -227,7 +227,7 @@ class TimeCardTests: XCTestCase {
 
     func test_startBreak_whenStateIsOnABreak_throwsError() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.startBreak()
@@ -247,7 +247,7 @@ class TimeCardTests: XCTestCase {
 
     func test_startBreak_whenStateIsFinished_throwsError() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.finish()
@@ -273,24 +273,24 @@ class TimeCardTests: XCTestCase {
                                 currentDateProvider: mockDateProvider)
 
         // Act
-        let currentBreak = try timeCard.currentBreak()
+        let currentBreakIndex = try timeCard.currentBreakIndex()
 
         // Assert
-        XCTAssertEqual(currentBreak, nil)
+        XCTAssertEqual(currentBreakIndex, nil)
     }
 
     func test_currentBreak_withCorrectBreaks_returnsTheUnfineshedOne() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.startBreak()
 
         // Act
-        let currentBreak = try timeCard.currentBreak()
+        let currentBreakIndex = try timeCard.currentBreakIndex()
 
         // Assert
-        XCTAssertEqual(currentBreak, timeCard.breaks[0])
+        XCTAssertEqual(currentBreakIndex, 0)
     }
 
     func test_currentBreak_withMultipleUnfinishedBreaks_throwsError() throws {
@@ -305,7 +305,7 @@ class TimeCardTests: XCTestCase {
 
         // Act
         do {
-            _ = try timeCard.currentBreak()
+            _ = try timeCard.currentBreakIndex()
             XCTFail("Trying to get the current break when there are multiple unfinished breaks should fail with error `TimeCardError.multipleUnfinishedBreaks`")
         } catch TimeCardError.multipleUnfinishedBreaks {
             // Assert
@@ -319,7 +319,7 @@ class TimeCardTests: XCTestCase {
 
     func test_finishBreak_whenStateIsOnABreak_updatesBreakAndUpdatesState() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.startBreak()
@@ -337,7 +337,7 @@ class TimeCardTests: XCTestCase {
 
     func test_finishBreak_whenStateIsOngoing_throwsError() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
 
         // Act
@@ -355,7 +355,7 @@ class TimeCardTests: XCTestCase {
 
     func test_finishBreak_whenStateIsFinished_throwsError() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.finish()
@@ -377,7 +377,7 @@ class TimeCardTests: XCTestCase {
 
     func test_finish_whenStateIsOngoing_updatesEndDateAndState() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
 
         // Act
@@ -392,7 +392,7 @@ class TimeCardTests: XCTestCase {
 
     func test_finish_whenStateIsOnABreak_throwsError() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.startBreak()
@@ -412,7 +412,7 @@ class TimeCardTests: XCTestCase {
 
     func test_finish_whenStateIsFinished_throwsError() throws {
         // Arrange
-        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+        var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         try timeCard.finish()

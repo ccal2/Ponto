@@ -115,7 +115,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
         // Arrange
         let repository = LocalTimeCardRepository()
         let timeCard = TimeCard(start: mockDateProvider.currentDate(), currentDateProvider: mockDateProvider)
-        let timeCard2 = TimeCard(id: timeCard.id, start: mockDateProvider.currentDate(), currentDateProvider: mockDateProvider)
+        var timeCard2 = TimeCard(id: timeCard.id, start: mockDateProvider.currentDate(), currentDateProvider: mockDateProvider)
 
         // Act
         let saveExpectation1 = expectation(description: "Repository save completion 1")

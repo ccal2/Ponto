@@ -11,7 +11,7 @@ protocol TimeCardDelegate: AnyObject {
     func timeCard(_: TimeCard, didUpdateState: TimeCard.State)
 }
 
-class TimeCard {
+struct TimeCard {
 
     // MARK: - Properties
 
@@ -60,7 +60,7 @@ class TimeCard {
 
     // MARK: - Internal Methods
 
-    func startBreak() throws {
+    mutating func startBreak() throws {
         switch state {
         case .ongoing:
             let newBreak = Break(start: currentDateProvider.currentDate(),
@@ -74,28 +74,32 @@ class TimeCard {
         }
     }
 
-    func currentBreak() throws -> Break? {
+    func currentBreakIndex() throws -> Int? {
         let openBreaks = breaks.filter { aBreak in aBreak.endDate == nil }
 
         guard openBreaks.count <= 1 else {
             throw TimeCardError.multipleUnfinishedBreaks
         }
 
-        return openBreaks.last
+        guard let openBreak = openBreaks.last else {
+            return nil
+        }
+
+        return breaks.lastIndex(of: openBreak)
     }
 
-    func finishBreak() throws {
-        guard let currentBreak = try currentBreak() else {
+    mutating func finishBreak() throws {
+        guard let currentBreakIndex = try currentBreakIndex() else {
             assert(state != .onABreak)
             throw TimeCardError.notOnABreak
         }
         assert(state == .onABreak)
 
-        try currentBreak.finish()
+        try breaks[currentBreakIndex].finish()
         state = .ongoing
     }
 
-    func finish() throws {
+    mutating func finish() throws {
         switch state {
         case .ongoing:
             endDate = currentDateProvider.currentDate()

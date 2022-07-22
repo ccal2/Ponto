@@ -59,7 +59,7 @@ class BreakTests: XCTestCase {
 
     func test_finish_withoutEndDate_updatesEndDate() throws {
         // Arrange
-        let workBreak = Break(start: mockDateProvider.currentDate(),
+        var workBreak = Break(start: mockDateProvider.currentDate(),
                               currentDateProvider: mockDateProvider)
 
         // Act
@@ -73,7 +73,7 @@ class BreakTests: XCTestCase {
 
     func test_finish_withEndDate_throwsError() throws {
         // Arrange
-        let workBreak = Break(start: mockDateProvider.currentDate(),
+        var workBreak = Break(start: mockDateProvider.currentDate(),
                               end: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
                               currentDateProvider: mockDateProvider)
 
