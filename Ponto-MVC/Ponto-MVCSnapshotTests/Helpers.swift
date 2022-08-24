@@ -10,24 +10,6 @@ import SnapshotTesting
 import SnapshotTestingStitch
 import XCTest
 
-let viewControllerPortraitSnapshotStrategies: [(name: String, strategy: Snapshotting<UIViewController, UIImage>)] = [
-    ("iPhone X (|)", .image(on: .iPhoneX(.portrait))),
-    ("iPhone 11 (|)", .image(on: .iPhone11(.portrait))),
-    // iPhone XR, iPhone XS Max and iPhone 11 have the same dimensions, so they're not repeared here
-    ("iPhone 11 Pro (|)", .image(on: .iPhone11Pro(.portrait))),
-    ("iPhone 12 (|)", .image(on: .iPhone12(.portrait)))
-    // iPhone 12, iPhone 12 Pro, iPhone 13 and iPhone 13 Pro have the same dimensions, so they're not repeared here
-]
-
-let viewControllerLandscapeSnapshotStrategies: [(name: String, strategy: Snapshotting<UIViewController, UIImage>)] = [
-    ("iPhone X (-)", .image(on: .iPhoneX(.landscape))),
-    ("iPhone 11 (-)", .image(on: .iPhone11(.landscape))),
-    // iPhone XR, iPhone XS Max and iPhone 11 have the same dimensions, so they're not repeared here
-    ("iPhone 11 Pro (-)", .image(on: .iPhone11Pro(.landscape))),
-    ("iPhone 12 (-)", .image(on: .iPhone12(.landscape)))
-    // iPhone 12, iPhone 12 Pro, iPhone 13 and iPhone 13 Pro have the same dimensions, so they're not repeared here
-]
-
 let viewControllerSnapshotLightStyle = StitchStyle(borderColor: .clear)
 let viewControllerSnapshotDarkStyle = StitchStyle(titleColor: .black,
                                                   borderColor: .clear,
@@ -52,7 +34,6 @@ func assertViewControllerSnapshot(
     viewController.overrideUserInterfaceStyle = interfaceStyle
 
     let style = interfaceStyle == .light ? viewControllerSnapshotLightStyle : viewControllerSnapshotDarkStyle
-    let strategies = orientation == .portrait ? viewControllerPortraitSnapshotStrategies : viewControllerLandscapeSnapshotStrategies
 
     let namePostfix = snapshotNamePostfix(interfaceStyle: interfaceStyle, orientation: orientation)
     let finalName: String
@@ -63,7 +44,7 @@ func assertViewControllerSnapshot(
     }
 
     assertSnapshot(matching: viewController,
-                   as: .stitch(strategies: strategies, style: style),
+                   as: .stitch(strategies: snapshotStrategies(orientation: orientation), style: style),
                    named: finalName,
                    record: recording,
                    timeout: timeout,
@@ -71,6 +52,19 @@ func assertViewControllerSnapshot(
                    testName: testName,
                    line: line)
 
+}
+
+private func snapshotStrategies(orientation: ViewImageConfig.Orientation) -> [(String, Snapshotting<UIViewController, UIImage>)] {
+    let orientationIndicator = orientation == .portrait ? "|" : "-"
+
+    return [
+        ("iPhone X (\(orientationIndicator))", .image(on: .iPhoneX(orientation))),
+        ("iPhone 11 (\(orientationIndicator))", .image(on: .iPhone11(orientation))),
+        // iPhone XR, iPhone XS Max and iPhone 11 have the same dimensions, so they're not repeated here
+        ("iPhone 11 Pro (\(orientationIndicator))", .image(on: .iPhone11Pro(orientation))),
+        ("iPhone 12 (\(orientationIndicator))", .image(on: .iPhone12(orientation)))
+        // iPhone 12, iPhone 12 Pro, iPhone 13 and iPhone 13 Pro have the same dimensions, so they're not repeated here
+    ]
 }
 
 private func snapshotNamePostfix(interfaceStyle: UIUserInterfaceStyle, orientation: ViewImageConfig.Orientation) -> String {

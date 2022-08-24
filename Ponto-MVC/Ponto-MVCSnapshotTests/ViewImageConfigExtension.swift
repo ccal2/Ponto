@@ -1,5 +1,5 @@
 //
-//  ViewImageConfigExtenstion.swift
+//  ViewImageConfigExtension.swift
 //  Ponto-MVCSnapshotTests
 //
 //  Created by Carolina Cruz Agra Lopes on 22/05/22.
