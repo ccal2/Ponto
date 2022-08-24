@@ -62,6 +62,7 @@ class CurrentTimeCardViewControllerSnapshotTests: XCTestCase {
         // Act
         _ = viewController.view
 
+        // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
