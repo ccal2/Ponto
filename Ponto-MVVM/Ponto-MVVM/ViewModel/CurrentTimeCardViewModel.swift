@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CurrentTimeCardViewModel: TimeCardViewModel {
+class CurrentTimeCardViewModel: TimeCardViewModelType {
 
     // MARK: - Properties
 
@@ -17,6 +17,10 @@ class CurrentTimeCardViewModel: TimeCardViewModel {
         }
 
         return CommonFormatters.shared.shortDayDateFormatter.string(from: timeCard.startDate)
+    }
+
+    override var isTitleLarge: Bool {
+        true
     }
 
     override var pauseResumeButtonImageName: String? {

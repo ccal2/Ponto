@@ -8,6 +8,7 @@
 import XCTest
 import SnapshotTesting
 import SnapshotTestingStitch
+import SwiftUI
 
 @testable import Ponto_MVVM
 
@@ -39,14 +40,15 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         // Arrange
         let recordMode = false
         let view = TimeCardView(viewModel: viewModel)
+        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
         // Act
         // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
     }
 
     func test_CurrentTimeCardView_ongoingTimeCardWithoutBreaks() throws {
@@ -56,14 +58,15 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
+        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
         // Act
         // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
     }
 
     func test_CurrentTimeCardView_onABreakTimeCard() throws {
@@ -75,14 +78,15 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
+        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
         // Act
         // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
     }
 
     func test_CurrentTimeCardView_ongoingTimeCardWithBreaks() throws {
@@ -102,14 +106,15 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 16:00")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
+        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
         // Act
         // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
     }
 
     func test_CurrentTimeCardView_finishedTimeCardWithoutBreaks() throws {
@@ -121,14 +126,15 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
+        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
         // Act
         // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
     }
 
     func test_CurrentTimeCardView_finishedTimeCardWithBreaks() throws {
@@ -149,14 +155,15 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 16:20")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
+        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
         // Act
         // Make main thread process all operations without having to wait for it
         RunLoop.main.run(until: Date()+runLoopAdditionalTime)
 
         // Assert
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .light, orientation: .portrait)
-        assertViewSnapshot(matching: view, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .light, orientation: .portrait)
+        assertViewSnapshot(matching: navigationView, record: recordMode, interfaceStyle: .dark, orientation: .portrait)
     }
 
 }
