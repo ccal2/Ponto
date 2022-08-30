@@ -123,5 +123,18 @@ struct TimeCardView_Previews: PreviewProvider {
         NavigationView {
             TimeCardView(viewModel: CurrentTimeCardViewModel())
         }
+        .previewDisplayName("Current")
+
+        NavigationView {
+            TimeCardView(viewModel: TimeCardDetailViewModel(timeCard: timeCardSample))
+        }
+        .previewDisplayName("Detail")
     }
 }
+
+let timeCardSample = TimeCard(start: Date(timeIntervalSince1970: 8 * Constants.TimeConversion.hoursToSeconds),
+                              end: Date(timeIntervalSince1970: 17 * Constants.TimeConversion.hoursToSeconds),
+                              breaks: [
+                                Break(start: Date(timeIntervalSince1970: 12 * Constants.TimeConversion.hoursToSeconds),
+                                      end: Date(timeIntervalSince1970: 13 * Constants.TimeConversion.hoursToSeconds))
+                              ])

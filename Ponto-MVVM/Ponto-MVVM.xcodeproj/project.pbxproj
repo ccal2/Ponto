@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7710734A28BDB0ED001F251A /* TimeCardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */; };
 		773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DFCA9288A1366004EB5A1 /* TimeCardView.swift */; };
 		776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */; };
 		776621B82888BFDA004F473B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621B72888BFDA004F473B /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewModel.swift; sourceTree = "<group>"; };
 		773DFCA9288A1366004EB5A1 /* TimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardView.swift; sourceTree = "<group>"; };
 		776621B02888BFD6004F473B /* Ponto-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ponto-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ponto_MVVMApp.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				776D53D1288F6583008C2E7E /* CurrentTimeCardViewModel.swift */,
+				7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */,
 				776D53CF288F656A008C2E7E /* TimeCardViewModelType.swift */,
 			);
 			path = ViewModel;
@@ -407,6 +410,7 @@
 				7766220F2888C200004F473B /* DateProvider.swift in Sources */,
 				776622132888C200004F473B /* Break.swift in Sources */,
 				776622102888C200004F473B /* TimeCardRepository.swift in Sources */,
+				7710734A28BDB0ED001F251A /* TimeCardDetailViewModel.swift in Sources */,
 				776D53D0288F656A008C2E7E /* TimeCardViewModelType.swift in Sources */,
 				7766220E2888C200004F473B /* Date+Extension.swift in Sources */,
 				776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */,
