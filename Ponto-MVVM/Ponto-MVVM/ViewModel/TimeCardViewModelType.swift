@@ -1,5 +1,5 @@
 //
-//  TimeCardViewModel.swift
+//  TimeCardViewModelType.swift
 //  Ponto-MVVM
 //
 //  Created by Carolina Cruz Agra Lopes on 25/07/22.
@@ -7,11 +7,12 @@
 
 import Combine
 
-class TimeCardViewModel: ObservableObject {
+class TimeCardViewModelType: ObservableObject {
 
     // MARK: - Properties
 
     var title: String { fatalError("subclass should override") }
+    var isTitleLarge: Bool { fatalError("subclass should override") }
     @Published var durationText: String = Constants.TimeCardDetails.durationPlaceholder
     @Published var breakText: String? = nil
     var pauseResumeButtonImageName: String? { fatalError("subclass should override") }
