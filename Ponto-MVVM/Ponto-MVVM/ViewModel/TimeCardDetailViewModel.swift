@@ -25,7 +25,7 @@ class TimeCardDetailViewModel: TimeCardViewModelType {
 
     override var clockOutText: String {
         guard let endDate = timeCard.endDate else {
-            assertionFailure("")
+            assertionFailure("Only finished time cards should be used in a TimeCardDetailViewModel")
             return Constants.TimeCardDetails.timePlaceholder
         }
 
