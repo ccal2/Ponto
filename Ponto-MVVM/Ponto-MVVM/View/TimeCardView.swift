@@ -61,17 +61,11 @@ struct TimeCardView: View {
             List {
                 // Clock in / Clock out
                 Section(header: Text("")) {
-                    HStack {
-                        Text(Constants.TimeCardDetails.clockInTimeCellTitle)
-                        Spacer()
-                        Text(viewModel.clockInText)
-                    }
+                    SimpleListItem(title: Constants.TimeCardDetails.clockInTimeCellTitle,
+                                   detail: viewModel.clockInText)
 
-                    HStack {
-                        Text(Constants.TimeCardDetails.clockOutTimeCellTitle)
-                        Spacer()
-                        Text(viewModel.clockOutText)
-                    }
+                    SimpleListItem(title: Constants.TimeCardDetails.clockOutTimeCellTitle,
+                                   detail: viewModel.clockOutText)
                 }
 
                 // Breaks
@@ -97,23 +91,14 @@ struct BreakListItem: View {
     var breakListData: BreakListData
 
     var body: some View {
-        HStack {
-            Text(Constants.TimeCardDetails.breakStartTimeCellTitle)
-            Spacer()
-            Text(breakListData.startText)
-        }
+        SimpleListItem(title: Constants.TimeCardDetails.breakStartTimeCellTitle,
+                       detail: breakListData.startText)
 
-        HStack {
-            Text(Constants.TimeCardDetails.breakEndTimeCellTitle)
-            Spacer()
-            Text(breakListData.finishText)
-        }
+        SimpleListItem(title: Constants.TimeCardDetails.breakEndTimeCellTitle,
+                       detail: breakListData.finishText)
 
-        HStack {
-            Text(Constants.TimeCardDetails.breakDurationCellTitle)
-            Spacer()
-            Text(breakListData.durationText)
-        }
+        SimpleListItem(title: Constants.TimeCardDetails.breakDurationCellTitle,
+                       detail: breakListData.durationText)
     }
 
 }
@@ -123,5 +108,18 @@ struct TimeCardView_Previews: PreviewProvider {
         NavigationView {
             TimeCardView(viewModel: CurrentTimeCardViewModel())
         }
+        .previewDisplayName("Current")
+
+        NavigationView {
+            TimeCardView(viewModel: TimeCardDetailViewModel(timeCard: timeCardSample))
+        }
+        .previewDisplayName("Detail")
     }
 }
+
+let timeCardSample = TimeCard(start: Date(timeIntervalSince1970: 8 * Constants.TimeConversion.hoursToSeconds),
+                              end: Date(timeIntervalSince1970: 17 * Constants.TimeConversion.hoursToSeconds),
+                              breaks: [
+                                Break(start: Date(timeIntervalSince1970: 12 * Constants.TimeConversion.hoursToSeconds),
+                                      end: Date(timeIntervalSince1970: 13 * Constants.TimeConversion.hoursToSeconds))
+                              ])

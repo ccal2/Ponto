@@ -12,22 +12,22 @@ class TimeCardViewModelType: ObservableObject {
     // MARK: - Properties
 
     var title: String { fatalError("subclass should override") }
-    var isTitleLarge: Bool { fatalError("subclass should override") }
+    var isTitleLarge: Bool { true }
     @Published var durationText: String = Constants.TimeCardDetails.durationPlaceholder
     @Published var breakText: String? = nil
-    var pauseResumeButtonImageName: String? { fatalError("subclass should override") }
-    var startStopButtonImageName: String? { fatalError("subclass should override") }
-    var isPauseResumeButtonDisabled: Bool { fatalError("subclass should override") }
-    var isStartStopButtonDisabled: Bool { fatalError("subclass should override") }
+    var pauseResumeButtonImageName: String? { nil }
+    var startStopButtonImageName: String? { nil }
+    var isPauseResumeButtonDisabled: Bool { true }
+    var isStartStopButtonDisabled: Bool { true }
     var clockInText: String { fatalError("subclass should override") }
     var clockOutText: String { fatalError("subclass should override") }
     var breakList: [BreakListData] { fatalError("subclass should override") }
 
     // MARK: - Methods
 
-    func fetchTimeCard() { fatalError("subclass should override") }
-    func pauseOrResumeTimeCard() { fatalError("subclass should override") }
-    func startOrStopTimeCard() { fatalError("subclass should override") }
+    func fetchTimeCard() { }
+    func pauseOrResumeTimeCard() { }
+    func startOrStopTimeCard() { }
 
 }
 
