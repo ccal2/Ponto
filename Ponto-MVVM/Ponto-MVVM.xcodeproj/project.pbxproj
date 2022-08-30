@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734128BD90DC001F251A /* TimeCardHistoryView.swift */; };
+		7710734428BD9104001F251A /* TimeCardHistoryViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */; };
+		7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */; };
 		7710734A28BDB0ED001F251A /* TimeCardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */; };
 		7710734C28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */; };
 		7710734E28BDB7EE001F251A /* SimpleListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734D28BDB7EE001F251A /* SimpleListItem.swift */; };
@@ -54,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7710734128BD90DC001F251A /* TimeCardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryView.swift; sourceTree = "<group>"; };
+		7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewModelType.swift; sourceTree = "<group>"; };
+		7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewModel.swift; sourceTree = "<group>"; };
 		7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewModel.swift; sourceTree = "<group>"; };
 		7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewSnapshotTests.swift; sourceTree = "<group>"; };
 		7710734D28BDB7EE001F251A /* SimpleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItem.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				7710734D28BDB7EE001F251A /* SimpleListItem.swift */,
+				7710734128BD90DC001F251A /* TimeCardHistoryView.swift */,
 				773DFCA9288A1366004EB5A1 /* TimeCardView.swift */,
 			);
 			path = View;
@@ -124,6 +131,8 @@
 			children = (
 				776D53D1288F6583008C2E7E /* CurrentTimeCardViewModel.swift */,
 				7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */,
+				7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */,
+				7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */,
 				776D53CF288F656A008C2E7E /* TimeCardViewModelType.swift */,
 			);
 			path = ViewModel;
@@ -265,8 +274,8 @@
 			children = (
 				77AEBDAA28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift */,
 				77AEBDAC28B5A2FD0057D00F /* Helpers.swift */,
-				77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */,
 				7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */,
+				77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */,
 			);
 			path = "Ponto-MVVMSnapshotTests";
 			sourceTree = "<group>";
@@ -409,11 +418,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7710734428BD9104001F251A /* TimeCardHistoryViewModelType.swift in Sources */,
 				7710734E28BDB7EE001F251A /* SimpleListItem.swift in Sources */,
 				776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */,
 				776D53D2288F6583008C2E7E /* CurrentTimeCardViewModel.swift in Sources */,
 				773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */,
 				776622122888C200004F473B /* CommonFormatters.swift in Sources */,
+				7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */,
+				7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */,
 				7766220F2888C200004F473B /* DateProvider.swift in Sources */,
 				776622132888C200004F473B /* Break.swift in Sources */,
 				776622102888C200004F473B /* TimeCardRepository.swift in Sources */,
