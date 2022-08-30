@@ -19,10 +19,6 @@ class CurrentTimeCardViewModel: TimeCardViewModelType {
         return CommonFormatters.shared.shortDayDateFormatter.string(from: timeCard.startDate)
     }
 
-    override var isTitleLarge: Bool {
-        true
-    }
-
     override var pauseResumeButtonImageName: String? {
         (timeCard?.state == .onABreak) ? Constants.ImageName.resumeButton : Constants.ImageName.pauseButton
     }
@@ -83,6 +79,7 @@ class CurrentTimeCardViewModel: TimeCardViewModelType {
     init(timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared, currentDateProvider: CurrentDateProvider = DateProvider.shared) {
         self.timeCardRepository = timeCardRepository
         self.currentDateProvider = currentDateProvider
+        super.init()
     }
 
     // MARK: - Methods
