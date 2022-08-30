@@ -11,8 +11,7 @@ import SwiftUI
 struct Ponto_MVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            Text("Hello, world!")
-                .padding()
+            TimeCardView(viewModel: CurrentTimeCardViewModel())
         }
     }
 }
