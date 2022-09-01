@@ -20,6 +20,7 @@ enum Constants {
     enum ViewSpacing {
         static let small: Double = 8.0
         static let medium: Double = 16.0
+        static let big: Double = 24.0
         static let large: Double = 32.0
         static let extraLarge: Double = 64.0
         static let extraExtraLarge: Double = 80.0
