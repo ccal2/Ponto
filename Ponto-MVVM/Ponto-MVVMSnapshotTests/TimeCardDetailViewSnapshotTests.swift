@@ -39,7 +39,7 @@ class TimeCardDetailViewSnapshotTests: XCTestCase {
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 end: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
                                 currentDateProvider: mockDateProvider)
-        let viewModel = TimeCardDetailViewModel(timeCard: timeCard, timeCardRepository: LocalTimeCardRepository(), currentDateProvider: mockDateProvider)
+        let viewModel = TimeCardDetailViewModel(timeCard: timeCard)
         let view = TimeCardView(viewModel: viewModel)
         let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
@@ -67,7 +67,7 @@ class TimeCardDetailViewSnapshotTests: XCTestCase {
                                 end: mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds),
                                 breaks: [break1, break2],
                                 currentDateProvider: mockDateProvider)
-        let viewModel = TimeCardDetailViewModel(timeCard: timeCard, timeCardRepository: LocalTimeCardRepository(), currentDateProvider: mockDateProvider)
+        let viewModel = TimeCardDetailViewModel(timeCard: timeCard)
         let view = TimeCardView(viewModel: viewModel)
         let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 

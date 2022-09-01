@@ -41,20 +41,14 @@ class TimeCardDetailViewModel: TimeCardViewModelType {
     /// Model
     let timeCard: TimeCard
 
-    /// Injected dependencies
-    private let timeCardRepository: TimeCardRepository
-    private var currentDateProvider: CurrentDateProvider
-
     /// Timers
     private var timeCardDurationTimer: Timer?
     private var breakDurationTimer: Timer?
 
     // MARK: - Initializers
 
-    init(timeCard: TimeCard, timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared, currentDateProvider: CurrentDateProvider = DateProvider.shared) {
+    init(timeCard: TimeCard) {
         self.timeCard = timeCard
-        self.timeCardRepository = timeCardRepository
-        self.currentDateProvider = currentDateProvider
         super.init()
 
         self.durationText = CommonFormatters.shared.durationDateComponentsFormatter.string(from: timeCard.duration) ?? Constants.TimeCardDetails.durationPlaceholder
