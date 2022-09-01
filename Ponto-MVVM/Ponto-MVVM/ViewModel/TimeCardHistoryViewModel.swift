@@ -19,17 +19,11 @@ class TimeCardHistoryViewModel: TimeCardHistoryViewModelType {
 
     /// Injected dependencies
     private let timeCardRepository: TimeCardRepository
-    private var currentDateProvider: CurrentDateProvider
-
-    /// Timers
-    private var timeCardDurationTimer: Timer?
-    private var breakDurationTimer: Timer?
 
     // MARK: - Initializers
 
-    init(timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared, currentDateProvider: CurrentDateProvider = DateProvider.shared) {
+    init(timeCardRepository: TimeCardRepository = LocalTimeCardRepository.shared) {
         self.timeCardRepository = timeCardRepository
-        self.currentDateProvider = currentDateProvider
     }
 
     // MARK: - Methods

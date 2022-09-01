@@ -37,7 +37,7 @@ class TimeCardHistoryViewSnapshotTests: XCTestCase {
         // Arrange
         let recordMode = false
         let repository = LocalTimeCardRepository(timeCards: [])
-        let viewModel = TimeCardHistoryViewModel(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let viewModel = TimeCardHistoryViewModel(timeCardRepository: repository)
         let view = TimeCardHistoryView(viewModel: viewModel)
         let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
@@ -76,7 +76,7 @@ class TimeCardHistoryViewSnapshotTests: XCTestCase {
                      endAfter: 8.75)
         ])
         try mockDateProvider.updateDate(to: "02/03/97 8:00")
-        let viewModel = TimeCardHistoryViewModel(timeCardRepository: repository, currentDateProvider: mockDateProvider)
+        let viewModel = TimeCardHistoryViewModel(timeCardRepository: repository)
         let view = TimeCardHistoryView(viewModel: viewModel)
         let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
 
