@@ -13,31 +13,35 @@ class TimeCardHistoryViewModelType: ObservableObject {
     // MARK: - Properties
 
     var title: String { fatalError("subclass should override") }
-    @Published var timeCardsGroupedByMonth: [(key: String, value: [TimeCardListData])] = []
+    @Published var timeCardListDatasGroupedByMonth: [(key: String, value: [TimeCardListData])] = []
 
     // MARK: - Methods
 
     func fetchTimeCards() { }
+    func timeCardDetailViewModel(for: TimeCardListData) -> TimeCardDetailViewModel? { fatalError("subclass should override") }
 
 }
 
 // MARK: - TimeCardListData
 
-struct TimeCardListData: Hashable {
+struct TimeCardListData: Hashable, Identifiable {
 
     // MARK: - Properties
 
+    let id: UUID
     var dateText: String
     var durationText: String
 
     // MARK: - Initializers
 
-    init(dateText: String, durationText: String) {
+    init(id: UUID = UUID(), dateText: String, durationText: String) {
+        self.id = id
         self.dateText = dateText
         self.durationText = durationText
     }
 
     init(timeCard: TimeCard) {
+        id = timeCard.id
         dateText = CommonFormatters.shared.mediumDayDateFormatter.string(from: timeCard.startDate)
         durationText = CommonFormatters.shared.durationDateComponentsFormatter.string(from: timeCard.duration) ?? Constants.TimeCardDetails.durationPlaceholder
     }

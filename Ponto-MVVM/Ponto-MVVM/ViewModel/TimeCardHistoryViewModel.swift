@@ -15,6 +15,8 @@ class TimeCardHistoryViewModel: TimeCardHistoryViewModelType {
         Constants.TimeCardHistory.screenTitle
     }
 
+    var timeCardsGroupedByMonth: [DateComponents: [TimeCard]] = [:]
+
     /// Injected dependencies
     private let timeCardRepository: TimeCardRepository
     private var currentDateProvider: CurrentDateProvider
@@ -40,7 +42,9 @@ class TimeCardHistoryViewModel: TimeCardHistoryViewModelType {
             case let .success(timeCards):
                 self.timeCardsGroupedByMonth = Dictionary(grouping: timeCards) { timeCard in
                     timeCard.startDate.monthComponents
-                }.mapValues { timeCards in
+                }
+
+                self.timeCardListDatasGroupedByMonth = self.timeCardsGroupedByMonth.mapValues { timeCards in
                     timeCards.map { timeCard in
                         TimeCardListData(timeCard: timeCard)
                     }
@@ -74,6 +78,16 @@ class TimeCardHistoryViewModel: TimeCardHistoryViewModelType {
             case let .failure(error):
                 print("Error when trying to load time cards: \(error.localizedDescription)")
             }
+        }
+    }
+
+    override func timeCardDetailViewModel(for timeCardListData: TimeCardListData) -> TimeCardDetailViewModel? {
+        timeCardsGroupedByMonth.values.flatMap { element in
+            element
+        }.first { timeCard in
+            timeCard.id == timeCardListData.id
+        }.map { timeCard in
+            TimeCardDetailViewModel(timeCard: timeCard)
         }
     }
 

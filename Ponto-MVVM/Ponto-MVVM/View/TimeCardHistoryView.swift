@@ -13,17 +13,21 @@ struct TimeCardHistoryView: View {
 
     var body: some View {
         Group {
-            if viewModel.timeCardsGroupedByMonth.isEmpty {
+            if viewModel.timeCardListDatasGroupedByMonth.isEmpty {
                 Text(Constants.TimeCardHistory.emptyHistoryMessage)
             } else {
                 // Table view
                 List {
                     // Months
-                    ForEach(Array(viewModel.timeCardsGroupedByMonth), id: \.key) { element in
+                    ForEach(viewModel.timeCardListDatasGroupedByMonth, id: \.key) { element in
                         Section(header: Text(element.key)) {
-                            ForEach(Array(element.value.enumerated()), id: \.offset) { _, timeCardListData in
+                            ForEach(element.value, id: \.id) { timeCardListData in
                                 NavigationLink {
-                                    TimeCardView(viewModel: CurrentTimeCardViewModel())
+                                    if let detailViewModel =  viewModel.timeCardDetailViewModel(for: timeCardListData) {
+                                        TimeCardView(viewModel: detailViewModel)
+                                    } else {
+                                        // Error!
+                                    }
                                 } label: {
                                     TimeCardListItem(timeCardListData: timeCardListData)
                                 }
