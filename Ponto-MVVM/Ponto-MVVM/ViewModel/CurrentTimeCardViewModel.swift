@@ -37,6 +37,10 @@ class CurrentTimeCardViewModel: TimeCardViewModelType {
         return disabledStates.contains(timeCard?.state)
     }
 
+    override var shouldDisplayBreakText: Bool {
+        true
+    }
+
     override var clockInText: String {
         guard let timeCard = timeCard else {
             return Constants.TimeCardDetails.timePlaceholder
