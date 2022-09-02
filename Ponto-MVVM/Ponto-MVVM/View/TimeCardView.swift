@@ -12,24 +12,29 @@ struct TimeCardView: View {
     @ObservedObject var viewModel: TimeCardViewModelType
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             // Duration text
             Text(viewModel.durationText)
-                .font(.system(size: 72.0, design: .monospaced))
+                .font(.system(size: 72.0, weight: .light))
+                .monospacedDigit()
                 .fontWeight(.light)
                 .padding(.top, Constants.ViewSpacing.big)
 
             // Break text
-            Group {
-                if let breakText = viewModel.breakText {
-                    Text(breakText)
-                } else {
-                    // Set hidden Text view to keep space for break label
-                    Text(Constants.TimeCardDetails.durationPlaceholder)
-                        .hidden()
+            if viewModel.shouldDisplayBreakText {
+                Group {
+                    if let breakText = viewModel.breakText {
+                        Text(breakText)
+                    } else {
+                        // Set hidden Text view to keep space for break label
+                        Text(Constants.TimeCardDetails.durationPlaceholder)
+                            .hidden()
+                    }
                 }
+                .font(.system(size: 22.0, weight: .regular))
+                .monospacedDigit()
+                .padding(.bottom)
             }
-            .font(.system(size: 22.0, design: .monospaced))
 
             // Control buttons
             if let pauseResumeButtonImageName = viewModel.pauseResumeButtonImageName,

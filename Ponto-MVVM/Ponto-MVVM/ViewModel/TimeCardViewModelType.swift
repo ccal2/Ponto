@@ -19,6 +19,7 @@ class TimeCardViewModelType: ObservableObject {
     var startStopButtonImageName: String? { nil }
     var isPauseResumeButtonDisabled: Bool { true }
     var isStartStopButtonDisabled: Bool { true }
+    var shouldDisplayBreakText: Bool { false }
     var clockInText: String { fatalError("subclass should override") }
     var clockOutText: String { fatalError("subclass should override") }
     var breakList: [BreakListData] { fatalError("subclass should override") }
