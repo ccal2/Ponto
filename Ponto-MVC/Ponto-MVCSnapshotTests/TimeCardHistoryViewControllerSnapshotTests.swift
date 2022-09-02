@@ -16,7 +16,7 @@ class TimeCardHistoryViewControllerSnapshotTests: XCTestCase {
     // MARK: - Properties
 
     var mockDateProvider: MockDateProvider!
-    let runLoopAdditionalTime: TimeInterval = 0.003
+    let runLoopAdditionalTime: TimeInterval = 0.005
 
     // MARK: - Set up & Tear down
 
