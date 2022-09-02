@@ -17,6 +17,7 @@ struct TimeCardView: View {
             Text(viewModel.durationText)
                 .font(.system(size: 72.0, design: .monospaced))
                 .fontWeight(.light)
+                .padding(.top, Constants.ViewSpacing.big)
 
             // Break text
             Group {
@@ -60,7 +61,7 @@ struct TimeCardView: View {
             // Table view
             List {
                 // Clock in / Clock out
-                Section(header: Text("")) {
+                Section {
                     SimpleListItem(title: Constants.TimeCardDetails.clockInTimeCellTitle,
                                    detail: viewModel.clockInText)
 

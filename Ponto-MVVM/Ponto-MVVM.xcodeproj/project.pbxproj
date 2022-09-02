@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770DFECD28C0534500B45C99 /* EmbeddedViewInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */; };
 		7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734128BD90DC001F251A /* TimeCardHistoryView.swift */; };
 		7710734428BD9104001F251A /* TimeCardHistoryViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */; };
 		7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedViewInNavigation.swift; sourceTree = "<group>"; };
 		7710734128BD90DC001F251A /* TimeCardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryView.swift; sourceTree = "<group>"; };
 		7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewModelType.swift; sourceTree = "<group>"; };
 		7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		773DFCA5288A1264004EB5A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */,
 				7710734D28BDB7EE001F251A /* SimpleListItem.swift */,
 				7710734128BD90DC001F251A /* TimeCardHistoryView.swift */,
 				773DFCA9288A1366004EB5A1 /* TimeCardView.swift */,
@@ -426,6 +429,7 @@
 				776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */,
 				776D53D2288F6583008C2E7E /* CurrentTimeCardViewModel.swift in Sources */,
 				773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */,
+				770DFECD28C0534500B45C99 /* EmbeddedViewInNavigation.swift in Sources */,
 				776622122888C200004F473B /* CommonFormatters.swift in Sources */,
 				7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */,
 				7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */,

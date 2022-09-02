@@ -74,15 +74,3 @@ private func snapshotNamePostfix(interfaceStyle: UIUserInterfaceStyle, orientati
 
     return nameOrientationPostfix + "_" + nameInterfacePostfix
 }
-
-struct EmbeddedViewInNavigation: View {
-
-    let embeddedView: AnyView
-
-    var body: some View {
-        NavigationView {
-            embeddedView
-        }
-    }
-
-}
