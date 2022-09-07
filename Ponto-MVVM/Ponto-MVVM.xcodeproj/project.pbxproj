@@ -1,0 +1,810 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		770DFECD28C0534500B45C99 /* EmbeddedViewInNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */; };
+		7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734128BD90DC001F251A /* TimeCardHistoryView.swift */; };
+		7710734428BD9104001F251A /* TimeCardHistoryViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */; };
+		7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */; };
+		7710734A28BDB0ED001F251A /* TimeCardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */; };
+		7710734C28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */; };
+		7710734E28BDB7EE001F251A /* SimpleListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734D28BDB7EE001F251A /* SimpleListItem.swift */; };
+		7710735028BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */; };
+		773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DFCA9288A1366004EB5A1 /* TimeCardView.swift */; };
+		776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */; };
+		776621B82888BFDA004F473B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621B72888BFDA004F473B /* Assets.xcassets */; };
+		776621BB2888BFDA004F473B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621BA2888BFDA004F473B /* Preview Assets.xcassets */; };
+		7766220D2888C200004F473B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622032888C200004F473B /* Constants.swift */; };
+		7766220E2888C200004F473B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622042888C200004F473B /* Date+Extension.swift */; };
+		7766220F2888C200004F473B /* DateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622052888C200004F473B /* DateProvider.swift */; };
+		776622102888C200004F473B /* TimeCardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622072888C200004F473B /* TimeCardRepository.swift */; };
+		776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622082888C200004F473B /* LocalTimeCardRepository.swift */; };
+		776622122888C200004F473B /* CommonFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622092888C200004F473B /* CommonFormatters.swift */; };
+		776622132888C200004F473B /* Break.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766220B2888C200004F473B /* Break.swift */; };
+		776622142888C200004F473B /* TimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766220C2888C200004F473B /* TimeCard.swift */; };
+		7766221D2888C21F004F473B /* LocalTimeCardRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622172888C21F004F473B /* LocalTimeCardRepositoryTests.swift */; };
+		7766221E2888C21F004F473B /* TimeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776622192888C21F004F473B /* TimeCardTests.swift */; };
+		7766221F2888C21F004F473B /* BreakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766221A2888C21F004F473B /* BreakTests.swift */; };
+		776622202888C21F004F473B /* MockDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766221C2888C21F004F473B /* MockDateProvider.swift */; };
+		776D53D0288F656A008C2E7E /* TimeCardViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D53CF288F656A008C2E7E /* TimeCardViewModelType.swift */; };
+		776D53D2288F6583008C2E7E /* CurrentTimeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D53D1288F6583008C2E7E /* CurrentTimeCardViewModel.swift */; };
+		77AE5CF72888C6C1006C403A /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 77AE5CF62888C6C1006C403A /* SnapshotTesting */; };
+		77AE5CFA2888C766006C403A /* SnapshotTestingStitch in Frameworks */ = {isa = PBXBuildFile; productRef = 77AE5CF92888C766006C403A /* SnapshotTestingStitch */; };
+		77AEBDA928B5A2840057D00F /* MockDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766221C2888C21F004F473B /* MockDateProvider.swift */; };
+		77AEBDAB28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBDAA28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift */; };
+		77AEBDAD28B5A2FD0057D00F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBDAC28B5A2FD0057D00F /* Helpers.swift */; };
+		77AEBDAF28B5A3360057D00F /* ViewImageConfigExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		776621C12888BFDB004F473B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 776621A82888BFD6004F473B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 776621AF2888BFD6004F473B;
+			remoteInfo = "Ponto-MVVM";
+		};
+		776622292888C3C6004F473B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 776621A82888BFD6004F473B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 776621AF2888BFD6004F473B;
+			remoteInfo = "Ponto-MVVM";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedViewInNavigation.swift; sourceTree = "<group>"; };
+		7710734128BD90DC001F251A /* TimeCardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryView.swift; sourceTree = "<group>"; };
+		7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewModelType.swift; sourceTree = "<group>"; };
+		7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewModel.swift; sourceTree = "<group>"; };
+		7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewModel.swift; sourceTree = "<group>"; };
+		7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewSnapshotTests.swift; sourceTree = "<group>"; };
+		7710734D28BDB7EE001F251A /* SimpleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItem.swift; sourceTree = "<group>"; };
+		7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewSnapshotTests.swift; sourceTree = "<group>"; };
+		773DFCA9288A1366004EB5A1 /* TimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardView.swift; sourceTree = "<group>"; };
+		776621B02888BFD6004F473B /* Ponto-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ponto-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ponto_MVVMApp.swift; sourceTree = "<group>"; };
+		776621B72888BFDA004F473B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		776621BA2888BFDA004F473B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		776621C02888BFDB004F473B /* Ponto-MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVVMTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		776622032888C200004F473B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		776622042888C200004F473B /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		776622052888C200004F473B /* DateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateProvider.swift; sourceTree = "<group>"; };
+		776622072888C200004F473B /* TimeCardRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCardRepository.swift; sourceTree = "<group>"; };
+		776622082888C200004F473B /* LocalTimeCardRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTimeCardRepository.swift; sourceTree = "<group>"; };
+		776622092888C200004F473B /* CommonFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFormatters.swift; sourceTree = "<group>"; };
+		7766220B2888C200004F473B /* Break.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Break.swift; sourceTree = "<group>"; };
+		7766220C2888C200004F473B /* TimeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCard.swift; sourceTree = "<group>"; };
+		776622172888C21F004F473B /* LocalTimeCardRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTimeCardRepositoryTests.swift; sourceTree = "<group>"; };
+		776622192888C21F004F473B /* TimeCardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCardTests.swift; sourceTree = "<group>"; };
+		7766221A2888C21F004F473B /* BreakTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTests.swift; sourceTree = "<group>"; };
+		7766221C2888C21F004F473B /* MockDateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
+		776622252888C3C6004F473B /* Ponto-MVVMSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVVMSnapshotTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		776D53CF288F656A008C2E7E /* TimeCardViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardViewModelType.swift; sourceTree = "<group>"; };
+		776D53D1288F6583008C2E7E /* CurrentTimeCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewModel.swift; sourceTree = "<group>"; };
+		77AEBDAA28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewSnapshotTests.swift; sourceTree = "<group>"; };
+		77AEBDAC28B5A2FD0057D00F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageConfigExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		776621AD2888BFD6004F473B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776621BD2888BFDB004F473B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776622222888C3C6004F473B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77AE5CFA2888C766006C403A /* SnapshotTestingStitch in Frameworks */,
+				77AE5CF72888C6C1006C403A /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		773DFCA5288A1264004EB5A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */,
+				7710734D28BDB7EE001F251A /* SimpleListItem.swift */,
+				7710734128BD90DC001F251A /* TimeCardHistoryView.swift */,
+				773DFCA9288A1366004EB5A1 /* TimeCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		773DFCA6288A1271004EB5A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				776D53D1288F6583008C2E7E /* CurrentTimeCardViewModel.swift */,
+				7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */,
+				7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */,
+				7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */,
+				776D53CF288F656A008C2E7E /* TimeCardViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		776621A72888BFD6004F473B = {
+			isa = PBXGroup;
+			children = (
+				776621B22888BFD6004F473B /* Ponto-MVVM */,
+				776621C32888BFDB004F473B /* Ponto-MVVMTests */,
+				776622262888C3C6004F473B /* Ponto-MVVMSnapshotTests */,
+				776621B12888BFD6004F473B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		776621B12888BFD6004F473B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				776621B02888BFD6004F473B /* Ponto-MVVM.app */,
+				776621C02888BFDB004F473B /* Ponto-MVVMTests.xctest */,
+				776622252888C3C6004F473B /* Ponto-MVVMSnapshotTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		776621B22888BFD6004F473B /* Ponto-MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				776621DD2888C11F004F473B /* App */,
+				776622022888C200004F473B /* Model */,
+				776621DE2888C12F004F473B /* Resources */,
+				773DFCA5288A1264004EB5A1 /* View */,
+				773DFCA6288A1271004EB5A1 /* ViewModel */,
+			);
+			path = "Ponto-MVVM";
+			sourceTree = "<group>";
+		};
+		776621B92888BFDA004F473B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				776621BA2888BFDA004F473B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		776621C32888BFDB004F473B /* Ponto-MVVMTests */ = {
+			isa = PBXGroup;
+			children = (
+				7766221B2888C21F004F473B /* Mocks */,
+				776622152888C21F004F473B /* Model */,
+			);
+			path = "Ponto-MVVMTests";
+			sourceTree = "<group>";
+		};
+		776621DD2888C11F004F473B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		776621DE2888C12F004F473B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				776621B72888BFDA004F473B /* Assets.xcassets */,
+				776621B92888BFDA004F473B /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		776622022888C200004F473B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				776622092888C200004F473B /* CommonFormatters.swift */,
+				776622032888C200004F473B /* Constants.swift */,
+				776622042888C200004F473B /* Date+Extension.swift */,
+				776622052888C200004F473B /* DateProvider.swift */,
+				7766220A2888C200004F473B /* Entities */,
+				776622062888C200004F473B /* Repositories */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		776622062888C200004F473B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				776622082888C200004F473B /* LocalTimeCardRepository.swift */,
+				776622072888C200004F473B /* TimeCardRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7766220A2888C200004F473B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7766220B2888C200004F473B /* Break.swift */,
+				7766220C2888C200004F473B /* TimeCard.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		776622152888C21F004F473B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				776622182888C21F004F473B /* Entities */,
+				776622162888C21F004F473B /* Repositories */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		776622162888C21F004F473B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				776622172888C21F004F473B /* LocalTimeCardRepositoryTests.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		776622182888C21F004F473B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7766221A2888C21F004F473B /* BreakTests.swift */,
+				776622192888C21F004F473B /* TimeCardTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		7766221B2888C21F004F473B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7766221C2888C21F004F473B /* MockDateProvider.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		776622262888C3C6004F473B /* Ponto-MVVMSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				77AEBDAA28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift */,
+				77AEBDAC28B5A2FD0057D00F /* Helpers.swift */,
+				7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */,
+				7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */,
+				77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */,
+			);
+			path = "Ponto-MVVMSnapshotTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		776621AF2888BFD6004F473B /* Ponto-MVVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 776621D42888BFDB004F473B /* Build configuration list for PBXNativeTarget "Ponto-MVVM" */;
+			buildPhases = (
+				776621AC2888BFD6004F473B /* Sources */,
+				776621AD2888BFD6004F473B /* Frameworks */,
+				776621AE2888BFD6004F473B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ponto-MVVM";
+			productName = "Ponto-MVVM";
+			productReference = 776621B02888BFD6004F473B /* Ponto-MVVM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		776621BF2888BFDB004F473B /* Ponto-MVVMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 776621D72888BFDB004F473B /* Build configuration list for PBXNativeTarget "Ponto-MVVMTests" */;
+			buildPhases = (
+				776621BC2888BFDB004F473B /* Sources */,
+				776621BD2888BFDB004F473B /* Frameworks */,
+				776621BE2888BFDB004F473B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				776621C22888BFDB004F473B /* PBXTargetDependency */,
+			);
+			name = "Ponto-MVVMTests";
+			productName = "Ponto-MVVMTests";
+			productReference = 776621C02888BFDB004F473B /* Ponto-MVVMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		776622242888C3C6004F473B /* Ponto-MVVMSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7766222B2888C3C6004F473B /* Build configuration list for PBXNativeTarget "Ponto-MVVMSnapshotTests" */;
+			buildPhases = (
+				776622212888C3C6004F473B /* Sources */,
+				776622222888C3C6004F473B /* Frameworks */,
+				776622232888C3C6004F473B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7766222A2888C3C6004F473B /* PBXTargetDependency */,
+			);
+			name = "Ponto-MVVMSnapshotTests";
+			packageProductDependencies = (
+				77AE5CF62888C6C1006C403A /* SnapshotTesting */,
+				77AE5CF92888C766006C403A /* SnapshotTestingStitch */,
+			);
+			productName = "Ponto-MVVMSnapshotTests";
+			productReference = 776622252888C3C6004F473B /* Ponto-MVVMSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		776621A82888BFD6004F473B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					776621AF2888BFD6004F473B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					776621BF2888BFDB004F473B = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 776621AF2888BFD6004F473B;
+					};
+					776622242888C3C6004F473B = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 776621AF2888BFD6004F473B;
+					};
+				};
+			};
+			buildConfigurationList = 776621AB2888BFD6004F473B /* Build configuration list for PBXProject "Ponto-MVVM" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 776621A72888BFD6004F473B;
+			packageReferences = (
+				77AE5CF52888C6C1006C403A /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				77AE5CF82888C766006C403A /* XCRemoteSwiftPackageReference "swift-snapshot-testing-stitch" */,
+			);
+			productRefGroup = 776621B12888BFD6004F473B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				776621AF2888BFD6004F473B /* Ponto-MVVM */,
+				776621BF2888BFDB004F473B /* Ponto-MVVMTests */,
+				776622242888C3C6004F473B /* Ponto-MVVMSnapshotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		776621AE2888BFD6004F473B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				776621BB2888BFDA004F473B /* Preview Assets.xcassets in Resources */,
+				776621B82888BFDA004F473B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776621BE2888BFDB004F473B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776622232888C3C6004F473B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		776621AC2888BFD6004F473B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7710734428BD9104001F251A /* TimeCardHistoryViewModelType.swift in Sources */,
+				7710734E28BDB7EE001F251A /* SimpleListItem.swift in Sources */,
+				776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */,
+				776D53D2288F6583008C2E7E /* CurrentTimeCardViewModel.swift in Sources */,
+				773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */,
+				770DFECD28C0534500B45C99 /* EmbeddedViewInNavigation.swift in Sources */,
+				776622122888C200004F473B /* CommonFormatters.swift in Sources */,
+				7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */,
+				7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */,
+				7766220F2888C200004F473B /* DateProvider.swift in Sources */,
+				776622132888C200004F473B /* Break.swift in Sources */,
+				776622102888C200004F473B /* TimeCardRepository.swift in Sources */,
+				7710734A28BDB0ED001F251A /* TimeCardDetailViewModel.swift in Sources */,
+				776D53D0288F656A008C2E7E /* TimeCardViewModelType.swift in Sources */,
+				7766220E2888C200004F473B /* Date+Extension.swift in Sources */,
+				776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */,
+				776622142888C200004F473B /* TimeCard.swift in Sources */,
+				7766220D2888C200004F473B /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776621BC2888BFDB004F473B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7766221D2888C21F004F473B /* LocalTimeCardRepositoryTests.swift in Sources */,
+				7766221E2888C21F004F473B /* TimeCardTests.swift in Sources */,
+				776622202888C21F004F473B /* MockDateProvider.swift in Sources */,
+				7766221F2888C21F004F473B /* BreakTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776622212888C3C6004F473B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77AEBDAF28B5A3360057D00F /* ViewImageConfigExtension.swift in Sources */,
+				77AEBDA928B5A2840057D00F /* MockDateProvider.swift in Sources */,
+				77AEBDAB28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift in Sources */,
+				7710734C28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift in Sources */,
+				7710735028BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift in Sources */,
+				77AEBDAD28B5A2FD0057D00F /* Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		776621C22888BFDB004F473B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 776621AF2888BFD6004F473B /* Ponto-MVVM */;
+			targetProxy = 776621C12888BFDB004F473B /* PBXContainerItemProxy */;
+		};
+		7766222A2888C3C6004F473B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 776621AF2888BFD6004F473B /* Ponto-MVVM */;
+			targetProxy = 776622292888C3C6004F473B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		776621D22888BFDB004F473B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		776621D32888BFDB004F473B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		776621D52888BFDB004F473B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Ponto-MVVM/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		776621D62888BFDB004F473B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Ponto-MVVM/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		776621D82888BFDB004F473B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVMTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ponto-MVVM.app/Ponto-MVVM";
+			};
+			name = Debug;
+		};
+		776621D92888BFDB004F473B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVMTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ponto-MVVM.app/Ponto-MVVM";
+			};
+			name = Release;
+		};
+		7766222C2888C3C6004F473B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVMSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ponto-MVVM.app/Ponto-MVVM";
+			};
+			name = Debug;
+		};
+		7766222D2888C3C6004F473B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZF3ZN3AUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVMSnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ponto-MVVM.app/Ponto-MVVM";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		776621AB2888BFD6004F473B /* Build configuration list for PBXProject "Ponto-MVVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776621D22888BFDB004F473B /* Debug */,
+				776621D32888BFDB004F473B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		776621D42888BFDB004F473B /* Build configuration list for PBXNativeTarget "Ponto-MVVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776621D52888BFDB004F473B /* Debug */,
+				776621D62888BFDB004F473B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		776621D72888BFDB004F473B /* Build configuration list for PBXNativeTarget "Ponto-MVVMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776621D82888BFDB004F473B /* Debug */,
+				776621D92888BFDB004F473B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7766222B2888C3C6004F473B /* Build configuration list for PBXNativeTarget "Ponto-MVVMSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7766222C2888C3C6004F473B /* Debug */,
+				7766222D2888C3C6004F473B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77AE5CF52888C6C1006C403A /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		77AE5CF82888C766006C403A /* XCRemoteSwiftPackageReference "swift-snapshot-testing-stitch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Sherlouk/swift-snapshot-testing-stitch";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77AE5CF62888C6C1006C403A /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77AE5CF52888C6C1006C403A /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		77AE5CF92888C766006C403A /* SnapshotTestingStitch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77AE5CF82888C766006C403A /* XCRemoteSwiftPackageReference "swift-snapshot-testing-stitch" */;
+			productName = SnapshotTestingStitch;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 776621A82888BFD6004F473B /* Project object */;
+}
