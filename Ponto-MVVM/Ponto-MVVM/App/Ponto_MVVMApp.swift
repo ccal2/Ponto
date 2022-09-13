@@ -11,7 +11,11 @@ import SwiftUI
 struct Ponto_MVVMApp: App {
     var body: some Scene {
         WindowGroup {
+            #if targetEnvironment(macCatalyst)
+            PontoMacView()
+            #else
             PontoView()
+            #endif
         }
     }
 }

@@ -40,7 +40,7 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         // Arrange
         let recordMode = false
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -58,7 +58,7 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -78,7 +78,7 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -106,7 +106,7 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 16:00")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -126,7 +126,7 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -155,7 +155,7 @@ class CurrentTimeCardViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/01/97 16:20")
         viewModel.timeCard = timeCard
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
