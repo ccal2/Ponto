@@ -11,16 +11,21 @@ struct PontoView: View {
 
     var body: some View {
         TabView {
-            EmbeddedViewInNavigation(embeddedView: AnyView(TimeCardView(viewModel: CurrentTimeCardViewModel())))
-                .tabItem {
-                    Image(systemName: Constants.ImageName.calendarIcon)
-                    Text(Constants.CurrentTimeCard.tabBarTitle)
-                }
-            EmbeddedViewInNavigation(embeddedView: AnyView(TimeCardHistoryView(viewModel: TimeCardHistoryViewModel())))
-                .tabItem {
-                    Image(systemName: Constants.ImageName.clockIcon)
-                    Text(Constants.TimeCardHistory.screenTitle)
-                }
+            EmbeddedViewInNavigation {
+                AnyView(TimeCardView(viewModel: CurrentTimeCardViewModel()))
+            }
+            .tabItem {
+                Image(systemName: Constants.ImageName.calendarIcon)
+                Text(Constants.CurrentTimeCard.tabBarTitle)
+            }
+
+            EmbeddedViewInNavigation {
+                AnyView(TimeCardHistoryView(viewModel: TimeCardHistoryViewModel()))
+            }
+            .tabItem {
+                Image(systemName: Constants.ImageName.clockIcon)
+                Text(Constants.TimeCardHistory.screenTitle)
+            }
         }
     }
 

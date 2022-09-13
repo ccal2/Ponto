@@ -35,7 +35,7 @@ struct TimeCardHistoryView: View {
                         }
                     }
                 }
-                .listStyle(InsetGroupedListStyle())
+                .listStyle(.insetGrouped)
             }
         }
         .navigationTitle(viewModel.title)
