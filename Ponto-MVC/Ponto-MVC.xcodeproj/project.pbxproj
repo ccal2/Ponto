@@ -67,6 +67,7 @@
 		771D698627E9742700825849 /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
 		771D698927E9745F00825849 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		771D698B27E9751200825849 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		772BA2FE28D8EE8600FB3F0D /* Ponto-MVC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ponto-MVC.entitlements"; sourceTree = "<group>"; };
 		7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewController.swift; sourceTree = "<group>"; };
 		777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewController.swift; sourceTree = "<group>"; };
 		777229BC28613E1200878656 /* TimeCardHistoryViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
@@ -238,6 +239,7 @@
 		7791786F27B8D5E3008D13A0 /* Ponto-MVC */ = {
 			isa = PBXGroup;
 			children = (
+				772BA2FE28D8EE8600FB3F0D /* Ponto-MVC.entitlements */,
 				7791224127B9B775008463AD /* App */,
 				7791224527B9B7A2008463AD /* Controller */,
 				7791224327B9B798008463AD /* Model */,
@@ -678,6 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Ponto-MVC/Ponto-MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZF3ZN3AUT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ponto-MVC/App/Info.plist";
@@ -688,6 +691,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CarolinaL.Ponto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,6 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Ponto-MVC/Ponto-MVC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KZF3ZN3AUT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ponto-MVC/App/Info.plist";
@@ -708,6 +713,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CarolinaL.Ponto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
