@@ -17,7 +17,9 @@
 		771D698A27E9745F00825849 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698927E9745F00825849 /* UIViewExtension.swift */; };
 		771D698C27E9751200825849 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D698B27E9751200825849 /* Helpers.swift */; };
 		772BA30028D8EF0E00FB3F0D /* PontoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BA2FF28D8EF0E00FB3F0D /* PontoViewController.swift */; };
+		772BA30228D8F15800FB3F0D /* PontoMacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772BA30128D8F15800FB3F0D /* PontoMacViewController.swift */; };
 		7741368F27FA858300545462 /* CurrentTimeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */; };
+		7758D4D028DA27CF002A86CB /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7758D4CF28DA27CF002A86CB /* SidebarViewController.swift */; };
 		777229BB285EB40E00878656 /* TimeCardHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */; };
 		777229BD28613E1200878656 /* TimeCardHistoryViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777229BC28613E1200878656 /* TimeCardHistoryViewControllerSnapshotTests.swift */; };
 		7791224927B9BA09008463AD /* Break.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791224827B9BA09008463AD /* Break.swift */; };
@@ -70,7 +72,9 @@
 		771D698B27E9751200825849 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		772BA2FE28D8EE8600FB3F0D /* Ponto-MVC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ponto-MVC.entitlements"; sourceTree = "<group>"; };
 		772BA2FF28D8EF0E00FB3F0D /* PontoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoViewController.swift; sourceTree = "<group>"; };
+		772BA30128D8F15800FB3F0D /* PontoMacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoMacViewController.swift; sourceTree = "<group>"; };
 		7741368E27FA858300545462 /* CurrentTimeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewController.swift; sourceTree = "<group>"; };
+		7758D4CF28DA27CF002A86CB /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewController.swift; sourceTree = "<group>"; };
 		777229BC28613E1200878656 /* TimeCardHistoryViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		7791224827B9BA09008463AD /* Break.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Break.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				77F27720287A6BAD00EA6816 /* TimeCardDetailViewController.swift */,
 				777229BA285EB40E00878656 /* TimeCardHistoryViewController.swift */,
 				772BA2FF28D8EF0E00FB3F0D /* PontoViewController.swift */,
+				772BA30128D8F15800FB3F0D /* PontoMacViewController.swift */,
+				7758D4CF28DA27CF002A86CB /* SidebarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -476,8 +482,10 @@
 				777229BB285EB40E00878656 /* TimeCardHistoryViewController.swift in Sources */,
 				7791224927B9BA09008463AD /* Break.swift in Sources */,
 				7791787127B8D5E3008D13A0 /* AppDelegate.swift in Sources */,
+				772BA30228D8F15800FB3F0D /* PontoMacViewController.swift in Sources */,
 				7791225127B9C257008463AD /* Constants.swift in Sources */,
 				77F06432283A079100ACA76D /* TimeCardRepository.swift in Sources */,
+				7758D4D028DA27CF002A86CB /* SidebarViewController.swift in Sources */,
 				7791225427B9C56E008463AD /* DateProvider.swift in Sources */,
 				772BA30028D8EF0E00FB3F0D /* PontoViewController.swift in Sources */,
 				7791787327B8D5E3008D13A0 /* SceneDelegate.swift in Sources */,

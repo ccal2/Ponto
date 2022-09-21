@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().prefersLargeTitles = true
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = PontoViewController()
+        window.rootViewController = window.traitCollection.userInterfaceIdiom == .pad ? PontoMacViewController() : PontoViewController()
         window.makeKeyAndVisible()
         self.window = window
     }
