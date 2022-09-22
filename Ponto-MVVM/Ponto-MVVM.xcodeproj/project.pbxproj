@@ -39,6 +39,8 @@
 		77AEBDAB28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBDAA28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift */; };
 		77AEBDAD28B5A2FD0057D00F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBDAC28B5A2FD0057D00F /* Helpers.swift */; };
 		77AEBDAF28B5A3360057D00F /* ViewImageConfigExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */; };
+		77FF4F5028D0041B008C36FE /* PontoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF4F4F28D0041B008C36FE /* PontoView.swift */; };
+		77FF4F5228D00523008C36FE /* PontoMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF4F5128D00523008C36FE /* PontoMacView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 		7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewSnapshotTests.swift; sourceTree = "<group>"; };
 		7710734D28BDB7EE001F251A /* SimpleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItem.swift; sourceTree = "<group>"; };
 		7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewSnapshotTests.swift; sourceTree = "<group>"; };
+		7731225C28C939EA004B2E1E /* Ponto-MVVM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ponto-MVVM.entitlements"; sourceTree = "<group>"; };
 		773DFCA9288A1366004EB5A1 /* TimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardView.swift; sourceTree = "<group>"; };
 		776621B02888BFD6004F473B /* Ponto-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ponto-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ponto_MVVMApp.swift; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 		77AEBDAA28B5A29F0057D00F /* CurrentTimeCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeCardViewSnapshotTests.swift; sourceTree = "<group>"; };
 		77AEBDAC28B5A2FD0057D00F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		77AEBDAE28B5A3360057D00F /* ViewImageConfigExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageConfigExtension.swift; sourceTree = "<group>"; };
+		77FF4F4F28D0041B008C36FE /* PontoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoView.swift; sourceTree = "<group>"; };
+		77FF4F5128D00523008C36FE /* PontoMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PontoMacView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,9 +129,11 @@
 			isa = PBXGroup;
 			children = (
 				770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */,
+				77FF4F4F28D0041B008C36FE /* PontoView.swift */,
 				7710734D28BDB7EE001F251A /* SimpleListItem.swift */,
 				7710734128BD90DC001F251A /* TimeCardHistoryView.swift */,
 				773DFCA9288A1366004EB5A1 /* TimeCardView.swift */,
+				77FF4F5128D00523008C36FE /* PontoMacView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 		776621B22888BFD6004F473B /* Ponto-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				7731225C28C939EA004B2E1E /* Ponto-MVVM.entitlements */,
 				776621DD2888C11F004F473B /* App */,
 				776622022888C200004F473B /* Model */,
 				776621DE2888C12F004F473B /* Resources */,
@@ -429,6 +437,7 @@
 				776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */,
 				776D53D2288F6583008C2E7E /* CurrentTimeCardViewModel.swift in Sources */,
 				773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */,
+				77FF4F5228D00523008C36FE /* PontoMacView.swift in Sources */,
 				770DFECD28C0534500B45C99 /* EmbeddedViewInNavigation.swift in Sources */,
 				776622122888C200004F473B /* CommonFormatters.swift in Sources */,
 				7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */,
@@ -437,6 +446,7 @@
 				776622132888C200004F473B /* Break.swift in Sources */,
 				776622102888C200004F473B /* TimeCardRepository.swift in Sources */,
 				7710734A28BDB0ED001F251A /* TimeCardDetailViewModel.swift in Sources */,
+				77FF4F5028D0041B008C36FE /* PontoView.swift in Sources */,
 				776D53D0288F656A008C2E7E /* TimeCardViewModelType.swift in Sources */,
 				7766220E2888C200004F473B /* Date+Extension.swift in Sources */,
 				776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */,
@@ -604,6 +614,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Ponto-MVVM/Ponto-MVVM.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ponto-MVVM/Resources/Preview Content\"";
@@ -622,6 +633,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -633,6 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Ponto-MVVM/Ponto-MVVM.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Ponto-MVVM/Resources/Preview Content\"";
@@ -651,6 +664,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CarolinaL.Ponto-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
