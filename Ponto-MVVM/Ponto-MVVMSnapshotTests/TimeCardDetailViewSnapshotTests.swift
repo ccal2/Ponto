@@ -41,7 +41,7 @@ class TimeCardDetailViewSnapshotTests: XCTestCase {
                                 currentDateProvider: mockDateProvider)
         let viewModel = TimeCardDetailViewModel(timeCard: timeCard)
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -69,7 +69,7 @@ class TimeCardDetailViewSnapshotTests: XCTestCase {
                                 currentDateProvider: mockDateProvider)
         let viewModel = TimeCardDetailViewModel(timeCard: timeCard)
         let view = TimeCardView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
