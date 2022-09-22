@@ -9,11 +9,11 @@ import SwiftUI
 
 struct EmbeddedViewInNavigation: View {
 
-    let embeddedView: AnyView
+    let embeddedView: () -> AnyView
 
     var body: some View {
         NavigationView {
-            embeddedView
+            embeddedView()
         }
     }
 
