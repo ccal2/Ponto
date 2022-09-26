@@ -39,7 +39,7 @@ class TimeCardHistoryViewSnapshotTests: XCTestCase {
         let repository = LocalTimeCardRepository(timeCards: [])
         let viewModel = TimeCardHistoryViewModel(timeCardRepository: repository)
         let view = TimeCardHistoryView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
@@ -78,7 +78,7 @@ class TimeCardHistoryViewSnapshotTests: XCTestCase {
         try mockDateProvider.updateDate(to: "02/03/97 8:00")
         let viewModel = TimeCardHistoryViewModel(timeCardRepository: repository)
         let view = TimeCardHistoryView(viewModel: viewModel)
-        let navigationView = EmbeddedViewInNavigation(embeddedView: AnyView(view))
+        let navigationView = EmbeddedViewInNavigation { AnyView(view) }
 
         // Act
         // Make main thread process all operations without having to wait for it
