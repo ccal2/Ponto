@@ -27,6 +27,7 @@ struct PontoView: View {
                 Text(Constants.TimeCardHistory.screenTitle)
             }
         }
+        .navigationViewStyle(.stack)
     }
 
 }
