@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct Ponto_MVVMApp: App {
+
     var body: some Scene {
         WindowGroup {
             #if targetEnvironment(macCatalyst)
@@ -17,5 +18,19 @@ struct Ponto_MVVMApp: App {
             PontoView()
             #endif
         }
+        .commands {
+            MenuCommands()
+        }
     }
+
+}
+
+struct MenuCommands: Commands {
+
+    var body: some Commands {
+        CommandMenu(Constants.Menu.timeCard) {
+            MenuView(viewModel: MenuViewModel())
+        }
+    }
+
 }

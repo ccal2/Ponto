@@ -70,7 +70,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
             // Assert
             switch result {
             case let .success(timeCards):
-                XCTAssertEqual(timeCards, [timeCard1, timeCard2])
+                XCTAssertEqual(timeCards, [timeCard2, timeCard1])
             case let .failure(error):
                 XCTFail("Failed to list timeCards: \(error.localizedDescription)")
             }
@@ -89,7 +89,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
 
         // Act
         let saveExpectation = expectation(description: "Repository save completion")
-        repository.save(timeCard) { result in
+        repository.save(timeCard, sender: repository) { result in
             if case let .failure(error) = result {
                 XCTFail("Failed to save timeCard: \(error.localizedDescription)")
             }
@@ -119,7 +119,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
 
         // Act
         let saveExpectation1 = expectation(description: "Repository save completion 1")
-        repository.save(timeCard) { result in
+        repository.save(timeCard, sender: repository) { result in
             if case let .failure(error) = result {
                 XCTFail("Failed to save timeCard: \(error.localizedDescription)")
             }
@@ -127,7 +127,7 @@ class LocalTimeCardRepositoryTests: XCTestCase {
         }
         try timeCard2.finish()
         let saveExpectation2 = expectation(description: "Repository save completion 2")
-        repository.save(timeCard2) { result in
+        repository.save(timeCard2, sender: repository) { result in
             if case let .failure(error) = result {
                 XCTFail("Failed to save timeCard: \(error.localizedDescription)")
             }

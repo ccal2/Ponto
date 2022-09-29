@@ -58,4 +58,12 @@ enum Constants {
         static let emptyHistoryMessage: String = NSLocalizedString("No time card registered yet", comment: "Label in a table view background to indicate there are no records to show")
     }
 
+    enum Menu {
+        static let timeCard: String = NSLocalizedString("Time card", comment: "Title of a menu")
+        static let clockIn: String = NSLocalizedString("Clock-in", comment: "Title of a menu command")
+        static let startBreak: String = NSLocalizedString("Start break", comment: "Title of a menu command")
+        static let resume: String = NSLocalizedString("Resume", comment: "Title of a menu command")
+        static let clockOut: String = NSLocalizedString("Clock-out", comment: "Title of a menu command")
+    }
+
 }
