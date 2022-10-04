@@ -16,6 +16,7 @@
 		7710734E28BDB7EE001F251A /* SimpleListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734D28BDB7EE001F251A /* SimpleListItem.swift */; };
 		7710735028BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */; };
 		771BC81528E627B5008FBDAE /* MenuViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771BC81428E627B5008FBDAE /* MenuViewModelType.swift */; };
+		771BC81728E64580008FBDAE /* MockTimeCardRepositoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771BC81628E64580008FBDAE /* MockTimeCardRepositoryListener.swift */; };
 		773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DFCA9288A1366004EB5A1 /* TimeCardView.swift */; };
 		77523D8728E4EF83006D0EE9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77523D8628E4EF83006D0EE9 /* MenuView.swift */; };
 		77523D8928E4EFA0006D0EE9 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77523D8828E4EFA0006D0EE9 /* MenuViewModel.swift */; };
@@ -73,6 +74,7 @@
 		7710734D28BDB7EE001F251A /* SimpleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItem.swift; sourceTree = "<group>"; };
 		7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewSnapshotTests.swift; sourceTree = "<group>"; };
 		771BC81428E627B5008FBDAE /* MenuViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelType.swift; sourceTree = "<group>"; };
+		771BC81628E64580008FBDAE /* MockTimeCardRepositoryListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimeCardRepositoryListener.swift; sourceTree = "<group>"; };
 		7731225C28C939EA004B2E1E /* Ponto-MVVM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ponto-MVVM.entitlements"; sourceTree = "<group>"; };
 		773DFCA9288A1366004EB5A1 /* TimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardView.swift; sourceTree = "<group>"; };
 		77523D8628E4EF83006D0EE9 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				7766221C2888C21F004F473B /* MockDateProvider.swift */,
+				771BC81628E64580008FBDAE /* MockTimeCardRepositoryListener.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7766221D2888C21F004F473B /* LocalTimeCardRepositoryTests.swift in Sources */,
+				771BC81728E64580008FBDAE /* MockTimeCardRepositoryListener.swift in Sources */,
 				7766221E2888C21F004F473B /* TimeCardTests.swift in Sources */,
 				776622202888C21F004F473B /* MockDateProvider.swift in Sources */,
 				7766221F2888C21F004F473B /* BreakTests.swift in Sources */,

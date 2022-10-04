@@ -12,7 +12,7 @@ class LocalTimeCardRepository: TimeCardRepository {
     static let shared = LocalTimeCardRepository()
 
     private var timeCards: Set<TimeCard>
-    private var listenersAndTypes: [(listener: TimeCardRepositoryListener, types: Set<TimeCardRepositoryListenerType>)] = []
+    private(set) var listenersAndTypes: [(listener: TimeCardRepositoryListener, types: Set<TimeCardRepositoryListenerType>)] = []
 
     init(timeCards: Set<TimeCard> = []) {
         self.timeCards = timeCards
@@ -82,7 +82,7 @@ class LocalTimeCardRepository: TimeCardRepository {
         completionHandler(.success(sortedTimeCards))
     }
 
-    func save(_ timeCard: TimeCard, completionHandler: TimeCardRepositorySaveCompletionHandler?, sender: AnyObject?) {
+    func save(_ timeCard: TimeCard, sender: AnyObject?, completionHandler: TimeCardRepositorySaveCompletionHandler?) {
         timeCards.update(with: timeCard)
         completionHandler?(.success(()))
 
@@ -91,7 +91,7 @@ class LocalTimeCardRepository: TimeCardRepository {
         }
     }
 
-    func remove(_ timeCard: TimeCard, completionHandler: TimeCardRepositoryRemoveCompletionHandler?, sender: AnyObject?) {
+    func remove(_ timeCard: TimeCard, sender: AnyObject?, completionHandler: TimeCardRepositoryRemoveCompletionHandler?) {
         guard timeCards.remove(timeCard) != nil else {
             completionHandler?(.failure(.notFound))
             return
@@ -104,6 +104,8 @@ class LocalTimeCardRepository: TimeCardRepository {
     }
 
     func addListener(_ listener: TimeCardRepositoryListener, with types: Set<TimeCardRepositoryListenerType>) {
+        assert(!types.isEmpty)
+
         if let index = listenersAndTypes.firstIndex(where: { (element, types) in element.id == listener.id }) {
             listenersAndTypes[index].types = types
         } else {
