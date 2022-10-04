@@ -71,7 +71,7 @@ class BreakTests: XCTestCase {
         XCTAssertEqual(workBreak.endDate, mockDateProvider.dateFormatter.date(from: "02/01/97 15:15"))
     }
 
-    func test_finish_withEndDate_throwsError() throws {
+    func test_finish_withEndDate_throwsErrorAlreadyFinished() throws {
         // Arrange
         var workBreak = Break(start: mockDateProvider.currentDate(),
                               end: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
@@ -79,14 +79,9 @@ class BreakTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try workBreak.finish()
-            XCTFail("Trying to finish a break that has already been finished before should fail with error `BreakError.alreadyFinished`")
-        } catch BreakError.alreadyFinished {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `BreakError.alreadyFinished` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try workBreak.finish()) { error in
+            XCTAssertEqual(error as? BreakError, .alreadyFinished)
         }
     }
 

@@ -209,7 +209,7 @@ class TimeCardTests: XCTestCase {
 
     // MARK: startBreak
 
-    func test_startBreak_whenStateIsOngoing_addsNewBreakAndUpdatesState() throws {
+    func test_startBreak_whenStateIsOngoing_addsNewBreakAndUpdatesStateToOnABreak() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -225,7 +225,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(timeCard.state, .onABreak)
     }
 
-    func test_startBreak_whenStateIsOnABreak_throwsError() throws {
+    func test_startBreak_whenStateIsOnABreak_throwsErrorAlreadyOnABreak() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -234,18 +234,13 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.startBreak()
-            XCTFail("Trying to start a new break while another is ongoing should fail with error `TimeCardError.alreadyOnABreak`")
-        } catch TimeCardError.alreadyOnABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.alreadyOnABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.startBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .alreadyOnABreak)
         }
     }
 
-    func test_startBreak_whenStateIsFinished_throwsError() throws {
+    func test_startBreak_whenStateIsFinished_throwsErrorAlreadyFinished() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -254,20 +249,15 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.startBreak()
-            XCTFail("Trying to start a new break when the time card has already finished should fail with error `TimeCardError.alreadyFinished`")
-        } catch TimeCardError.alreadyFinished {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.alreadyFinished` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.startBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .alreadyFinished)
         }
     }
 
     // MARK: currentBreak
 
-    func test_currentBreak_whithoutBreaks_returnsNil() throws {
+    func test_currentBreak_withoutBreaks_returnsNil() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -276,10 +266,10 @@ class TimeCardTests: XCTestCase {
         let currentBreakIndex = try timeCard.currentBreakIndex()
 
         // Assert
-        XCTAssertEqual(currentBreakIndex, nil)
+        XCTAssertNil(currentBreakIndex)
     }
 
-    func test_currentBreak_withCorrectBreaks_returnsTheUnfineshedOne() throws {
+    func test_currentBreak_withCorrectBreaks_returnsTheUnfinishedOne() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -293,7 +283,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(currentBreakIndex, 0)
     }
 
-    func test_currentBreak_withMultipleUnfinishedBreaks_throwsError() throws {
+    func test_currentBreak_withMultipleUnfinishedBreaks_throwsErrorMultipleUnfinishedBreaks() throws {
         // Arrange
         // first break: 15:15 - ongoing
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds))
@@ -304,20 +294,15 @@ class TimeCardTests: XCTestCase {
                                 currentDateProvider: mockDateProvider)
 
         // Act
-        do {
-            _ = try timeCard.currentBreakIndex()
-            XCTFail("Trying to get the current break when there are multiple unfinished breaks should fail with error `TimeCardError.multipleUnfinishedBreaks`")
-        } catch TimeCardError.multipleUnfinishedBreaks {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.multipleUnfinishedBreaks` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.currentBreakIndex()) { error in
+            XCTAssertEqual(error as? TimeCardError, .multipleUnfinishedBreaks)
         }
     }
 
     // MARK: finishBreak
 
-    func test_finishBreak_whenStateIsOnABreak_updatesBreakAndUpdatesState() throws {
+    func test_finishBreak_whenStateIsOnABreak_updatesBreakEndDateAndUpdatesStateToOngoing() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -335,25 +320,20 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(timeCard.state, .ongoing)
     }
 
-    func test_finishBreak_whenStateIsOngoing_throwsError() throws {
+    func test_finishBreak_whenStateIsOngoing_throwsErrorNotOnABreak() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
-        do {
-            try timeCard.finishBreak()
-            XCTFail("Trying to finish break when there's no ongoing break should fail with error `TimeCardError.notOnABreak`")
-        } catch TimeCardError.notOnABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.notOnABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finishBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .notOnABreak)
         }
     }
 
-    func test_finishBreak_whenStateIsFinished_throwsError() throws {
+    func test_finishBreak_whenStateIsFinished_throwsErrorNotOnABreak() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -362,20 +342,15 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.finishBreak()
-            XCTFail("Trying to finish break when there's no ongoing break should fail with error `TimeCardError.notOnABreak`")
-        } catch TimeCardError.notOnABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.notOnABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finishBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .notOnABreak)
         }
     }
 
     // MARK: finish
 
-    func test_finish_whenStateIsOngoing_updatesEndDateAndState() throws {
+    func test_finish_whenStateIsOngoing_updatesEndDateAndStateToFinished() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -390,7 +365,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(timeCard.state, .finished)
     }
 
-    func test_finish_whenStateIsOnABreak_throwsError() throws {
+    func test_finish_whenStateIsOnABreak_throwsErrorOnABreak() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -399,18 +374,13 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.finish()
-            XCTFail("Trying to finish a time card that is currently on a break should fail with error `TimeCardError.onABreak`")
-        } catch TimeCardError.onABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.onABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finish()) { error in
+            XCTAssertEqual(error as? TimeCardError, .onABreak)
         }
     }
 
-    func test_finish_whenStateIsFinished_throwsError() throws {
+    func test_finish_whenStateIsFinished_throwsErrorAlreadyFinished() throws {
         // Arrange
         var timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -419,14 +389,9 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.finish()
-            XCTFail("Trying to finish a time card that has already been finished before should fail with error `TimeCardError.alreadyFinished`")
-        } catch TimeCardError.alreadyFinished {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.alreadyFinished` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finish()) { error in
+            XCTAssertEqual(error as? TimeCardError, .alreadyFinished)
         }
     }
 
