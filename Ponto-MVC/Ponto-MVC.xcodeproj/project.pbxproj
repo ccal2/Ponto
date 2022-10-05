@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7704C86628ED0ADA00C6D887 /* MockTimeCardRepositoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704C86528ED0ADA00C6D887 /* MockTimeCardRepositoryListener.swift */; };
 		771D696427E8067000825849 /* TimeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696327E8067000825849 /* TimeCard.swift */; };
 		771D696727E8452000825849 /* TimeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D696627E8451F00825849 /* TimeCardTests.swift */; };
 		771D697627E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D697527E9675000825849 /* CurrentTimeCardViewControllerSnapshotTests.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7704C86528ED0ADA00C6D887 /* MockTimeCardRepositoryListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimeCardRepositoryListener.swift; sourceTree = "<group>"; };
 		771D696327E8067000825849 /* TimeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCard.swift; sourceTree = "<group>"; };
 		771D696627E8451F00825849 /* TimeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardTests.swift; sourceTree = "<group>"; };
 		771D697327E9675000825849 /* Ponto-MVCSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ponto-MVCSnapshotTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				7791224D27B9C0CC008463AD /* MockDateProvider.swift */,
+				7704C86528ED0ADA00C6D887 /* MockTimeCardRepositoryListener.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F0643D283AC82800ACA76D /* LocalTimeCardRepositoryTests.swift in Sources */,
+				7704C86628ED0ADA00C6D887 /* MockTimeCardRepositoryListener.swift in Sources */,
 				7791226A27B9C943008463AD /* MockDateProvider.swift in Sources */,
 				771D696727E8452000825849 /* TimeCardTests.swift in Sources */,
 				7791224B27B9BBA5008463AD /* BreakTests.swift in Sources */,

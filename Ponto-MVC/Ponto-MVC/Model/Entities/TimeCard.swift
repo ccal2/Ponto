@@ -118,6 +118,14 @@ extension TimeCard: Equatable {
         lhs.id == rhs.id
     }
 
+    func isCompletelyEqual(to timeCard: TimeCard) -> Bool {
+        timeCard.id == id &&
+        timeCard.startDate == startDate &&
+        timeCard.endDate == endDate &&
+        timeCard.breaks == breaks &&
+        timeCard.state == state
+    }
+
 }
 
 // MARK: - Hashable
