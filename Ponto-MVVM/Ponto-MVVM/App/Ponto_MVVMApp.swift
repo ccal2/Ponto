@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+// swiftlint:disable:next type_name
 struct Ponto_MVVMApp: App {
 
     var body: some Scene {

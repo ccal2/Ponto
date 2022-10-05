@@ -9,6 +9,8 @@ import XCTest
 
 @testable import Ponto_MVC
 
+// swiftlint:disable type_body_length
+// swiftlint:disable file_length
 class TimeCardTests: XCTestCase {
 
     // MARK: - Properties

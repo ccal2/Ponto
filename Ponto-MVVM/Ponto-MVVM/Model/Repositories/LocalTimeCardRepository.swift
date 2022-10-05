@@ -106,7 +106,7 @@ class LocalTimeCardRepository: TimeCardRepository {
     func addListener(_ listener: TimeCardRepositoryListener, with types: Set<TimeCardRepositoryListenerType>) {
         assert(!types.isEmpty)
 
-        if let index = listenersAndTypes.firstIndex(where: { (element, types) in element.id == listener.id }) {
+        if let index = listenersAndTypes.firstIndex(where: { (element, _) in element.id == listener.id }) {
             listenersAndTypes[index].types = types
         } else {
             listenersAndTypes.append((listener, types))

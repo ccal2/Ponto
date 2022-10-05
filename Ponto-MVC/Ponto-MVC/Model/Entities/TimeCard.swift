@@ -52,6 +52,7 @@ class TimeCard {
         self.breaks = breaks
         self.currentDateProvider = currentDateProvider
         if end == nil {
+            // swiftlint:disable:next unused_closure_parameter
             self.state = (breaks.first(where: { `break` in `break`.endDate == nil }) != nil) ? .onABreak : .ongoing
         } else {
             self.state = .finished

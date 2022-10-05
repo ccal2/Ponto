@@ -14,7 +14,7 @@ class TimeCardViewModelType: ObservableObject {
     var title: String { fatalError("subclass should override") }
     var isTitleLarge: Bool { true }
     @Published var durationText: String = Constants.TimeCardDetails.durationPlaceholder
-    @Published var breakText: String? = nil
+    @Published var breakText: String?
     var pauseResumeButtonImageName: String? { nil }
     var startStopButtonImageName: String? { nil }
     var isPauseResumeButtonDisabled: Bool { true }
