@@ -63,12 +63,23 @@ class CurrentTimeCardViewModel: TimeCardViewModelType {
         } ?? []
     }
 
+    let id: UUID = UUID()
+
     /// Model
     var timeCard: TimeCard? {
         didSet {
+            guard let timeCard = timeCard else {
+                return
+            }
             updateDurationTexts()
+            if !(oldValue?.isCompletelyEqual(to: timeCard) ?? false) {
+                timeCardRepository.save(timeCard, sender: self, completionHandler: nil)
+                dateForTimeCardListener = timeCard.startDate
+            }
         }
     }
+
+    private var dateForTimeCardListener: Date?
 
     /// Injected dependencies
     private let timeCardRepository: TimeCardRepository
@@ -95,8 +106,12 @@ class CurrentTimeCardViewModel: TimeCardViewModelType {
             switch result {
             case let .success(timeCard):
                 self.timeCard = timeCard
+                self.timeCardRepository.addListener(self, with: [.timeCard(id: timeCard.id)])
             case let .failure(error):
                 print("Error when trying to load the current time card: \(error.localizedDescription)")
+                let currentDate = self.currentDateProvider.currentDate()
+                self.dateForTimeCardListener = currentDate
+                self.timeCardRepository.addListener(self, with: [.fromDate(currentDate)])
             }
         }
     }
@@ -184,6 +199,31 @@ class CurrentTimeCardViewModel: TimeCardViewModelType {
 
     private func durationText(for timeCard: TimeCard) -> String {
         CommonFormatters.shared.durationDateComponentsFormatter.string(from: timeCard.duration) ?? Constants.TimeCardDetails.durationPlaceholder
+    }
+
+}
+
+// MARK: - TimeCardRepositoryListener
+
+extension CurrentTimeCardViewModel: TimeCardRepositoryListener {
+
+    func timeCardRepositoryDidSave(_ savedTimeCard: TimeCard) {
+        if let timeCard = timeCard, savedTimeCard == timeCard {
+            guard !timeCard.isCompletelyEqual(to: savedTimeCard) else {
+                return
+            }
+            self.timeCard = savedTimeCard
+        } else if let referenceDate = dateForTimeCardListener, savedTimeCard.startDate > referenceDate {
+            timeCard = savedTimeCard
+        }
+    }
+
+    func timeCardRepositoryDidRemove(_ removedTimeCard: TimeCard) {
+        guard removedTimeCard == timeCard else {
+            return
+        }
+
+        timeCard = nil
     }
 
 }

@@ -9,6 +9,8 @@ import XCTest
 
 @testable import Ponto_MVC
 
+// swiftlint:disable type_body_length
+// swiftlint:disable file_length
 class TimeCardTests: XCTestCase {
 
     // MARK: - Properties
@@ -67,7 +69,7 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - ongoing
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
 
@@ -102,7 +104,7 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - 15:45
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
         // finish time: 16:00
@@ -138,10 +140,10 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - 15:45
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 breaks: [break1, break2],
                                 currentDateProvider: mockDateProvider)
@@ -171,10 +173,10 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - 15:45
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(45 * Constants.TimeConversion.minutesToSeconds))
         // finish time: 16:00
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 end: mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds),
@@ -192,7 +194,7 @@ class TimeCardTests: XCTestCase {
         // Arrange
         // first break: 15:15 - 15:20
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
-                           end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
         // second break: 15:35 - ongoing
         let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
@@ -209,7 +211,7 @@ class TimeCardTests: XCTestCase {
 
     // MARK: startBreak
 
-    func test_startBreak_whenStateIsOngoing_addsNewBreakAndUpdatesState() throws {
+    func test_startBreak_whenStateIsOngoing_addsNewBreakAndUpdatesStateToOnABreak() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -225,7 +227,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(timeCard.state, .onABreak)
     }
 
-    func test_startBreak_whenStateIsOnABreak_throwsError() throws {
+    func test_startBreak_whenStateIsOnABreak_throwsErrorAlreadyOnABreak() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -234,18 +236,13 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.startBreak()
-            XCTFail("Trying to start a new break while another is ongoing should fail with error `TimeCardError.alreadyOnABreak`")
-        } catch TimeCardError.alreadyOnABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.alreadyOnABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.startBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .alreadyOnABreak)
         }
     }
 
-    func test_startBreak_whenStateIsFinished_throwsError() throws {
+    func test_startBreak_whenStateIsFinished_throwsErrorAlreadyFinished() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -254,20 +251,15 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.startBreak()
-            XCTFail("Trying to start a new break when the time card has already finished should fail with error `TimeCardError.alreadyFinished`")
-        } catch TimeCardError.alreadyFinished {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.alreadyFinished` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.startBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .alreadyFinished)
         }
     }
 
     // MARK: currentBreak
 
-    func test_currentBreak_whithoutBreaks_returnsNil() throws {
+    func test_currentBreak_withoutBreaks_returnsNil() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -279,7 +271,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(currentBreak, nil)
     }
 
-    func test_currentBreak_withCorrectBreaks_returnsTheUnfineshedOne() throws {
+    func test_currentBreak_withCorrectBreaks_returnsTheUnfinishedOne() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -293,7 +285,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(currentBreak, timeCard.breaks[0])
     }
 
-    func test_currentBreak_withMultipleUnfinishedBreaks_throwsError() throws {
+    func test_currentBreak_withMultipleUnfinishedBreaks_throwsErrorMultipleUnfinishedBreaks() throws {
         // Arrange
         // first break: 15:15 - ongoing
         let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds))
@@ -304,20 +296,15 @@ class TimeCardTests: XCTestCase {
                                 currentDateProvider: mockDateProvider)
 
         // Act
-        do {
-            _ = try timeCard.currentBreak()
-            XCTFail("Trying to get the current break when there are multiple unfinished breaks should fail with error `TimeCardError.multipleUnfinishedBreaks`")
-        } catch TimeCardError.multipleUnfinishedBreaks {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.multipleUnfinishedBreaks` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.currentBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .multipleUnfinishedBreaks)
         }
     }
 
     // MARK: finishBreak
 
-    func test_finishBreak_whenStateIsOnABreak_updatesBreakAndUpdatesState() throws {
+    func test_finishBreak_whenStateIsOnABreak_updatesBreakEndDateAndUpdatesStateToOngoing() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -335,25 +322,20 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(timeCard.state, .ongoing)
     }
 
-    func test_finishBreak_whenStateIsOngoing_throwsError() throws {
+    func test_finishBreak_whenStateIsOngoing_throwsErrorNotOnABreak() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:15")
-        do {
-            try timeCard.finishBreak()
-            XCTFail("Trying to finish break when there's no ongoing break should fail with error `TimeCardError.notOnABreak`")
-        } catch TimeCardError.notOnABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.notOnABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finishBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .notOnABreak)
         }
     }
 
-    func test_finishBreak_whenStateIsFinished_throwsError() throws {
+    func test_finishBreak_whenStateIsFinished_throwsErrorNotOnABreak() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -362,20 +344,15 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.finishBreak()
-            XCTFail("Trying to finish break when there's no ongoing break should fail with error `TimeCardError.notOnABreak`")
-        } catch TimeCardError.notOnABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.notOnABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finishBreak()) { error in
+            XCTAssertEqual(error as? TimeCardError, .notOnABreak)
         }
     }
 
     // MARK: finish
 
-    func test_finish_whenStateIsOngoing_updatesEndDateAndState() throws {
+    func test_finish_whenStateIsOngoing_updatesEndDateAndStateToFinished() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -390,7 +367,7 @@ class TimeCardTests: XCTestCase {
         XCTAssertEqual(timeCard.state, .finished)
     }
 
-    func test_finish_whenStateIsOnABreak_throwsError() throws {
+    func test_finish_whenStateIsOnABreak_throwsErrorOnABreak() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -399,18 +376,13 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.finish()
-            XCTFail("Trying to finish a time card that is currently on a break should fail with error `TimeCardError.onABreak`")
-        } catch TimeCardError.onABreak {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.onABreak` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finish()) { error in
+            XCTAssertEqual(error as? TimeCardError, .onABreak)
         }
     }
 
-    func test_finish_whenStateIsFinished_throwsError() throws {
+    func test_finish_whenStateIsFinished_throwsErrorAlreadyFinished() throws {
         // Arrange
         let timeCard = TimeCard(start: mockDateProvider.currentDate(),
                                 currentDateProvider: mockDateProvider)
@@ -419,15 +391,172 @@ class TimeCardTests: XCTestCase {
 
         // Act
         try mockDateProvider.updateDate(to: "02/01/97 15:20")
-        do {
-            try timeCard.finish()
-            XCTFail("Trying to finish a time card that has already been finished before should fail with error `TimeCardError.alreadyFinished`")
-        } catch TimeCardError.alreadyFinished {
-            // Assert
-            // OK - expected error
-        } catch {
-            XCTFail("Expected `TimeCardError.alreadyFinished` error, but got: \(error) (\(error.localizedDescription))")
+        // Assert
+        XCTAssertThrowsError(try timeCard.finish()) { error in
+            XCTAssertEqual(error as? TimeCardError, .alreadyFinished)
         }
+    }
+
+    // MARK: isCompletelyEqual
+
+    func test_isCompletelyEqual_whenIsEqual_returnsTrue() {
+        // Arrange
+        // first break: 15:15 - 15:20
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - 15:45
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+        // finish time: 16:00
+        let endDate = mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds)
+
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: endDate,
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let timeCard2 = TimeCard(id: timeCard.id,
+                                 start: timeCard.startDate,
+                                 end: timeCard.endDate,
+                                 breaks: timeCard.breaks,
+                                 currentDateProvider: mockDateProvider)
+
+        // Act
+        let result = timeCard.isCompletelyEqual(to: timeCard2)
+
+        // Assert
+        XCTAssertTrue(result)
+    }
+
+    func test_isCompletelyEqual_whenIDIsDifferent_returnsFalse() {
+        // Arrange
+        // first break: 15:15 - 15:20
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - 15:45
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+        // finish time: 16:00
+        let endDate = mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds)
+
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: endDate,
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let timeCard2 = TimeCard(start: timeCard.startDate,
+                                 end: timeCard.endDate,
+                                 breaks: timeCard.breaks,
+                                 currentDateProvider: mockDateProvider)
+
+        // Act
+        let result = timeCard.isCompletelyEqual(to: timeCard2)
+
+        // Assert
+        XCTAssertFalse(result)
+    }
+
+    func test_isCompletelyEqual_whenStartDateIsDifferent_returnsFalse() {
+        // Arrange
+        // first break: 15:15 - 15:20
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - 15:45
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+        // finish time: 16:00
+        let endDate = mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds)
+
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: endDate,
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let timeCard2 = TimeCard(id: timeCard.id,
+                                 start: mockDateProvider.currentDate().addingTimeInterval(5),
+                                 end: timeCard.endDate,
+                                 breaks: timeCard.breaks,
+                                 currentDateProvider: mockDateProvider)
+
+        // Act
+        let result = timeCard.isCompletelyEqual(to: timeCard2)
+
+        // Assert
+        XCTAssertFalse(result)
+    }
+
+    func test_isCompletelyEqual_whenEndDateIsDifferent_returnsFalse() {
+        // Arrange
+        // first break: 15:15 - 15:20
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - 15:45
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+        // finish time: 16:00
+        let endDate = mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds)
+
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: endDate,
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let timeCard2 = TimeCard(id: timeCard.id,
+                                 start: timeCard.startDate,
+                                 end: mockDateProvider.currentDate(),
+                                 breaks: timeCard.breaks,
+                                 currentDateProvider: mockDateProvider)
+
+        // Act
+        let result = timeCard.isCompletelyEqual(to: timeCard2)
+
+        // Assert
+        XCTAssertFalse(result)
+    }
+
+    func test_isCompletelyEqual_whenBreaksIsDifferent_returnsFalse() {
+        // Arrange
+        // first break: 15:15 - 15:20
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - 15:45
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+        // finish time: 16:00
+        let endDate = mockDateProvider.currentDate().addingTimeInterval(1 * Constants.TimeConversion.hoursToSeconds)
+
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: endDate,
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let timeCard2 = TimeCard(id: timeCard.id,
+                                 start: timeCard.startDate,
+                                 end: timeCard.endDate,
+                                 breaks: [],
+                                 currentDateProvider: mockDateProvider)
+
+        // Act
+        let result = timeCard.isCompletelyEqual(to: timeCard2)
+
+        // Assert
+        XCTAssertFalse(result)
+    }
+
+    func test_isCompletelyEqual_whenStateIsDifferent_returnsFalse() throws {
+        // Arrange
+        // first break: 15:15 - 15:20
+        let break1 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(15 * Constants.TimeConversion.minutesToSeconds),
+                              end: mockDateProvider.currentDate().addingTimeInterval(20 * Constants.TimeConversion.minutesToSeconds))
+        // second break: 15:35 - 15:45
+        let break2 = newBreak(start: mockDateProvider.currentDate().addingTimeInterval(35 * Constants.TimeConversion.minutesToSeconds))
+
+        let timeCard = TimeCard(start: mockDateProvider.currentDate(),
+                                end: nil,
+                                breaks: [break1, break2],
+                                currentDateProvider: mockDateProvider)
+        let timeCard2 = TimeCard(id: timeCard.id,
+                                 start: timeCard.startDate,
+                                 end: nil,
+                                 breaks: timeCard.breaks,
+                                 currentDateProvider: mockDateProvider)
+        try timeCard2.finishBreak()
+
+        // Act
+        let result = timeCard.isCompletelyEqual(to: timeCard2)
+
+        // Assert
+        XCTAssertFalse(result)
     }
 
     // MARK: - Helpers

@@ -29,7 +29,7 @@ func assertViewSnapshot<Value: View>(
     orientation: ViewImageConfig.Orientation = .portrait
 ) {
     guard let view = try? value() else {
-        XCTFail()
+        XCTFail("Failed to get view")
         return
     }
 

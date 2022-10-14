@@ -15,7 +15,11 @@
 		7710734C28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */; };
 		7710734E28BDB7EE001F251A /* SimpleListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734D28BDB7EE001F251A /* SimpleListItem.swift */; };
 		7710735028BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */; };
+		771BC81528E627B5008FBDAE /* MenuViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771BC81428E627B5008FBDAE /* MenuViewModelType.swift */; };
+		771BC81728E64580008FBDAE /* MockTimeCardRepositoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771BC81628E64580008FBDAE /* MockTimeCardRepositoryListener.swift */; };
 		773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DFCA9288A1366004EB5A1 /* TimeCardView.swift */; };
+		77523D8728E4EF83006D0EE9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77523D8628E4EF83006D0EE9 /* MenuView.swift */; };
+		77523D8928E4EFA0006D0EE9 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77523D8828E4EFA0006D0EE9 /* MenuViewModel.swift */; };
 		776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */; };
 		776621B82888BFDA004F473B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621B72888BFDA004F473B /* Assets.xcassets */; };
 		776621BB2888BFDA004F473B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 776621BA2888BFDA004F473B /* Preview Assets.xcassets */; };
@@ -69,8 +73,12 @@
 		7710734B28BDB33B001F251A /* TimeCardDetailViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardDetailViewSnapshotTests.swift; sourceTree = "<group>"; };
 		7710734D28BDB7EE001F251A /* SimpleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItem.swift; sourceTree = "<group>"; };
 		7710734F28BDBF1F001F251A /* TimeCardHistoryViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCardHistoryViewSnapshotTests.swift; sourceTree = "<group>"; };
+		771BC81428E627B5008FBDAE /* MenuViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelType.swift; sourceTree = "<group>"; };
+		771BC81628E64580008FBDAE /* MockTimeCardRepositoryListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimeCardRepositoryListener.swift; sourceTree = "<group>"; };
 		7731225C28C939EA004B2E1E /* Ponto-MVVM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Ponto-MVVM.entitlements"; sourceTree = "<group>"; };
 		773DFCA9288A1366004EB5A1 /* TimeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCardView.swift; sourceTree = "<group>"; };
+		77523D8628E4EF83006D0EE9 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		77523D8828E4EFA0006D0EE9 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		776621B02888BFD6004F473B /* Ponto-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ponto-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		776621B32888BFD6004F473B /* Ponto_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ponto_MVVMApp.swift; sourceTree = "<group>"; };
 		776621B72888BFDA004F473B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,11 +137,12 @@
 			isa = PBXGroup;
 			children = (
 				770DFECC28C0534500B45C99 /* EmbeddedViewInNavigation.swift */,
+				77523D8628E4EF83006D0EE9 /* MenuView.swift */,
+				77FF4F5128D00523008C36FE /* PontoMacView.swift */,
 				77FF4F4F28D0041B008C36FE /* PontoView.swift */,
 				7710734D28BDB7EE001F251A /* SimpleListItem.swift */,
 				7710734128BD90DC001F251A /* TimeCardHistoryView.swift */,
 				773DFCA9288A1366004EB5A1 /* TimeCardView.swift */,
-				77FF4F5128D00523008C36FE /* PontoMacView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,10 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				776D53D1288F6583008C2E7E /* CurrentTimeCardViewModel.swift */,
+				77523D8828E4EFA0006D0EE9 /* MenuViewModel.swift */,
 				7710734928BDB0ED001F251A /* TimeCardDetailViewModel.swift */,
 				7710734528BDACC5001F251A /* TimeCardHistoryViewModel.swift */,
 				7710734328BD9104001F251A /* TimeCardHistoryViewModelType.swift */,
 				776D53CF288F656A008C2E7E /* TimeCardViewModelType.swift */,
+				771BC81428E627B5008FBDAE /* MenuViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -278,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				7766221C2888C21F004F473B /* MockDateProvider.swift */,
+				771BC81628E64580008FBDAE /* MockTimeCardRepositoryListener.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -304,6 +316,7 @@
 				776621AC2888BFD6004F473B /* Sources */,
 				776621AD2888BFD6004F473B /* Frameworks */,
 				776621AE2888BFD6004F473B /* Resources */,
+				7704C86728ED0C6600C6D887 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -427,6 +440,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7704C86728ED0C6600C6D887 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		776621AC2888BFD6004F473B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -437,8 +471,10 @@
 				776622112888C200004F473B /* LocalTimeCardRepository.swift in Sources */,
 				776D53D2288F6583008C2E7E /* CurrentTimeCardViewModel.swift in Sources */,
 				773DFCAA288A1366004EB5A1 /* TimeCardView.swift in Sources */,
+				77523D8928E4EFA0006D0EE9 /* MenuViewModel.swift in Sources */,
 				77FF4F5228D00523008C36FE /* PontoMacView.swift in Sources */,
 				770DFECD28C0534500B45C99 /* EmbeddedViewInNavigation.swift in Sources */,
+				77523D8728E4EF83006D0EE9 /* MenuView.swift in Sources */,
 				776622122888C200004F473B /* CommonFormatters.swift in Sources */,
 				7710734228BD90DC001F251A /* TimeCardHistoryView.swift in Sources */,
 				7710734628BDACC5001F251A /* TimeCardHistoryViewModel.swift in Sources */,
@@ -449,6 +485,7 @@
 				77FF4F5028D0041B008C36FE /* PontoView.swift in Sources */,
 				776D53D0288F656A008C2E7E /* TimeCardViewModelType.swift in Sources */,
 				7766220E2888C200004F473B /* Date+Extension.swift in Sources */,
+				771BC81528E627B5008FBDAE /* MenuViewModelType.swift in Sources */,
 				776621B42888BFD6004F473B /* Ponto_MVVMApp.swift in Sources */,
 				776622142888C200004F473B /* TimeCard.swift in Sources */,
 				7766220D2888C200004F473B /* Constants.swift in Sources */,
@@ -460,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7766221D2888C21F004F473B /* LocalTimeCardRepositoryTests.swift in Sources */,
+				771BC81728E64580008FBDAE /* MockTimeCardRepositoryListener.swift in Sources */,
 				7766221E2888C21F004F473B /* TimeCardTests.swift in Sources */,
 				776622202888C21F004F473B /* MockDateProvider.swift in Sources */,
 				7766221F2888C21F004F473B /* BreakTests.swift in Sources */,
