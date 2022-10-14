@@ -11,12 +11,25 @@ class CurrentTimeCardViewController: UIViewController {
 
     // MARK: - Properties
 
+    let id: UUID = UUID()
+
+    /// Model
     private(set) var timeCard: TimeCard? {
         didSet {
             timeCard?.delegate = self
             updateUI()
+
+            guard let timeCard = timeCard else {
+                return
+            }
+            if !(oldValue?.isCompletelyEqual(to: timeCard) ?? false) {
+                timeCardRepository.save(timeCard, sender: self, completionHandler: nil)
+                dateForTimeCardListener = timeCard.startDate
+            }
         }
     }
+
+    private var dateForTimeCardListener: Date?
 
     /// View
     private lazy var currentTimeCardView = TimeCardView(withControlButtons: true)
@@ -59,8 +72,12 @@ class CurrentTimeCardViewController: UIViewController {
             switch result {
             case let .success(timeCard):
                 self.timeCard = timeCard
+                self.timeCardRepository.addListener(self, with: [.timeCard(id: timeCard.id)])
             case let .failure(error):
                 print("Error when trying to load the current time card: \(error.localizedDescription)")
+                let currentDate = self.currentDateProvider.currentDate()
+                self.dateForTimeCardListener = currentDate
+                self.timeCardRepository.addListener(self, with: [.fromDate(currentDate)])
             }
         }
 
@@ -318,6 +335,31 @@ extension CurrentTimeCardViewController: TimeCardDelegate {
         }
 
         updateUI()
+    }
+
+}
+
+// MARK: - TimeCardRepositoryListener
+
+extension CurrentTimeCardViewController: TimeCardRepositoryListener {
+
+    func timeCardRepositoryDidSave(_ savedTimeCard: TimeCard) {
+        if let timeCard = timeCard, savedTimeCard == timeCard {
+            guard !timeCard.isCompletelyEqual(to: savedTimeCard) else {
+                return
+            }
+            self.timeCard = savedTimeCard
+        } else if let referenceDate = dateForTimeCardListener, savedTimeCard.startDate > referenceDate {
+            timeCard = savedTimeCard
+        }
+    }
+
+    func timeCardRepositoryDidRemove(_ removedTimeCard: TimeCard) {
+        guard removedTimeCard == timeCard else {
+            return
+        }
+
+        timeCard = nil
     }
 
 }
