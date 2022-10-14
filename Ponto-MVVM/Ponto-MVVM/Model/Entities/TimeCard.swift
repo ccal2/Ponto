@@ -52,6 +52,7 @@ struct TimeCard {
         self.breaks = breaks
         self.currentDateProvider = currentDateProvider
         if end == nil {
+            // swiftlint:disable:next unused_closure_parameter
             self.state = (breaks.first(where: { `break` in `break`.endDate == nil }) != nil) ? .onABreak : .ongoing
         } else {
             self.state = .finished
@@ -119,6 +120,14 @@ extension TimeCard: Equatable {
 
     static func == (lhs: TimeCard, rhs: TimeCard) -> Bool {
         lhs.id == rhs.id
+    }
+
+    func isCompletelyEqual(to timeCard: TimeCard) -> Bool {
+        timeCard.id == id &&
+        timeCard.startDate == startDate &&
+        timeCard.endDate == endDate &&
+        timeCard.breaks == breaks &&
+        timeCard.state == state
     }
 
 }

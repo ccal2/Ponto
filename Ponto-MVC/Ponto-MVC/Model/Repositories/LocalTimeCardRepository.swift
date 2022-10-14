@@ -9,11 +9,12 @@ import Foundation
 
 class LocalTimeCardRepository: TimeCardRepository {
 
-    private var timeCards: [TimeCard]
-
     static let shared = LocalTimeCardRepository()
 
-    init(timeCards: [TimeCard] = []) {
+    private var timeCards: Set<TimeCard>
+    private(set) var listenersAndTypes: [(listener: TimeCardRepositoryListener, types: Set<TimeCardRepositoryListenerType>)] = []
+
+    init(timeCards: Set<TimeCard> = []) {
         self.timeCards = timeCards
     }
 
@@ -58,7 +59,11 @@ class LocalTimeCardRepository: TimeCardRepository {
     }
 
     func list(completionHandler: TimeCardRepositoryListCompletionHandler) {
-        completionHandler(.success(timeCards))
+        let sortedTimeCards = timeCards.sorted { (lhs, rhs) in
+            lhs.startDate > rhs.startDate
+        }
+
+        completionHandler(.success(sortedTimeCards))
     }
 
     func listFinished(limitedBy countLimit: Int?, completionHandler: TimeCardRepositoryListCompletionHandler) {
@@ -77,11 +82,41 @@ class LocalTimeCardRepository: TimeCardRepository {
         completionHandler(.success(sortedTimeCards))
     }
 
-    func save(_ timeCard: TimeCard, completionHandler: TimeCardRepositorySaveCompletionHandler) {
-        if !timeCards.contains(timeCard) {
-            timeCards.append(timeCard)
+    func save(_ timeCard: TimeCard, sender: AnyObject?, completionHandler: TimeCardRepositorySaveCompletionHandler?) {
+        timeCards.update(with: timeCard)
+        completionHandler?(.success(()))
+
+        for (listener, types) in listenersAndTypes where self.timeCard(timeCard, isWantedBy: types) && sender !== listener {
+            listener.timeCardRepositoryDidSave(timeCard)
         }
-        completionHandler(.success(()))
+    }
+
+    func remove(_ timeCard: TimeCard, sender: AnyObject?, completionHandler: TimeCardRepositoryRemoveCompletionHandler?) {
+        guard timeCards.remove(timeCard) != nil else {
+            completionHandler?(.failure(.notFound))
+            return
+        }
+        completionHandler?(.success(()))
+
+        for (listener, types) in listenersAndTypes where self.timeCard(timeCard, isWantedBy: types) && sender !== listener {
+            listener.timeCardRepositoryDidRemove(timeCard)
+        }
+    }
+
+    func addListener(_ listener: TimeCardRepositoryListener, with types: Set<TimeCardRepositoryListenerType>) {
+        assert(!types.isEmpty)
+
+        if let index = listenersAndTypes.firstIndex(where: { (element, _) in element.id == listener.id }) {
+            listenersAndTypes[index].types = types
+        } else {
+            listenersAndTypes.append((listener, types))
+        }
+    }
+
+    func removeListener(_ listener: TimeCardRepositoryListener) {
+        listenersAndTypes.removeAll { (element, _) in
+            element.id == listener.id
+        }
     }
 
 }

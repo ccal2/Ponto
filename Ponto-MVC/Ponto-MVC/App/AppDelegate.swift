@@ -29,4 +29,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    // MARK: - Menu
+
+    var menuController: MenuController!
+
+    override func buildMenu(with builder: UIMenuBuilder) {
+        super.buildMenu(with: builder)
+
+        if builder.system == .main {
+            menuController = MenuController(builder: builder)
+        }
+    }
+
+    override func validate(_ command: UICommand) {
+        menuController.validate(command)
+    }
+
+    @objc
+    func clockIn(_ sender: AnyObject) {
+        menuController.clockIn()
+    }
+
+    @objc
+    func startBreak(_ sender: AnyObject) {
+        menuController.startBreak()
+    }
+
+    @objc
+    func resume(_ sender: AnyObject) {
+        menuController.resume()
+    }
+
+    @objc
+    func clockOut(_ sender: AnyObject) {
+        menuController.clockOut()
+    }
+
 }
