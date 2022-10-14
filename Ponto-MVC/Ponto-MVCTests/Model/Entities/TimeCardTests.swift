@@ -397,7 +397,7 @@ class TimeCardTests: XCTestCase {
         }
     }
 
-    // MARK: - isCompletelyEqual
+    // MARK: isCompletelyEqual
 
     func test_isCompletelyEqual_whenIsEqual_returnsTrue() {
         // Arrange
